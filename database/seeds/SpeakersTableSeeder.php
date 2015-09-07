@@ -230,6 +230,10 @@ class SpeakersTableSeeder extends Seeder {
 				'title'			=> 'former Chief Information Officer',
 				'title_short'	=> 'former CIO',
 				'company'		=> 'Advanced Micro Devices (AMD)',
+				'bio'			=> '<p>Jake Dominguez was most recently CIO at AMD and was responsible for leading the company’s global IT organization through a major transformation of the enterprise. He brings over 30 years of engineering and information technology experience, with a diverse background in academia, semiconductor, computer services, and manufacturing industries. Under his leadership AMD completed his vision of a major datacenter consolidation effort, which focused on transitioning more than 3,500 servers from Austin, Texas to Atlanta, Georgia under one roof. This accomplishment has been recognized and highlighted in numerous publications including eWeek, ZDNet and Tom’s Hardware. He also received the 2014 Stevie Award for CIO of the Year and was selected as one of Computerworld’s 2015 100 Premier IT Leaders.</p>
+					<p>Before joining AMD in September 2011, Dominguez held various executive roles within HP.</p>
+					<p>Prior to his leadership positions at HP, Dominguez spent more than six years at AMD, with various roles in manufacturing and IT.</p>
+					<p>Dominguez has a bachelor’s degree in Computer Science and Systems Design from the University of Texas at San Antonio. He lives in Austin with his wife Mya.</p>',
 				'photo'			=> '/images/speakers/dominguez-jake.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);

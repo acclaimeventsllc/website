@@ -70,6 +70,7 @@ class NavigationsTableSeeder extends Seeder {
         Navigation::create([
                 'menu'      => 'main',
                 'href'      => '/contact',
+                'class'     => 'register-now',
                 'content'   => 'Contact Us',
                 'option'    => '',
                 'priority'  => '4',
@@ -83,7 +84,7 @@ class NavigationsTableSeeder extends Seeder {
                 'content'   => 'Register',
                 'option'    => '',
                 'priority'  => '5',
-                'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
+//                'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
             ]);
 
 
