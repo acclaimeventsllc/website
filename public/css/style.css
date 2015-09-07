@@ -1,0 +1,180 @@
+/***************************************************
+**  GENERAL STYLES  
+***************************************************/
+html { font-family: 'Open Sans', sans-serif; font-size: 12pt; color: #333333; box-sizing: border-box; }
+*, *:before, *:after { margin: 0; padding: 0; box-sizing: inherit; }
+h1, h2, h3, h4, h5, h6, .heading { font-family: Montserrat, sans-serif; font-weight: bold; text-transform: uppercase; text-align: center; color: #1b84c2; }
+ul { list-style: none; margin: auto; }
+a { color: #559830; text-decoration: none; }
+a:hover { color: #88b225; text-decoration: underline; }
+p { padding: .75em 0; }
+
+
+/***************************************************
+**  SECTIONS
+***************************************************/
+header { padding-top: 7.6em; }
+section { padding: 4em; background-color: white; }
+.section-title { padding-bottom: 4em; }
+.section-title h2 { color: black; }
+.section-title .border { display: block; margin: auto; width: 120px; border-bottom: 2px solid black; }
+.section-alternating:nth-child(2n+1) { background-color: #ddd; }
+
+
+/***************************************************
+**  FORMS
+***************************************************/
+input, textarea, select, button { height: 55px !important; font-family: Monteserrat, sans-serif; font-size: 16pt !important; line-height: 2.5em; }
+input[type=submit], button { padding: .75em !important; height: auto !important; }
+
+
+/***************************************************
+**  THEME COLORS
+***************************************************/
+.acclaim-text { color: #1b84c2 !important; }
+.acclaim-text-dark { color: #556530; }
+.acclaim-text-shadow { -webkit-text-shadow: 4px 4px 3px rgba(100,125,50,.5); -moz-text-shadow: 4px 4px 3px rgba(100,125,50,.5); text-shadow: 4px 4px 3px rgba(100,125,50,.5); }
+.acclaim-box-blue { color: white; background-color: #1b84c2 !important; }
+.acclaim-box-black { background-color: #000; }
+
+
+/***************************************************
+**  MODAL WINDOWS
+***************************************************/
+.modal-overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; opacity: 0; z-index: -100; background-color: rgba(0,0,0,.8); -webkit-transform: scale(.3); -ms-transform: scale(.3); transform: scale(.3); transition: all .75s cubic-bezier(.68,-.55,.265,1.55); }
+.modal-content { position: relative; text-align: left; padding: 2em; overflow-y: scroll; max-height: 600px; }
+label.modal-label {  }
+label.modal-button {  }
+label.modal-close { position: absolute; top: 30px; right: 30px; height: 35px; width: 35px; line-height: 35px; text-align: center; color: white; font-size: 24px; font-weight: bold; cursor: pointer; background-color: black; -webkit-border-radius: 100%; -moz-border-radius: 100%; border-radius: 100%; }
+input.modal-toggle { position: absolute; left: -10000px; opacity: 0; }
+input.modal-toggle:checked ~ .modal-overlay { opacity: 1; transform: scale(1); z-index: 2000; }
+.vertical { position: absolute; top: 50%; left: 0; width: 100%; text-align: center; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); transform: translateY(-50%); }
+
+
+/***************************************************
+**  LOGO
+***************************************************/
+#logo { position: fixed; top: 0; left: 0; z-index: 1001; }
+#logo img { height: 3.5em; padding-top: .25em; }
+
+
+/***************************************************
+**  NAVIGATION
+***************************************************/
+.nav { position: fixed; top: 0; left: 0; right: 0; border-bottom: none; z-index: 1000; }
+.menu { list-style: none; padding: 0 4em; }
+.menu a { display: block; padding: 0 2em; outline: none; line-height: 4; border-bottom: 5px solid transparent; font-family: Montserrat, 'Open Sans', sans-serif; font-size: 12px; font-weight: bold; text-transform: uppercase; text-decoration: none; }
+.menu a { transition: all 1s ease; color: #999; border-bottom-color:; transparent; }
+.menu-page { float: right; right: 0; width: auto; background-color: white; }
+.menu-page a { transition: all 1s ease; color: #aaa; }
+.menu li { display: inline-block; }
+
+.debug { text-align: left; }
+
+
+/***************************************************
+**  JUMBOTRONS
+***************************************************/
+.jumbotron { font-size: larger; margin-bottom: 0; margin-top: 0; -webkit-box-shadow: 4px 3px 3px rgba(0,0,0,.2); -moz-box-shadow: 4px 3px 3px rgba(0,0,0,.2); box-shadow: 4px 3px 3px rgba(0,0,0,.2); border: none; }
+.jumbotron-header { height: 500px; padding: 0; background-color: rgba(0,0,0,.15); }
+.jumbotron-header > div { position: relative; height: 100%; padding: 48px 0; background-color: rgba(0,0,0,.5); }
+.jumbotron-header .header { position: relative; top: 50%; transform: translateY(-50%); }
+.jumbotron-header h1 { font-size: 84pt; text-align: center; line-height: 1; color: #ffff55 !important; }
+.jumbotron-header h2 { color: #1b84c2 !important; }
+.jumbotron-networking { background-image: url('/images/networking.jpg'); }
+.jumbotron-advisors { background-image: url('/images/advisors.jpg'); }
+.jumbotron-conferences { background-image: url('/images/conferences/conferences.jpg'); }
+
+
+/***************************************************
+**  PARALAX
+***************************************************/
+.paralax { background-repeat: no-repeat; background-size: 160%; background-attachment: fixed; }
+.paralax h2, .paralax h3 { color: white; }
+.paralax .border { border-color: white; }
+/*#home { background-size: 125%; }*/
+
+
+/***************************************************
+**  FOOTER
+***************************************************/
+footer { clear: both; background-color: black; }
+.footer { vertical-align: top; }
+.footer div { width: 100%; text-align: center; padding: 100px 0; }
+.footer:first-child { text-align: right; }
+.footer:last-child { text-align: left; }
+.footer a { font-size: 20px; color: #aaa; transition: all 1s ease; }
+.footer a:hover { color: white; }
+
+.social a * { vertical-align: middle; font-size: 24px; }
+.social a i { padding-right: .25em; font-size: 32px; }
+.social .fa-linkedin-square { color: #007bb6 !important; }
+.social .fa-facebook-square { color: #3b5998 !important; }
+
+
+/***************************************************
+**  RESPONSIVE STYLES
+***************************************************/
+	header { padding-top: 4.5em; }
+	.jumbotron { height: 300px; background-size: 225% 65% !important; background-position: 50% 0; }
+	.jumbotron h1 { font-size: 22pt; }
+
+	.nav-main .modal-menu { display: none; }
+	.nav-main li { width: 100%; transition: all .25s ease; }
+	.nav-main div.container { display: none; padding-left: 0; padding-right: 0; }
+	.nav-main a { line-height: 2; }
+	.menu a:hover, .menu-active { transition: all 1s ease; color: white !important; background-color: rgba(255,255,255,.5); }
+	.menu-page a:hover, .menu-page a.menu-active { color: #1b84c2 !important; background-color: rgba(25,130,190,.3); }
+	.nav-main .menu { padding: 0; }
+	.menu { text-align: left; }
+	.nav-main .pull { display: block; line-height: 4; padding: 0 1em; text-decoration: none; text-align: left; color: white; background-color: #1b84c2; }
+	.nav-main .pull span { font-size: 20px; line-height: 1; }
+	.nav-main .pull i { float: right; line-height: 4; }
+	.menu-page li:first-child { display: none; }
+	.jumbotron h1 { font-size: 26pt; }
+
+/*  APPLE WATCH  */
+@media (max-device-width: 42mm) and (min-device-width: 38mm) { 
+}
+
+/* MOTO 360 WATCH */
+@media (max-device-width: 218px) and (max-device-height: 281px) {
+
+}
+
+/*  HANDHELD PHONES (XS) */
+@media only screen and (min-width: 300px) {
+	#logo { display: none; }
+}
+
+@media only screen and (min-width: 321px) {
+}
+
+/*  TABLETS  (SM) */
+@media only screen and (min-width: 768px) {
+	#logo { display: block; }
+	header { padding-top: 7.6em; }
+	.jumbotron { height: 500px; background-size: 125% !important; background-position: 50%; }
+	.jumbotron h1 { font-size: 60pt; }
+	.paralax { background-size: 160%; background-position: 50% 10% !important; }
+	.nav-main .modal-menu { display: block; }
+	.nav-main li { width: auto; }
+	.nav-main a { line-height: 4; }
+	.menu a:hover, .menu-active { border-bottom-color: white !important; }
+	.nav-main .pull { display: none; }
+	.menu { text-align: right; }
+	.menu-page { -webkit-border-radius: 0 0 0 5em; -moz-border-radius: 0 0 0 5em; border-radius: 0 0 0 5em; }
+	.menu-page li:first-child { display: inline-block; width: 50px; }
+	.menu-page a:hover, .menu-page .menu-active { transition: all 1s ease; color: #1b84c2 !important; background-color: rgba(25,130,190,.3); border-bottom-color: #1b84c2 !important; }
+	.register-now { color: white !important; background-color: #1b84c2; }
+}
+
+/*  LAPTOPS  (MD) */
+@media only screen and (min-width: 992px) {
+	.jumbotron h1 { font-size: 75pt; }
+}
+
+/*  DESKTOPS  (LG)  */
+@media only screen and (min-width: 1200px) {
+
+}

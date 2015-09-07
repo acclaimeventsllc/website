@@ -1,0 +1,3 @@
+.conference a { display: block; height: 200px; background-size: 100% 100%; margin: 4px 0; }
+.conference * { color: white !important; text-shadow: 4px 3px rgba(0,0,0,.3); }
+.shader { position: relative; height: 100%; padding: 2em 1em; background-color: rgba(0,0,0,.4); }

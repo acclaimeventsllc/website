@@ -1,0 +1,73 @@
+/***************************************************
+**  EVENTS
+***************************************************/
+#upcoming-events { padding: 0; }
+#who-should-attend { clear: both; }
+.event { padding: 0; text-align: center; overflow: hidden; box-sizing: border-box; /* -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; */}
+.event a { display: block; text-decoration: none; }
+.event, .event h2, .event h3, .event a { color: white; }
+.event-background { margin-top: 8px; background-size: cover; background-position: 50% 50%; }
+.event-location { font-size: 20px; padding: 0; }
+.shader { position: relative; height: 300px; padding: 2em 1em; background-color: rgba(0,0,0,.4); }
+
+/***************************************************
+**  TESTIMONIALS
+***************************************************/
+.testimonials { padding: 0; text-align: center; }
+.testimonials li { display: block; }
+.testimonials-quote { font-family: Montserrat, sans-serif; font-size: 28pt !important; text-transform: uppercase; }
+.testimonials-quote i { padding-top: .5em; font-size: 14pt; vertical-align: top; }
+.testimonials-quote i:first-child { padding-right: .5em; }
+.testimonials-quote i:last-child { padding-left: .5em; }
+.testimonials-author { color: white; font-family: Montserrat, sans-serif; font-size: 11pt !important; text-transform: uppercase; }
+
+.jumbotron-testimonials { padding: 0; background-image: url('/images/testimonials.jpg'); }
+.paralax-background { padding: 1em 0; height: 100%; background-color: rgba(27, 132, 194, 0.8) !important; }
+
+.carousel-nav { position: relative; top: 50%;; font-size: 48pt; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
+.carousel-prev { float: left; }
+.carousel-next { float: right; }
+.carousel li div { position: relative; top: 50%; width: 85%; margin: auto; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
+.carousel-slides { overflow: hidden; }
+
+
+
+/*  APPLE WATCH  */
+@media (max-device-width: 42mm) and (min-device-width: 38mm) {
+}
+
+/* MOTO 360 WATCH */
+@media (max-device-width: 218px) and (max-device-height: 281px) {
+}
+
+/*  HANDHELD PHONES (XS) */
+@media only screen and (min-width: 300px) {
+	#testimonials { background-size: cover !important; }
+	.testimonials h2 { font-size: 20px !important; color: white !important; }
+	.carousel-slides { height: 300px; }
+	.carousel ul { height: 1200px; }
+	.carousel li { height: 300px; }
+	.carousel li div { width: 75%; top: 40%; }
+}
+
+/*  TABLETS  (SM) */
+@media only screen and (min-width: 768px) {
+	.events-container { background-color: rgba(27, 132, 194, 0.2); }
+	.events-container { background-color: white; }
+	.event-background { margin: 8px 4px; }
+
+	#testimonials { height: 400px; }
+	.testimonials h2 { font-size: 28pt !important; }
+	.carousel-slides { height: 400px; }
+	.carousel ul { height: 1600px; }
+	.carousel li { height: 400px; }
+	.carousel li div { width: 85%; top: 50%; }
+}
+
+/*  LAPTOPS  (MD) */
+@media only screen and (min-width: 992px) {
+}
+
+/*  DESKTOPS  (LG)  */
+@media only screen and (min-width: 1200px) {
+}

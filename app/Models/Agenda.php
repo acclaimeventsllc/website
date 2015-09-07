@@ -1,0 +1,31 @@
+<?php namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Agenda extends ExtendedEloquentModel
+{
+
+	//
+
+	protected $fillable = [
+		'conference_id',
+		'timeslot',
+		'priority',
+		'type',
+		'title',
+		'title_short',
+		'subtitle',
+		'desc',
+		'tags',
+		'speakers',
+		'options',
+		'published',
+	];
+
+	protected $dates = [
+		'timeslot',
+		'published',
+		'deleted_at',
+	];
+
+}

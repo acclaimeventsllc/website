@@ -1,0 +1,84 @@
+/***************************************************
+**  PROGRESS BAR
+***************************************************/
+.progressbar { text-align: center; margin-bottom: 5em; padding: 1em 0; color: black; background-color: #1b84c2; border-radius: 5px; counter-reset: step; }
+.progressbar span { display: inline-block; position: relative; width: 20%; font-size: 12px; text-transform: uppercase; }
+.progressbar li span { display: none; position: absolute; top: 80px; left: 50%; transform: translateX(-50%); text-align: center; }
+.progressbar span:before { display: block; content: counter(step); counter-increment: step; width: 50px; line-height: 50px; font-size: 24px; font-weight: bold; margin: 0 auto 5px auto; color: white; background-color: black; border-radius: 100%; z-index: 1; }
+.progressbar span:after { content: ''; position: absolute; left: -50%; top: 25px; width: 100%; width: calc(100% - 2px); height: 2px; background-color: black; }
+.progress-toggle { position: absolute; left: -10000px; opacity: 0; }
+.progressbar span:first-child:after { content: none; }
+.progressbar .active:before { color: #1b84c2; background-color: white; }
+.progressbar .active:after { background-color: white; }
+.progressbar a { color: white; }
+
+
+/***************************************************
+**  NAVIGATION
+***************************************************/
+.prev { display: none; left: -10em; }
+.next { right: -10em; }
+
+
+/***************************************************
+**  REGISTRATION
+***************************************************/
+fieldset { display: block; padding-bottom: 3em; box-sizing: border-box; }
+legend { color: #1b84c2; font-weight: bold; text-transform: uppercase; text-align: center; }
+label { text-transform: uppercase; }
+[type=checkbox] { display: inline-block; width: 1.42857143em; }
+[type=checkbox] ~ label { padding-left: .5em !important; font-weight: bold !important; vertical-align: 100%; }
+textarea { min-height: 200px; }
+.register-window { position: relative; min-height: 515px; overflow: hidden; }
+.register-nav { display: none; position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); color: #1b84c2; }
+.register-nav i { font-size: 100px; }
+.register-slide { width: 100%; }
+.register-submit { display: none; }
+
+
+/***************************************************
+**  DIRECT REPORTS
+***************************************************/
+.register-reports { display: none; }
+.reports, .confirm-reports { box sizing: border-box; padding: 5px; background-color: #ddd; border: 1px solid #aaa; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+.reports p { text-align: center; }
+.reports span, .confirm-reports span { box-sizing: border-box; padding: 5px; }
+.reports span span, .confirm-reports span span { display: inline-block; margin: 5px 0; background-color: white; border: 1px solid #aaa; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+.reports span i { font-weight: bold font-size: larger; padding: 0 .5em; cursor: pointer; }
+
+
+/***************************************************
+**  CONFIRMATION
+***************************************************/
+.confirm-wrapper .label { padding-right: 1em; color: black; font-weight: bold; text-align: right; text-transform: uppercase; }
+.confirmation-links { text-align: center; padding: 2.5em 0; }
+
+/***************************************************
+**  RESPONSIVE DESIGN (MOBILE-FIRST)
+***************************************************/
+/*  HANDHELD PHONES (XS)  */
+@media only screen and (min-width: 300px) {
+	.progressbar li:before { width: 30px; line-height: 30px; font-size: 18px; }
+	.progressbar li:after { top: 15px; left: calc(-50% + 15px); width: calc(100% - 20px); height: 2px; }
+	.prev { left: -4em; }
+	.next { right: -4em; }
+	.register-nav i { font-size: 60px; }
+}
+@media only screen and (min-width: 321px) {}
+
+/*  TABLETS  */
+@media only screen and (min-width: 768px) {
+	.progressbar li:before { width: 50px; line-height: 50px; font-size: 24px; }
+	.progressbar li:after { top: 25px; left: -50%; width: 90%; height: 3px; }
+	.progressbar li span { display: inline; }
+	.prev { left:; -10em; }
+	.next { right: -10em; }
+	.register-nav i { font-size: 80px; }
+	textarea { min-height: 340px; }
+}
+
+/*  LAPTOPS  */
+@media only screen and (min-width: 992px) {}
+
+/*  DESKTOPS  */
+@media only screen and (min-width: 1200px) {}

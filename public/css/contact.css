@@ -1,0 +1,12 @@
+/***************************************************
+**  CONTACT INFORMATION COLUMN
+***************************************************/
+.contact-info { font-size: 16pt; }
+.contact-info .row { padding: 1em 0; }
+.contact-info .label { display: inline-block; font-size: inherit; letter-spacing: -2px; font-weight: bold; color: black; text-align: right; text-transform: uppercase; }
+.contact-info .photo img { overflow: hidden; -webkit-border-radius: 100%; -moz-border-radius: 100%; border-radius: 100%; }
+.contact-info li { display: inline-block; }
+
+label { text-transform: uppercase; }
+label.required-field:after { content: ' (required)'; font-size: smaller; }
+textarea { min-height: 250px; }

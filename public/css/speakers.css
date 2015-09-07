@@ -1,0 +1,52 @@
+/***************************************************
+**  SPEAKERS
+***************************************************/
+div.speaker { height: 400px; padding-bottom: 3em; text-align: center; }
+div.speaker label { cursor: pointer; }
+div.speaker > p { padding: 0; margin: 0; }
+div.speaker .speaker-image { position: relative; width: 200px; height: 200px; margin: auto; overflow: hidden; background-color: #ccc; background-size: 200px 200px; overflow: hidden; -webkit-border-radius: 100%; -moz-border-radius: 100%; border-radius: 100%; -webkit-box-shadow: inset 4px 4px 3px 3px rgba(0,0,0,.2); -moz-box-shadow: inset 4px 4px 3px 3px rgba(0,0,0,.2); box-shadow: inset 4px 4px 3px 3px rgba(0,0,0,.2); }
+div.speaker .speaker-image img { width: 200px; height: 200px; }
+div.speaker .speaker-image .shadow { position: absolute; top: 0; left: 0; height: 100%; width: 100%; -webkit-border-radius: 100%; -moz-border-radius: 100%; border-radius: 100%; -webkit-box-shadow: inset 4px 4px 3px 3px rgba(0,0,0,.2); -moz-box-shadow: inset 4px 4px 3px 3px rgba(0,0,0,.2); box-shadow: inset 4px 4px 3px 3px rgba(0,0,0,.2); }
+div.speaker .speaker-image .read-bio { position: absolute; width: 80%; line-height: 3; text-align: center; margin-left: 10%; color: white; background-color: rgba(0,0,0,.4); top: 50%; opacity: 0; transform: translateY(-50%); transition: opacity 1s ease; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+div.speaker .speaker-image:hover div { opacity: 1; transition: opacity 1s ease; }
+div.speaker .speaker-name { font-size: 28px; line-height: 2; font-weight: bold; text-transform: uppercase; }
+div.speaker .speaker-title { font-style: italic; }
+div.speaker .speaker-company { font-weight: bold; }
+div.speaker .speaker-bio { text-align: left; padding: 2em 0; }
+div.speaker .speaker-bio p { padding-top: .5em; }
+div.speaker .speaker-bio h1, div.speaker .speaker-bio h2, div.speaker .speaker-bio h3, div.speaker .speaker-bio h4, div.speaker .speaker-bio h5, div.speaker .speaker-bio h6 { text-align: left !important; padding-bottom: 1em; padding-top: 2em; margin: 0; }
+
+
+/***************************************************
+**  RESPONSIVE STYLES
+***************************************************/
+/*  APPLE WATCH  */
+@media (max-device-width: 42mm) and (min-device-width: 38mm) { 
+}
+
+/* MOTO 360 WATCH */
+@media (max-device-width: 218px) and (max-device-height: 281px) {
+}
+
+/*  HANDHELD PHONES (XS) */
+@media only screen and (min-width: 300px) {
+	div.speaker .speaker-name { padding: 1em 0; font-size: 24px; line-height: 1; }
+}
+
+@media only screen and (min-width: 321px) {
+}
+
+/*  TABLETS  (SM) */
+@media only screen and (min-width: 768px) {
+	div.speaker .speaker-name { padding: 0; font-size: 28px; line-height: 2; }
+}
+
+/*  LAPTOPS  (MD) */
+@media only screen and (min-width: 992px) {
+}
+
+/*  DESKTOPS  (LG)  */
+@media only screen and (min-width: 1200px) {
+}
+
+

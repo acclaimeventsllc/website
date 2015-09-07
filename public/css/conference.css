@@ -1,0 +1,146 @@
+/***************************************************
+**  GENERAL STYLES  
+***************************************************/
+.header { position: relative; height: 500px; }
+.header h1 { position: absolute; top: 50%; left: 0; width: 100%; text-align: center; color: white !important; transform: translateY(-50%); }
+section:nth-child(2n) { background-color: #ddd; }
+
+
+/***************************************************
+**  COUNTDOWN 
+***************************************************/
+.countdown { margin: auto; text-align: center; list-style: none; padding-bottom: 20px; }
+.countdown li { display: inline-block; width: 12%; vertical-align: top; margin: 5px; }
+.countdown-digit { width: 100%; line-height: 2; font-size: 36pt; color: #1b84c2; text-align: center; background-color: #fff; border: 1px solid rgba(27,132,194,.5); border-bottom: none; }
+.countdown-label { width: 100%; font-size: 10pt; line-height: 2; color: white; background-color: #1b84c2; border: 1px solid #1b84c2; }
+
+@media only screen and (max-width : 1200px) {
+	.countdown li { width: 20%; margin: 3px; }
+}
+
+@media only screen and (max-width : 760px) {
+	.countdown li { width: 20%; }
+	.countdown-digit { font-size: 22pt; margin: 1px; }
+	.countdown-label { font-size: 9pt; }
+}
+
+
+/***************************************************
+**  ABOUT 
+***************************************************/
+label.register, a.register { width: 100%; margin-top: 2em; color: white; font-size: 24pt; font-weight: bold; line-height: 2.5; text-align: center; cursor: pointer; background-color: #1b84c2; -webkit-border-radius: .5em; -moz-border-radius: .5em; border-radius: .5em; }
+.partners { padding: 4em 0 1em; font-size: 16pt; text-align: center; }
+.partners p { padding-bottom: 2em; }
+.partners a img { max-width: 100%; }
+
+/***************************************************
+**  AGENDA 
+***************************************************/
+.timeslot { padding: .5em 0; }
+.session-time { background-color: #1b84c2; height: 5em; box-sizing: border-box; }
+.session-time span { display: block; position: absolute; top: 50%; left: 0; width: 100%; text-align: center; font-size: 18px; font-weight: bold; color: white; transform: translateY(-50%); }
+.session-time span { position: relative; top: auto; left: auto; width: auto; line-height: 4em; transform: none; }
+.sessions { border: 1px solid #aaa; padding: 0; box-sizing: border-box; }
+.break { background-color: #ccc; }
+.session, .breakout { background-color: #eee; }
+.keynote, .session, .breakout, .break { padding: 1em; }
+.keynote, .session, .breakout { padding-bottom: .35em; }
+.breakout { border-top: 1px solid #ccc; }
+
+.session-title { font-size: 18px; font-weight: bold; line-height: 2; }
+.keynote .session-title { color: #1b84c2; }
+.keynote .session-title:before { content: 'Keynote: '; }
+
+.session-speakers { position: relative; }
+.session-speakers > div { position: relative; }
+.session-speakers > div:before { font-weight: bold; }
+.session-speakers div.session-speaker:before { content: 'Speaker: '; }
+.session-speakers div.session-moderator:before { content: 'Moderator: '; }
+.session-speakers div.session-panelist:before { content: 'Panelists: '; }
+
+a.session-speaker { display: block; }
+a.session-speaker .speaker-name { font-weight: bold; }
+a.session-speaker .speaker-title { font-style: italic; }
+
+div.read-more { max-height: 0; overflow: hidden; transition: all 1s ease; }
+div.read-more p:first-child:before { content: 'Session Description: '; font-weight: bold; }
+label.expand { display: block; padding-top: 1em; cursor: pointer; }
+label.expand.expand-ignore { cursor: auto; }
+label.expand-more { display: inline-block; width: 15em; padding: .2em; margin-top: .5em; text-align: center; line-height: 2; background-color: #337ab7; border-color: #2e6da4; color: white; }
+label.expand-more:after { content: 'Show Session Details'; }
+input.expand:checked ~ label.expand-more:after { content: 'Hide Session Details'; }
+label.expand i { font-size: 18pt; vertical-align: middle; }
+input.expand ~ label.expand i:after { content: ' Show Session Details'; font-family: montserrat, sans-serif; font-size: 12pt; vertical-align: middle; }
+input.expand:checked ~ label.expand i:after { content: ' Hide Session Details'; }
+input.expand { position: absolute; left: -10000px; opacity: 0;  }
+input.expand:checked ~ div.read-more { max-height: 250px; transition: all 1s ease; }
+
+
+/***************************************************
+**  SPONSORS NO-FRILLS
+***************************************************/
+.sponsors { text-align: center; }
+.sponsors a { display: inline-block; padding: 2em 3em; }
+.sponsors img { max-width: 100%; }
+.sponsors-contact { text-align: center; padding: 3em 0; }
+.sponsors-contact a { margin-top: 1em; width: 100%; max-width: 500px; line-height: 2; font-size: 18pt; }
+
+
+/***************************************************
+**  RESPONSIVE STYLES
+***************************************************/
+/*  APPLE WATCH  */
+@media (max-device-width: 42mm) and (min-device-width: 38mm) { 
+}
+
+/* MOTO 360 WATCH */
+@media (max-device-width: 218px) and (max-device-height: 281px) {
+}
+
+/*  HANDHELD PHONES (XS) */
+@media only screen and (min-width: 300px) {
+	.paralax { background-size: auto 50% !important; }
+	a.register { font-size: 15pt; }
+	.timeslot > div { padding-left: 0; padding-right: 0; }
+	label.expand-more { width: 100%; }
+	.session-speakers > div { padding-bottom: .5em; }
+	.session-speakers > div:before { display: block; position: relative; }
+}
+
+@media only screen and (min-width: 321px) {
+}
+
+/*  TABLETS  (SM) */
+@media only screen and (min-width: 768px) {
+	.paralax { background-size: auto 100% !important; }
+	a.register { font-size: 24pt; }
+	.timeslot > div:first-child { padding-right: 15px; }
+	label.expand-more { width: 15em; }
+	.session-speakers > div { padding-left: 6em; }
+	.session-speakers > div:before { position: absolute; top: 0; left: 0; }
+}
+
+/*  LAPTOPS  (MD) */
+@media only screen and (min-width: 992px) {
+}
+
+/*  DESKTOPS  (LG)  */
+@media only screen and (min-width: 1200px) {
+}
+
+
+/***************************************************
+**  SPONSORS OLD SLIDE-STYLE
+***************************************************//*
+.sponsor { display: block; position: relative; height: 200px; width: 200px; margin: auto; margin-bottom: 2em; overflow: hidden; text-align: center; border: 1px solid #ccc; cursor: pointer; background-color: white; }
+.sponsor:hover { border: 1px solid #999; -webkit-box-shadow: 0 0 30px #999 inset; -moz-box-shadow: 0 0 30px #999 inset; box-shadow: 0 0 30px #999 inset; }
+.sponsor .vertical { width: 100%; }
+.sponsor-front { position: absolute; top: 50%; left: 0; height: 100%; width: 100%; transition: left .5s ease-in-out; transform: translateY(-50%); }
+.sponsor-front img { position: relative; width: 80%; margin: auto; }
+.sponsor-back { position: absolute; top: 50%; left: 200px; height: 100%; width: 100%; transition: left .5s ease-in-out;; transform: translateY(-50%); }
+
+input.sponsor-flip { position: absolute; left: -10000px; opacity: 0; }
+input.sponsor-flip:checked ~ .sponsor .sponsor-front { left: -200px; }
+input.sponsor-flip:checked ~ .sponsor .sponsor-back { left: 0; }
+*/
+
