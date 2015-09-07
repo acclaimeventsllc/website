@@ -216,7 +216,7 @@ class ConferencesController extends Controller
 			$sponsors		= Helpers::keysByField($sponsors, 'slug');
 
 			$sponsorsFinal	= (object)[];
-			if (count($sponsors) > 0)
+			if ((bool)$options->sponsorlevels === true && count($sponsors) > 0)
 			{
 				foreach ($sponsorList as $level => $companies)
 				{
@@ -230,12 +230,19 @@ class ConferencesController extends Controller
 						$sponsorsFinal->$level->$slug = (object)$sponsors[$slug];
 					}
 				}
-			}
 
-			$sponsors	= $sponsorsFinal;
+				$sponsors	= $sponsorsFinal;
+			} else {
+				foreach ($sponsors as $slug => $sponsor)
+				{
+					$sponsorsFinal->$slug = (object)$sponsor;
+				}
+
+				$sponsors	= $sponsorsFinal;
+			}
 		}
 
-//		dd($partners);
+//		dd($sponsors);
 		return view('pages/conference', compact('event', 'venue', 'partners', 'agendas', 'speakers', 'sponsors', 'options', 'navs', 'sub'));
 	}
 

@@ -290,22 +290,29 @@ $session	= $agendas[$date][$time][$slot];
 @if ((bool)$options->sponsors === true && isset($sponsors) && is_object($sponsors))
 			<div class="sponsors row">
 
-@foreach ($sponsors as $level => $companies)
+@endif
 @if ((bool)$options->sponsorlevels === true)
+@foreach ($sponsors as $level => $companies)
 				<div class="section-title">
 					<h2>{{ $level }} Sponsors</h2>
 					<span class="border"></span>
 				</div>
 
-@endif
 @foreach ($companies as $slug => $sponsor)
 				<a href="{{ $sponsor->website }}" title="{{ $sponsor->company }}" target="_blank"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></a>
 @endforeach
 @endforeach
 
-			</div>
-@endif
+@else
+@foreach ($sponsors as $slug => $sponsor)
+				<a href="{{ $sponsor->website }}" title="{{ $sponsor->company }}" target="_blank"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></a>
 
+@endforeach
+@endif
+@if ((bool)$options->sponsors === true && isset($sponsors) && is_object($sponsors))
+			</div>
+
+@endif
 			<div class="sponsors-contact">
 				<h3>Interested in participating as a sponsor?</h3>
 				<a class="btn btn-lg btn-primary" href="/contact/sponsorship/{{ $event->slug }}" title="Request Information">Request Information</a>
