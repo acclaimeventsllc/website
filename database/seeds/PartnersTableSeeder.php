@@ -47,7 +47,7 @@ class PartnersTableSeeder extends Seeder {
 		Partner::create([
 				'company'	=> 'TAGITM',
 				'slug'		=> 'tagitm',
-				'website'	=> 'www.tagitm.org',
+				'website'	=> 'http://www.tagitm.org',
 				'slogan'	=> '',
 				'photo'		=> '/images/partners/tagitm.png',
 				'published'	=> Carbon::create(2015, 08, 28, 15, 05, 29),

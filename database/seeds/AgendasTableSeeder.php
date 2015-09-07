@@ -98,6 +98,7 @@ class AgendasTableSeeder extends Seeder {
 				'priority'		=> 5,
 				'type'			=> 'breakout',
 				'title'			=> 'Application Modernization',
+				'title_short'	=> 'Application Modernization',
 				'speakers'		=> Helpers::serialize(['panelist' => ['cook-dana', 'waldo-jay', 'rios-george']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -117,6 +118,7 @@ class AgendasTableSeeder extends Seeder {
 				'priority'		=> 7,
 				'type'			=> 'session',
 				'title'			=> 'Business Continuity Disaster Recovery',
+				'title_short'	=> 'Business Continuity Disaster Recovery',
 				'speakers'		=> Helpers::serialize(['panelist' => ['fernandes-andrew']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -127,7 +129,7 @@ class AgendasTableSeeder extends Seeder {
 				'priority'		=> 11,
 				'type'			=> 'breakout',
 				'title'			=> 'U.S. Secret Service vs. Cyber Criminals',
-				'title_short'	=> 'U.S. Secret Service vs. Cyber Criminals',
+				'title_short'	=> 'U.S. Secret Service',
 				'desc'			=> '<p>The U.S. Secret Service was established in 1865 to protect our nation\'s currency from counterfeiters. Today, the agency\'s investigative mission has evolved to combat cyber crime targeting U.S. banking infrastructure - specifically financial institutions and payment systems.  This briefing will provide an overview of the capabilities and efforts of the public/private/academic partnerships forged at the U.S. Secret Service Electronic Crimes Task Forces throughout the world.   As well as, current trends in cyber crime, related intelligence sharing, and examples of previous cyber case work by the agency.</p>',
 				'speakers'		=> Helpers::serialize(['speaker' => ['edwards-tom']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),

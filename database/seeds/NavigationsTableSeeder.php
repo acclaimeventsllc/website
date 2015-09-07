@@ -202,7 +202,7 @@ class NavigationsTableSeeder extends Seeder {
                 'menu'      => 'conference',
                 'href'      => '#sponsors',
                 'content'   => 'Sponsors',
-                'option'    => 'options:sponsors=true',
+                'option'    => '',
                 'priority'  => '5',
                 'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
             ]);

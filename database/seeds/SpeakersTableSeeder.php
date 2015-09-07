@@ -227,8 +227,8 @@ class SpeakersTableSeeder extends Seeder {
 				'first_name'	=> 'Jake',
 				'last_name'		=> 'Dominguez',
 				'slug'			=> 'dominguez-jake',
-				'title'			=> 'former Chief Information Officer',
-				'title_short'	=> 'former CIO',
+				'title'			=> 'Former Chief Information Officer',
+				'title_short'	=> 'Former CIO',
 				'company'		=> 'Advanced Micro Devices (AMD)',
 				'bio'			=> '<p>Jake Dominguez was most recently CIO at AMD and was responsible for leading the company’s global IT organization through a major transformation of the enterprise. He brings over 30 years of engineering and information technology experience, with a diverse background in academia, semiconductor, computer services, and manufacturing industries. Under his leadership AMD completed his vision of a major datacenter consolidation effort, which focused on transitioning more than 3,500 servers from Austin, Texas to Atlanta, Georgia under one roof. This accomplishment has been recognized and highlighted in numerous publications including eWeek, ZDNet and Tom’s Hardware. He also received the 2014 Stevie Award for CIO of the Year and was selected as one of Computerworld’s 2015 100 Premier IT Leaders.</p>
 					<p>Before joining AMD in September 2011, Dominguez held various executive roles within HP.</p>
@@ -255,7 +255,7 @@ class SpeakersTableSeeder extends Seeder {
 				'last_name'		=> 'Fernandes',
 				'slug'			=> 'fernandes-andrew',
 				'title'			=> 'Senior Director, Global Resiliency Program',
-				'title_short'	=> 'Sen. Dir., Global Resiliency Program',
+				'title_short'	=> 'Sr. Dir., Global Resiliency Program',
 				'company'		=> 'Epicor',
 				'bio'			=> '					<p>Andrew has 20+ years management experience with a diverse educational background experience in finance, quality, risk management, business continuity and crisis management. He has implemented all ten professional practices from program initiation and management to coordination with external agencies.</p>
 					<p>Andrew is currently engaged as Senior Director, Global Resiliency Program, with Epicor Software Corporation.  Prior to Epicor, Andrew has been in a senior management position over the last 15 years either in a consulting or a  practitioner role with  IBM Resiliency Services, Dell Inc, and GE IT Solutions.</p>
@@ -285,8 +285,8 @@ class SpeakersTableSeeder extends Seeder {
 				'first_name'	=> 'Gregory',
 				'last_name'		=> 'Flay',
 				'slug'			=> 'flay-gregory',
-				'title'			=> 'Vice President of Information Technology',
-				'title_short'	=> 'VP of IT',
+				'title'			=> 'Vice President, Information Technology',
+				'title_short'	=> 'Vice President IT',
 				'company'		=> 'NRG Home Solar',
 				'bio'			=> '<p>As Vice President of Information Technology for the Home Solar division of NRG Energy, Greg Flay oversees the development and operation of systems and processes that support one of the top sales, installation, and financing residential solar panel systems businesses in the US.</p>
 					<p>Mr. Flay joined NRG in 2000 as a Manager of Plant Operations IT, working primarily on power station acquisitions in Australia, the Czech Republic, Estonia, Hungary, Turkey, Bolivia, Peru, and Brazil as well as a large portfolio within the US. Mr. Flay led the $18M integration of Texas Genco in 2006 as well as the $45M integration of Reliant Energy in 2009. In 2011, he moved to Austin to serve as a turnaround CIO for Green Mountain Energy. He later served in a similar capacity within NRG’s home warranty, home services, and residential solar businesses, in each case migrating the business from a homegrown set of business systems and processes onto enterprise-class systems based on the Salesforce platform.</p>
@@ -313,8 +313,8 @@ class SpeakersTableSeeder extends Seeder {
 				'first_name'	=> 'Jeff',
 				'last_name'		=> 'Martin',
 				'slug'			=> 'martin-jeff',
-				'title'			=> 'former VP of Strategy, Architecture &amp; M&amp;A',
-				'title_short'	=> 'former VP of Strategy, Architecture &amp; M&amp;A',
+				'title'			=> 'Former VP of Strategy, Architecture &amp; M&amp;A',
+				'title_short'	=> 'Former VP of Strategy, Architecture &amp; M&amp;A',
 				'company'		=> 'Dell, Inc',
 				'bio'			=> '<p>As a leader in the executive IT community, Jeff has lent his exceptional leadership and subject-matter expertise to a variety of executive roles in the IT industry over his 23+ year career. Most recently holding the position of Vice President of Strategy and Architecture, Jeff was responsible for enabling Dell’s strategic transformation by deﬁning the IT (transformation) road map, guiding the delivery of globally consistent business value, and ensuring Dell IT systems were reliable, scalable and efficient. Prior to leading the Strategy and Architecture team, Jeff was the CIO of Dell IT – Product &amp; Supply Chain.</p>
 					<p>Before Dell, Jeff built his career in the IT Business and Transformation industry, holding key leadership roles at PepsiCo International, WM Wrigley Jr., Tellabs, Baxter Healthcare and in the U.S. Navy.</p>
@@ -434,8 +434,8 @@ class SpeakersTableSeeder extends Seeder {
 				'first_name'	=> 'Mike',
 				'last_name'		=> 'Sturm',
 				'slug'			=> 'sturm-mike',
-				'title'			=> 'Director of Information Technology',
-				'title_short'	=> 'Director of IT',
+				'title'			=> 'Director Information Technology',
+				'title_short'	=> 'Director IT',
 				'company'		=> 'City of San Marcos',
 				'photo'			=> '/images/speakers/sturm-mike.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
@@ -457,7 +457,7 @@ class SpeakersTableSeeder extends Seeder {
 				'last_name'		=> 'Yoder',
 				'slug'			=> 'yoder-marc',
 				'title'			=> 'CISO and Senior Director, Security and Disaster Recovery',
-				'title_short'	=> 'CISO &amp; Sen. Dir. Security &amp; Disaster Recovery',
+				'title_short'	=> 'CISO &amp; Sr. Dir. Security &amp; Disaster Recovery',
 				'company'		=> 'NTT Data Corporation',
 				'photo'			=> '/images/speakers/yoder-marc.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),

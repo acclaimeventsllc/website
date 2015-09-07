@@ -19,7 +19,7 @@
 					<div>
 						<h3>Social Media</h3>
 						<ul class="social">
-							<li><a class="facebook" href="www.facebook.com/acclaimeventsllc" title="Facebook" target="_blank"><i class="fa fa-facebook-square fa-lg normal-icon"></i><span>Facebook</span></a></li>
+							<li><a class="facebook" href="http://www.facebook.com/acclaimeventsllc" title="Facebook" target="_blank"><i class="fa fa-facebook-square fa-lg normal-icon"></i><span>Facebook</span></a></li>
 							<li><a class="linkedin" href="https://www.linkedin.com/company/acclaim-events-llc" title="LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-lg normal-icon"></i><span>LinkedIn</span></a></li>
 						</ul>
 					</div>

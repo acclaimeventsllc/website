@@ -87,8 +87,16 @@ class SponsorsTableSeeder extends Seeder {
 		Sponsor::create([
 				'company'	=> 'MCCI',
 				'slug'		=> 'mcci',
-				'website'	=> 'http://www.mcci.com',
+				'website'	=> 'http://www.mccinnovations.com/',
 				'photo'		=> '/images/sponsors/mcci.jpg',
+				'published'	=> Carbon::create(2015, 09, 04, 19, 37, 05),
+			]);
+
+		Sponsor::create([
+				'company'	=> 'Good Technologies',
+				'slug'		=> 'good',
+				'website'	=> 'http://www.good.com',
+				'photo'		=> '/images/sponsors/good.jpg',
 				'published'	=> Carbon::create(2015, 09, 04, 19, 37, 05),
 			]);
 

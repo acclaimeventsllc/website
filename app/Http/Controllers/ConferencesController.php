@@ -181,14 +181,29 @@ class ConferencesController extends Controller
 		}
 
 		$sponsorList = [];
-		if (!empty($event->sponsors)) {
+		$sponsorFlat = [];
+		if (!empty($event->sponsors))
+		{
 			$sponsorList	= Helpers::unserialize($event->sponsors);
+			if (is_array($sponsorList))
+			{
+				foreach ($sponsorList as $sponsors) {
+					if (is_array($sponsorList) && is_array($sponsors))
+					{
+						$sponsorFlat = array_merge($sponsorFlat, $sponsors);
+					}
+				}
+			}
 		}
 
-		if (count($sponsorList) > 0) {
-			$sponsors		= Sponsor::where(function($query) use($sponsorList) {
-									foreach ($sponsorList as $i => $sponsor) {
-										if ($i === 0) {
+		if (count($sponsorFlat) > 0)
+		{
+			$sponsors		= Sponsor::where(function($query) use($sponsorFlat)
+								{
+									foreach ($sponsorFlat as $i => $sponsor)
+									{
+										if ($i === 0)
+										{
 											$query->where('slug', '=', $sponsor);
 										} else {
 											$query->orWhere('slug', '=', $sponsor);
@@ -199,6 +214,25 @@ class ConferencesController extends Controller
 								->orderBy('company')
 								->get();
 			$sponsors		= Helpers::keysByField($sponsors, 'slug');
+
+			$sponsorsFinal	= (object)[];
+			if (count($sponsors) > 0)
+			{
+				foreach ($sponsorList as $level => $companies)
+				{
+					if (!isset($sponsorsFinal->$level))
+					{
+						$sponsorsFinal->$level = (object)[];
+					}
+
+					foreach ($companies as $slug)
+					{
+						$sponsorsFinal->$level->$slug = (object)$sponsors[$slug];
+					}
+				}
+			}
+
+			$sponsors	= $sponsorsFinal;
 		}
 
 //		dd($partners);

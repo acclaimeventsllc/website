@@ -128,19 +128,3 @@ input.expand:checked ~ div.read-more { max-height: 250px; transition: all 1s eas
 @media only screen and (min-width: 1200px) {
 }
 
-
-/***************************************************
-**  SPONSORS OLD SLIDE-STYLE
-***************************************************//*
-.sponsor { display: block; position: relative; height: 200px; width: 200px; margin: auto; margin-bottom: 2em; overflow: hidden; text-align: center; border: 1px solid #ccc; cursor: pointer; background-color: white; }
-.sponsor:hover { border: 1px solid #999; -webkit-box-shadow: 0 0 30px #999 inset; -moz-box-shadow: 0 0 30px #999 inset; box-shadow: 0 0 30px #999 inset; }
-.sponsor .vertical { width: 100%; }
-.sponsor-front { position: absolute; top: 50%; left: 0; height: 100%; width: 100%; transition: left .5s ease-in-out; transform: translateY(-50%); }
-.sponsor-front img { position: relative; width: 80%; margin: auto; }
-.sponsor-back { position: absolute; top: 50%; left: 200px; height: 100%; width: 100%; transition: left .5s ease-in-out;; transform: translateY(-50%); }
-
-input.sponsor-flip { position: absolute; left: -10000px; opacity: 0; }
-input.sponsor-flip:checked ~ .sponsor .sponsor-front { left: -200px; }
-input.sponsor-flip:checked ~ .sponsor .sponsor-back { left: 0; }
-*/
-

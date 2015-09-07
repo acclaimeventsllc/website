@@ -152,9 +152,9 @@
 							<div class="sessions"><?php unset($slot['time']); ?>
 
 @foreach ($slot as $i => $session)
-								<div id="session-{{ $session->id }}" class="{{ $session->type }}">
-									<input id="session-{{ $session->id }}-expand" class="expand no-move" type="checkbox">
-									<label for="session-{{ $session->id }}-expand" class="expand @if ($session->type === 'break')expand-ignore @endif">
+								<div id="session-{{ $session->id }}" class="{{ $session->type }}">@if ($session->type !== 'break')
+									<input id="session-{{ $session->id }}-expand" class="expand no-move" type="checkbox">@endif
+									<label @if ($session->type !== 'break') for="session-{{ $session->id }}-expand" class="expand"@endif>
 										<div class="session-title">{{ $session->title }}</div>@if (strlen($session->subtitle) > 0)
 										<div class="session-subtitle">{{ $session->subtitle }}</div>@endif
 
@@ -276,81 +276,45 @@ $session	= $agendas[$date][$time][$slot];
 @stop
 
 @section('content-05'){{-- CONFERENCE SPONSORS --}}
-@if ((bool)$options->sponsors === true && isset($sponsors) && is_object($sponsors))
 	<!--// SPONSORS //-->
 	<section id="sponsors">
 
 		<div class="container">
-
+@if ((bool)$options->sponsorlevels !== true)
 			<div class="section-title">
 				<h2>Sponsors</h2>
 				<span class="border"></span>
 			</div>
 
+@endif
+@if ((bool)$options->sponsors === true && isset($sponsors) && is_object($sponsors))
 			<div class="sponsors row">
 
-@foreach ($sponsors as $sponsor)
+@foreach ($sponsors as $level => $companies)
+@if ((bool)$options->sponsorlevels === true)
+				<div class="section-title">
+					<h2>{{ $level }} Sponsors</h2>
+					<span class="border"></span>
+				</div>
+
+@endif
+@foreach ($companies as $slug => $sponsor)
 				<a href="{{ $sponsor->website }}" title="{{ $sponsor->company }}" target="_blank"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></a>
+@endforeach
 @endforeach
 
 			</div>
+@endif
 
 			<div class="sponsors-contact">
 				<h3>Interested in participating as a sponsor?</h3>
-				<a class="btn btn-lg btn-primary" href="/contact/sponsorship/{{ $event->slug }}" title="Contact Us">Contact Us</a>
+				<a class="btn btn-lg btn-primary" href="/contact/sponsorship/{{ $event->slug }}" title="Request Information">Request Information</a>
 			</div>
 
 		</div>
 
 	</section>
 
-@endif
-@stop
-
-@section('content-10005') {{-- OLD CONFERENCE SPONSORS --}}
-@if ((bool)$options->sponsors === true && isset($sponsors) && is_array($sponsors))
-	<!--  SPONSORS  -->
-	<section id="sponsors">
-
-		<div class="container">
-
-			<div class="section-title">
-				<h2>Sponsors</h2>
-				<span class="border"></span>
-			</div>
-
-			<div class="sponsors row">
-
-@foreach ($sponsors as $i => $sponsor)
-				<!--  {{ $sponsor->company }}  -->
-				<div class="col-sm-4 col-md-3">
-					<input id="{{ $sponsor->slug }}-{{ $i }}-flip" class="sponsor-flip no-move" type="checkbox">
-					<label for="{{ $sponsor->slug }}-{{ $i }}-flip" class="sponsor" title="More about {{ $sponsor->company }}">
-						<div class="sponsor-front">
-							<div class="vertical">
-								<img src="/images/sponsors/{{ $sponsor->photo }}" alt="{{ $sponsor->company }}">
-							</div>
-						</div>
-						<div class="sponsor-back">
-							<div class="vertical">
-								<div class="sponsor-desc">
-									<p>{{ $sponsor->slogan }}</p>
-								</div>
-								<div class="sponsor-website">
-									<p><a href="http://{{ $sponsor->website }}" title="{{ $sponsor->company }} website" target="_blank">{{ $sponsor->website }}</a></p>
-								</div>
-							</div>
-						</div>
-					</label>
-				</div>
-@endforeach
-			</div>
-
-		</div>
-
-	</section>
-
-@endif
 @stop
 
 @section('content-06') {{-- CONFERENCE LOCATION MAP --}}
