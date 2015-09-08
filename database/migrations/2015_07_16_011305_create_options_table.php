@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Carbon\Carbon;
+use App\Models\Option;
 
 class CreateOptionsTable extends Migration {
 
@@ -20,10 +22,41 @@ class CreateOptionsTable extends Migration {
 			$table->text('value');
 			$table->tinyInteger('serialized')->default(0);
 			$table->timestamps();
-			$table->timestamp('published')->default('0000-00-00 00:00:00');
+			$table->timestamp('published')->nullable();
 			$table->softDeletes();
 		});
-	}
+
+        Option::create([
+                'option'    => 'maintenance',
+                'value'     => '0',
+                'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
+            ]);
+
+        Option::create([
+                'option'    => 'hero',
+                'value'     => '0',
+                'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
+            ]);
+
+        Option::create([
+                'option'    => 'active',
+                'value'     => 'home',
+                'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
+            ]);
+
+        Option::create([
+                'option'    => 'title',
+                'value'     => 'Acclaim Events',
+                'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
+            ]);
+
+        Option::create([
+                'option'    => 'jumbotron',
+                'value'     => '/images/networking.jpg',
+                'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
+            ]);
+
+ 	}
 
 	/**
 	 * Reverse the migrations.

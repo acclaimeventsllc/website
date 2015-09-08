@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Carbon\Carbon;
+use App\Models\Partner;
 
 class CreatePartnersTable extends Migration
 {
@@ -25,9 +27,19 @@ class CreatePartnersTable extends Migration
             $table->text('contacts')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
-            $table->timestamp('published')->default('0000-00-00 00:00:00');
+            $table->timestamp('published')->nullable();
             $table->softDeletes();
         });
+
+        Partner::create([
+                'company'   => 'TAGITM',
+                'slug'      => 'tagitm',
+                'website'   => 'http://www.tagitm.org',
+                'slogan'    => '',
+                'photo'     => '/images/partners/tagitm.png',
+                'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
+            ]);
+
     }
 
     /**

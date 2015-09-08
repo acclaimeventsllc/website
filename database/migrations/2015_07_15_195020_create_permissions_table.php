@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\Permission;
 
 class CreatePermissionsTable extends Migration {
 
@@ -17,7 +18,7 @@ class CreatePermissionsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
-			$table->timestamp('published')->default('0000-00-00 00:00:00');
+			$table->timestamp('published')->nullable();
 			$table->softDeletes();
 		});
 	}

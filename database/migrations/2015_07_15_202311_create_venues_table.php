@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Carbon\Carbon;
+use App\Models\Venue;
 
 class CreateVenuesTable extends Migration {
 
@@ -26,9 +28,20 @@ class CreateVenuesTable extends Migration {
 			$table->string('directions')->nullable();
 			$table->string('contacts')->nullable();
 			$table->timestamps();
-			$table->timestamp('published')->default('0000-00-00 00:00:00');
+			$table->timestamp('published')->nullable();
 			$table->softDeletes();
 		});
+
+		Venue::create([
+				'venue'				=> 'Crown Plaza Austin',
+				'slug'				=> 'texas-austin-crown-plaza-austin',
+				'city'				=> 'Austin',
+				'state'				=> 'Texas',
+				'place'				=> 'ChIJVzSZghjKRIYREyXBujdzq6w',
+				'directions'		=> 'http://www.ihg.com/crowneplaza/hotels/us/en/austin/ausgz/hoteldetail?cm_mmc=GoogleMaps-_-cp-_-USEN-_-ausgz#map-directions',
+				'published'			=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
 	}
 
 	/**

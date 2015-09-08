@@ -12,22 +12,7 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Model::unguard();
-
-		$this->call('UsersTableSeeder');
-		$this->call('ConferencesTableSeeder');
-		$this->call('VenuesTableSeeder');
-		$this->call('AgendasTableSeeder');
-		$this->call('SpeakersTableSeeder');
-		$this->call('SponsorsTableSeeder');
-		$this->call('TeamMembersTableSeeder');
-		$this->call('RegistrationsTableSeeder');
-		$this->call('TestimonialsTableSeeder');
-		$this->call('OptionsTableSeeder');
-		$this->call('NavigationsTableSeeder');
-		$this->call('BenefitsTableSeeder');
-		$this->call('PagesTableSeeder');
-		$this->call('PartnersTableSeeder');
+		//Model::unguard();
 	}
 
 }
