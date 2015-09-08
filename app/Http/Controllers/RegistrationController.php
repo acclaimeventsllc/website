@@ -18,7 +18,113 @@ class RegistrationController extends Controller
 
 	protected $debug	= true;
 	protected $steps	= 5;
-	protected $titles	= [
+
+	public function index()
+	{
+		$route		= Helpers::routeinfo();
+		$options	= Helpers::options($route);
+		$navs		= Helpers::navigation($route, $options);
+		$sub		= Helpers::navigation($route, $options, true);
+		$i			= 1;
+		$step 		= (object)[
+			'debug'			=> $this->debug,
+			'step'			=> $i,
+			'max'			=> $this->steps,
+			'titles'		=> $this->getTitles($i),
+			'defaults'		=> $this->getDefaults($i),
+		];
+
+		if ($i === 1)
+		{
+			$step->events		= $this->getEvents($i);
+			$step->attendance	= $this->getAttendance($i);
+		}
+
+		return view('pages/register', compact('step', 'route', 'options', 'navs', 'sub'));
+	}
+
+	public function store(RegistrationRequest $request)
+	{
+		$post 		= $this->postValues();
+		$values		= $this->getValues();
+		if (!empty($values->email) && !empty($values->conference))
+		{
+			$stuff	= $values;
+			unset($stuff->_token);
+			dd((array)$stuff);
+			$update = Registration::where('conference', '=', $values->conference)
+								->where('email', '=', $values->email)
+								->take(1)
+								->update((array)$stuff);
+			if ($update === null || (int)$update <= 0)
+			{
+				$insert	= Registration::create($values);
+				dd($insert . ' In the DB');
+			} else {
+				dd($update . ' Updated DB');
+			}
+		}
+
+	}
+
+	protected function postValues()
+	{
+		foreach ($_POST as $k => $v)
+		{
+			if ($k !== '_token')
+			{
+				\Session::put('registration.' . $k, $v);
+			}
+		}
+		return $_POST;
+	}
+
+	protected function getValues()
+	{
+		$input		= $this->getInput();
+		$session	= $this->getSession();
+		$values		= [];
+
+		if (is_array($input))
+		{
+			foreach ($input as $k => $v)
+			{
+				$values[$k] = $v;
+			}
+		}
+
+		if (is_array($session))
+		{
+			foreach ($session as $k => $v)
+			{
+				$values[$k] = $v;
+			}
+		}
+
+		return (object)$values;
+	}
+
+	protected function getSession()
+	{
+		return \Session::get('registration');
+	}
+
+	protected function getInput()
+	{
+		return \Input::all();
+	}
+
+	protected function getDB($email = 'EMAIL', $conference = 'CONFERENCE')
+	{
+		$db	= Registrations::where('email', '=', strtolower($email))
+							->where('conference', '=', strtolower($conference))
+							->first();
+		return $db;
+	}
+
+	protected function getTitles($i = 1)
+	{
+		return [
 			1 => 'Basic Information',
 			2 => 'Badge Details',
 			3 => 'Attendee Address',
@@ -26,148 +132,49 @@ class RegistrationController extends Controller
 			5 => 'Confirmation',
 			6 => 'Registration Confirmed',
 		];
-
-	public function index()
-	{
-		$route				= Helpers::routeinfo();
-		$options			= Helpers::options($route);
-		$navs				= Helpers::navigation($route, $options);
-		$sub				= Helpers::navigation($route, $options, true);
-
-		list($i, $method)	= $this->getStep();
-		$step				= $this->step($i);
-
-		return view('pages/register', compact('step', 'route', 'options', 'navs', 'sub'));
 	}
 
-	public function store(RegistrationRequest $request)
-	{
-		list($step, $method) = $this->getStep();
-
-		$step = $step + 1;
-
-		\Session::put('registration.step', $step);
-
-		foreach ($_POST as $key => $value)
+	protected function getStep($values) {
+		foreach ($values as $key => $value)
 		{
-			if ($key !== '_token') {
-				\Session::put('registration.' . $key, $value);
-			}
-		}
 
-//		dd(\Session::all());
-		return redirect('/register');
+		}
 	}
 
-	protected function getStep()
+	protected function getEvents($i = 1)
 	{
-		$route 		= Helpers::routeinfo();
-		$method		= 'none';
+		$events = [' ' => 'Select one...'];
+		if ($i === 1)
+		{
+			$conferences	= Conference::where('start_date', '>', Carbon::now())->get();
+			$conferences 	= Helpers::keysByField($conferences, 'slug');
 
-		if (count($route->params) === 1) {
-			if ($route->params['step'] === 'confirmed')
+			foreach ($conferences as $slug => $event)
 			{
-				$step = 6;
-				$method = 'confirmed';
-			} else {
-				$step	= (int)$route->params['step'];
-				$method	= 'route';
+				$events[$slug]	= $event->city . ', ' . $event->state . ' | ' . date('F j, Y', strtotime($event->start_date . (!empty( $event->timezone) ? ' ' . $event->timezone : '')));
 			}
 		}
-
-		if (empty($step)) {
-			$step 	= \Session::get('registration.step');
-			$step	= (int)$step;
-			$method	= 'session';
-		}
-
-		if ($step <= 0)
-		{
-			$step	= 1;
-			$method	= 'defaultvalue';
-		}
-
-		return [(int)$step, $method];
+		return $events;
 	}
 
-	protected function step($step = 1)
+	protected function getAttendance($i = 1)
 	{
-		$steps	= (object)[
-			'debug'		=> $this->debug,
-			'step'		=> $step,
-			'max'		=> $this->steps,
-			'titles'	=> $this->titles,
-			'defaults'	=> $this->defaults($step),
+		return [
+			''			=> 'Select one...',
+			'advisor'	=> 'National Advisory Board',
+			'sponsor'	=> 'Conference Sponsor',
+			'attendee'	=> 'Conference Attendee',
 		];
-
-		$conferences	= ['' => 'Select...'];
-		$attendee		= [];
-
-		if ($step === 1 || $step >= $this->steps)
-		{
-				$events			= Conference::where('end_date', '>=', \Carbon\Carbon::now())
-											->published()
-											->orderBy('start_date')
-											->get();
-
-				if (is_object($events))
-				{
-					foreach ($events as $event)
-					{
-						$event = (object)$event->toArray();
-						$conferences[$event->slug] = $event->city . ', ' . $event->state . ' ' . ($step === 1 ? '| ' . ((bool)$event->coming === true ? date('F Y', strtotime($event->start_date)) : date('F j, Y', strtotime($event->start_date))) : date('Y', strtotime($event->start_date)));
-					}
-				}
-
-				$attendee		= [
-					''			=> 'Select...',
-					'advisor'	=> 'National Advisory Board',
-					'sponsor'	=> 'Sponsor',
-					'attendee'	=> 'Conference Attendee',
-				];
-		}
-
-		switch ($step)
-		{
-			case 5:
-				$steps->events		= (array)$conferences;
-				$steps->attendee	= (array)$attendee;
-				break;
-			case 4:
-				break;
-			case 3:
-				break;
-			case 2:
-				break;
-			default:
-
-				$steps->events		= (array)$conferences;
-				$steps->attendee	= (array)$attendee;
-				break;
-		}
-
-		return $steps;
 	}
 
-	protected function defaults($step)
+	protected function getDefaults($i = 1)
 	{
-
-		$defaults	= (object)[];
-		switch ($step)
-		{
-			case 5:		$fields = ['conference', 'attendee', 'email', 'phone', 'first_name', 'last_name', 'company', 'title', 'tagitm', 'street', 'city', 'state', 'postal', 'referrals']; break;
-			case 4:		$fields = ['referrals']; break;
-			case 3:		$fields = ['street', 'city', 'state', 'postal']; break;
-			case 2:		$fields = ['first_name', 'last_name', 'company', 'title', 'tagitm']; break;
-			default:	$fields = ['conference', 'attendee', 'email', 'phone']; break;
-		}
-
-		foreach ($fields as $field)
-		{
-			$defaults->$field = \Session::get('registration.' . $field, \Input::old($field));
-		}
-
-		return $defaults;
+		return (object)[
+			'conference'	=> '',
+			'attendance'	=> '',
+			'email'			=> '',
+			'phone'			=> '',
+		];
 	}
 
 }

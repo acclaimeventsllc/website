@@ -30,19 +30,19 @@
 
 @section('content-02'){{-- PROGRESS BAR --}}
 @if ($step->step <= $step->max)
-			<div class="progressbar">
+			<ul class="progressbar">
 
 @if (is_array($step->titles))
 @foreach($step->titles as $i => $title)
 @if ($i <= $step->step)
-				<span class="active"><a href="/register/{{ $i }}" title="{{ $title }}">{{ $title }}</a></span>
-@else
-				<span>{{ $title }}</span>
+				<li class="active"><a href="/register/{{ $i }}" title="{{ $title }}">{{ $title }}</a></li>
+@elseif ($i <= $step->max)
+				<li>{{ $title }}</li>
 @endif
 @endforeach
 @endif
 
-			</div>
+			</ul>
 
 @endif
 @stop
@@ -69,25 +69,24 @@
 @endif
 @stop
 
-@section('content-05')
-@if ($step->step === 1){{-- BASIC INFORMATION --}}
+@section('content-05'){{-- BASIC INFORMATION --}}
 						<div class="form-group{{ $errors->has('conference') ? ' has-error' : '' }}">
 							{!! Form::label('conference', 'Choose a conference') !!}
 							{!! Form::select('conference', $step->events, $step->defaults->conference, ['class' => 'form-control']) !!}
 							{!! $errors->first('conference', '<p class="help-block">:message</p>') !!}
 						</div>
 
-						<div class="form-group{{ $errors->has('attendee') ? ' has-error' : '' }}">
-							{!! Form::label('attendee', 'Attendee type') !!}
-							{!! Form::select('attendee', $step->attendee,  $step->defaults->attendee, ['class' => 'form-control']) !!}
-							{!! $errors->first('attendee', '<p class="help-block">:message</p>') !!}
+						<div class="form-group{{ $errors->has('attendance') ? ' has-error' : '' }}">
+							{!! Form::label('attendance', 'Attendee type') !!}
+							{!! Form::select('attendance', $step->attendance,  $step->defaults->attendance, ['class' => 'form-control']) !!}
+							{!! $errors->first('attendance', '<p class="help-block">:message</p>') !!}
 						</div>
+
 						<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 							{!! Form::label('email', 'Email') !!}
 							{!! Form::email('email',  $step->defaults->email, ['class' => 'form-control', 'placeholder' => 'Your Email']) !!}
 							{!! $errors->first('email', '<p class="help-block">:message</p>') !!}
 						</div>
-
 
 						<div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
 							{!! Form::label('phone', 'Phone') !!}
@@ -95,12 +94,10 @@
 							{!! $errors->first('phone', '<p class="help-block">:message</p>') !!}
 						</div>
 
-@endif
 @stop
 
-@section('content-06')
-@if ($step->step === 2){{-- BADGE DETAILS --}}
-						<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+@section('content-06'){{-- BADGE DETAILS --}}
+{{--}}						<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 							{!! Form::label('first_name', 'First Name') !!}
 							{!! Form::text('first_name', $step->defaults->first_name, ['class' => 'form-control', 'required' => '']) !!}
 							{!! $errors->first('first_name', '<p class="help-block">:message</p>') !!}
@@ -129,13 +126,11 @@
 							{!! Form::label('tagitm', 'I am a TAGITM member') !!}
 							{!! $errors->first('tagitm', '<p class="help-block">:message</p>') !!}
 						</div>
-
-@endif
+{{--}}
 @stop
 
-@section('content-07')
-@if ($step->step === 3){{-- ATTENDEE ADDRESS --}}
-						<div class="form-group{{ $errors->has('street') ? ' has-error' : '' }}">
+@section('content-07'){{-- ATTENDEE ADDRESS --}}
+{{--}}						<div class="form-group{{ $errors->has('street') ? ' has-error' : '' }}">
 							{!! Form::label('street', 'Street') !!}
 							{!! Form::text('street', $step->defaults->street, ['class' => 'form-control', 'required' => '']) !!}
 							{!! $errors->first('street', '<p class="help-block">:message</p>') !!}
@@ -158,23 +153,20 @@
 							{!! Form::text('postal', $step->defaults->postal, ['class' => 'form-control', 'required' => '']) !!}
 							{!! $errors->first('postal', '<p class="help-block">:message</p>') !!}
 						</div>
-
-@endif
+{{--}}
 @stop
 
 @section('content-08'){{-- DIRECT REPORTS --}}
-@if ($step->step === 4)
-						<div class="form-group{{ $errors->has('referral') ? ' has-error' : '' }}">
+{{--}}						<div class="form-group{{ $errors->has('referral') ? ' has-error' : '' }}">
 							{!! Form::label('referral', 'Name, Title, Phone, Email') !!} <span>(optional)</span>
 							{!! Form::textarea('referral', $step->defaults->referrals, ['class' => 'form-control']) !!}
 							{!! $errors->first('referral', '<p class="help-block">:message</p>') !!}
 						</div>
-
-@endif
+{{--}}
 @stop
 
-@section('content-09')
-@if ($step->step === 5){{-- REGISTRATION CONFIRMATION --}}
+@section('content-09'){{-- REGISTRATION CONFIRMATION --}}{{--}}
+@if ($step->step === $step->max)
 						<div class="confirm-wrapper">
 
 							<h5>Conference Choices <a href="/register/1" title="Edit Step 1">Edit</a></h5>
@@ -240,10 +232,10 @@
 
 						</div>
 
-@endif
+@endif{{--}}
 @stop
 
-@section('content-10')
+@section('content-10'){{--}}
 @if ($step->step > $step->max)
 			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
@@ -275,7 +267,7 @@
 
 	</section>
 
-@endif
+@endif{{--}}
 @stop
 
 @section('content-15'){{-- CLOSE THE FORM AND SECTION --}}

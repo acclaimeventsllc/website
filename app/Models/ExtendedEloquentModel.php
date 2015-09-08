@@ -1,10 +1,13 @@
 <?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
 
 class ExtendedEloquentModel extends Model
 {
+
+	use softDeletes;
 
 	public function scopePublished($query)
 	{
@@ -28,6 +31,16 @@ class ExtendedEloquentModel extends Model
 	public function scopeUnactivated($query)
 	{
 		return $query->whereNull('activated');
+	}
+
+	public function scopeUpcomingEvents($query)
+	{
+		return $query->where('start_date', '>', Carbon::now());
+	}
+
+	public function scopePastEvents($query)
+	{
+		return $query->where('end_date', '<', Carbon::now());
 	}
 
 }

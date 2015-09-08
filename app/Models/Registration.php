@@ -7,13 +7,17 @@ class Registration extends ExtendedEloquentModel
 
 	//
 
+	protected $table = 'registrations';
+
 	protected $fillable = [
+		'conference',
+		'attendance',
+		'email',
+		'phone',
 		'first_name',
 		'last_name',
 		'title',
 		'company',
-		'email',
-		'phone',
 		'street',
 		'city',
 		'state',

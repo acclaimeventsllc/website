@@ -18,7 +18,7 @@
 				<div class="menu menu-main acclaim-box-black">
 					<ul>
 @foreach ($navs as $nav)
-						<li><a class=" menu-item @if (!empty($nav->class)){{ $nav->class }}@endif @if ('/'.$options->active === $nav->href || ($options->active === 'home' && $nav->href === '/'))menu-active @endif" href="{{ $nav->href }}" title="@if (!empty($nav->title)){{ $nav->title }}@else{{ $nav->content }} @endif">{{ $nav->content }}</a></li>
+						<li><a class=" menu-item @if (!empty($nav->styles)){{ $nav->styles }}@endif @if ('/'.$options->active === $nav->href || ($options->active === 'home' && $nav->href === '/'))menu-active @endif" href="{{ $nav->href }}" title="@if (!empty($nav->title)){{ $nav->title }}@else{{ $nav->content }} @endif">{{ $nav->content }}</a></li>
 @endforeach
 					</ul>
 				</div>

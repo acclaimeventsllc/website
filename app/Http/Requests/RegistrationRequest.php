@@ -50,9 +50,9 @@ class RegistrationRequest extends Request
 			default:
 				return [
 					'conference'	=> 'required',
-					'attendee'		=> 'required',
+					'attendance'	=> 'required',
 					'email'			=> 'required|email',
-					'phone'			=> 'required|phone:US',
+					'phone'			=> 'sometimes|phone:US',
 				];
 		}
 	}
