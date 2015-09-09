@@ -1,8 +1,7 @@
-<?php
-
-namespace App\Http\Requests;
+<?php namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use App\Models\Conference;
 
 class RegistrationRequest extends Request
 {
@@ -23,37 +22,30 @@ class RegistrationRequest extends Request
 	 */
 	public function rules()
 	{
-		$step	= (int)\Session::get('registration.step');
-		$step	= $step > 0 ? $step : 1;
-
-		switch ($step)
+		$conferences	= Conference::all();
+		$in				= 'in:';
+		foreach ($conferences as $i => $event)
 		{
-			case 5:
-			case 4:
-				return [
-					'referral'		=> 'string',
-				];
-			case 3:
-				return [
-					'street'		=> 'required|string|max:255',
-					'city'			=> 'required|string|max:255',
-					'state'			=> 'required|string|max:255',
-					'postal'		=> 'required|string|max:255',
-				];
-			case 2:
-				return [
-					'first_name'	=> 'required|string|max:255',
-					'last_name'		=> 'required|string|max:255',
-					'title'			=> 'required|string|max:255',
-					'company'		=> 'required|string|max:255',
-				];
-			default:
-				return [
-					'conference'	=> 'required',
-					'attendance'	=> 'required',
-					'email'			=> 'required|email',
-					'phone'			=> 'sometimes|phone:US',
-				];
+			$event = (object)$event->toArray();
+			$in .= ($i === 0 ? '' : ',') . $event->slug;
 		}
+
+		return [
+			'conference'		=> 'required|'.$in,
+			'attendance'		=> 'required|in:advisor,sponsor,attendee',
+			'email'				=> 'required|email',
+			'phone'				=> 'required|phone:US',
+			'first_name'		=> 'required|string|max:255',
+			'last_name'			=> 'required|string|max:255',
+			'title'				=> 'required|string|max:255',
+			'company'			=> 'required|string|max:255',
+			'affiliation'		=> 'in:tagitm',
+			'street'			=> 'required|string|max:255',
+			'city'				=> 'required|string|max:255',
+			'state'				=> 'required|in:AL,AK,AZ,AR,CA,CO,CT,DE,DC,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY',
+			'postal'			=> 'required|string|max:255',
+		];
 	}
+
+
 }

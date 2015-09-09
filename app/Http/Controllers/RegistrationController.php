@@ -16,8 +16,35 @@ class RegistrationController extends Controller
 {
 	//
 
-	protected $debug	= true;
+	protected $debug	= false;
 	protected $steps	= 5;
+	protected $fields	= [
+		'Basic Information'	=> [
+				'conference'		=> ['type' => 'select', 'label' => 'Choose a conference', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required'], 'list' => []],
+				'attendance'		=> ['type' => 'select', 'label' => 'Attendee type', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required'], 'list' => []],
+				'email'				=> ['type' => 'email', 'label' => 'Email', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'phone'				=> ['type' => 'text', 'label' => 'Phone', 'value' => '', 'attr' => ['class' => 'form-control']],
+			],
+		'Badge Details'		=> [
+				'first_name'		=> ['type' => 'text', 'label' => 'First Name', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'last_name'			=> ['type' => 'text', 'label' => 'Last Name', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'title'				=> ['type' => 'text', 'label' => 'Title', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'company'			=> ['type' => 'text', 'label' => 'Company', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'affiliation'		=> ['type' => 'select', 'label' => 'Affiliation', 'value' => '', 'attr' => ['class' => 'form-control'], 'list' => []],
+			],
+		'Address'			=> [
+				'street'			=> ['type' => 'text', 'label' => 'Street', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'city'				=> ['type' => 'text', 'label' => 'City', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'state'				=> ['type' => 'select', 'label' => 'State', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required'], 'list' => []],
+				'postal'			=> ['type' => 'text', 'label' => 'Postal Code', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+			],
+		'Direct Reports'	=> [
+				'referrals[name]'	=> ['type' => 'text', 'label' => 'Name', 'value' => '', 'attr' => ['class' => 'form-control']],
+				'referrals[email]'	=> ['type' => 'text', 'label' => 'Email', 'value' => '', 'attr' => ['class' => 'form-control']],
+				'referrals[phone]'	=> ['type' => 'text', 'label' => 'Phone', 'value' => '', 'attr' => ['class' => 'form-control']],
+				'referrals[title]'	=> ['type' => 'text', 'label' => 'Title', 'value' => '', 'attr' => ['class' => 'form-control']],
+			],
+	];
 
 	public function index()
 	{
@@ -25,48 +52,194 @@ class RegistrationController extends Controller
 		$options	= Helpers::options($route);
 		$navs		= Helpers::navigation($route, $options);
 		$sub		= Helpers::navigation($route, $options, true);
-		$i			= 1;
+		$fields 	= $this->getFields();
+
 		$step 		= (object)[
 			'debug'			=> $this->debug,
-			'step'			=> $i,
-			'max'			=> $this->steps,
-			'titles'		=> $this->getTitles($i),
-			'defaults'		=> $this->getDefaults($i),
+			'fields'		=> $this->fields,
 		];
 
-		if ($i === 1)
-		{
-			$step->events		= $this->getEvents($i);
-			$step->attendance	= $this->getAttendance($i);
-		}
+		$step->fields["Basic Information"]->conference->list	= $this->getEvents();
+		$step->fields["Basic Information"]->attendance->list	= $this->getAttendance();
+		$step->fields["Badge Details"]->affiliation->list		= $this->getAffiliations();
+		$step->fields["Address"]->state->list					= $this->getStates();
+
+		$step->fields["Basic Information"]->conference->value	= $this->getConference($route, $step->fields["Basic Information"]->conference->list);
 
 		return view('pages/register', compact('step', 'route', 'options', 'navs', 'sub'));
 	}
 
 	public function store(RegistrationRequest $request)
 	{
-		$post 		= $this->postValues();
-		$values		= $this->getValues();
-		if (!empty($values->email) && !empty($values->conference))
+		$contact = (object)[
+//			'to'		=> ['alex@acclaimeventsllc.com', 'Alex Kaneen'],
+			'to'		=> ['jeffm@acclaimeventsllc.com', 'Jeff Martin'],
+			'from'		=> [$request->get('email'), $request->get('first_name') . ' ' . $request->get('last_name')],
+			'subj'		=> 'Registration for '.ucwords($request->get['conference']),
+		];
+
+		$ref		= $request->get('referrals');
+		$referrals 	= [];
+		for ($i=0; $i<count($ref); $i++)
 		{
-			$stuff	= $values;
-			unset($stuff->_token);
-			dd((array)$stuff);
-			$update = Registration::where('conference', '=', $values->conference)
-								->where('email', '=', $values->email)
-								->take(1)
-								->update((array)$stuff);
-			if ($update === null || (int)$update <= 0)
-			{
-				$insert	= Registration::create($values);
-				dd($insert . ' In the DB');
-			} else {
-				dd($update . ' Updated DB');
-			}
+			$referrals[] = (object)[
+				'name'	=> $ref['name'],
+				'title'	=> $ref['title'],
+				'email'	=> $ref['email'],
+				'phone'	=> $ref['phone']
+			];
 		}
 
+		$mail = \Mail::send('emails/registration', [
+				'name'			=> $request->get('first_name') . ' ' . $request->get('last_name'),
+				'title'			=> $request->get('title'),
+				'company'		=> $request->get('company'),
+				'phone'			=> $request->get('phone'),
+				'address'		=> $request->get('street') . ', ' . $request->get('city') . ', ' . $request->get('state') . '  ' . $request->get('postal'),
+				'conference'	=> strtoupper($request->get('conference')),
+				'attendance'	=> $request->get('attendance'),
+				'affiliation'	=> $request->get('affiliation'),
+//				'referrals'		=> $referrals,
+				'refs'			=> $request->get('referrals'),
+			], function($message) use($contact)
+			{
+				$fromEmail	= $contact->from[0];
+				$fromName	= $contact->from[1];
+				$toEmail	= $contact->to[0];
+				$toName		= $contact->to[1];
+				$subject	= $contact->subj;
+
+				$message->from($fromEmail, $fromName);
+				$message->to($toEmail, $toName)->subject($subject);
+			});
+
+		dd($mail);
+
+		return back()->with('message', 'Registration complete!  We will be contact you within 2 business days.');
 	}
 
+	protected function getFields()
+	{
+		foreach ($this->fields as $group => $fields)
+		{
+			$this->fields[$group]	= (object)$fields;
+			foreach ($fields as $field => $info)
+			{
+				$this->fields[$group]->$field = (object)$info;
+			}
+		}
+		return $this->fields;
+	}
+
+	protected function getConference($route, $list)
+	{
+		if (count($route->params) > 0 && !empty($route->params['conference']))
+		{
+			if (isset($list[$route->params['conference']]))
+			{
+				return $route->params['conference'];
+			}
+		}
+		return '';
+	}
+
+	protected function getEvents()
+	{
+		$events = ['' => 'Select one...'];
+		$conferences	= Conference::where('start_date', '>', Carbon::now())->get();
+		$conferences 	= Helpers::keysByField($conferences, 'slug');
+
+		foreach ($conferences as $slug => $event)
+		{
+			$events[$slug]	= $event->city . ', ' . $event->state . ' | ';
+			$time			= $event->start_date . (!empty($event->timezone) ? $event->timezone : '');
+			if (!empty($event->coming))
+			{
+				$events[$slug] .= date('F Y', strtotime($time));
+			} else {
+				$events[$slug] .= date('F j, Y', strtotime($time));
+			}
+		}
+		return $events;
+	}
+
+	protected function getAttendance()
+	{
+		return [
+				''			=> 'Select one...',
+				'advisor'	=> 'National Advisory Board',
+				'sponsor'	=> 'Conference Sponsor',
+				'attendee'	=> 'Conference Attendee',
+			];
+	}
+
+	protected function getAffiliations()
+	{
+		return [
+				'' => 'Select one (optional)',
+				'tagitm'	=> 'TAGITM',
+			];
+	}
+
+	protected function getStates()
+	{
+		return [
+            '' => 'Select one...',
+            'AL' => 'Alabama',
+            'AK' => 'Alaska',
+            'AZ' => 'Arizona',
+            'AR' => 'Arkansas',
+            'CA' => 'California',
+            'CO' => 'Colorado',
+            'CT' => 'Connecticut',
+            'DE' => 'Delaware',
+            'DC' => 'District of Columbia',
+            'FL' => 'Florida',
+            'GA' => 'Georgia',
+            'HI' => 'Hawaii',
+            'ID' => 'Idaho',
+            'IL' => 'Illinois',
+            'IN' => 'Indiana',
+            'IA' => 'Iowa',
+            'KS' => 'Kansas',
+            'KY' => 'Kentucky',
+            'LA' => 'Louisiana',
+            'ME' => 'Maine',
+            'MD' => 'Maryland',
+            'MA' => 'Massachusetts',
+            'MI' => 'Michigan',
+            'MN' => 'Minnesota',
+            'MS' => 'Mississippi',
+            'MO' => 'Missouri',
+            'MT' => 'Montana',
+            'NE' => 'Nebraska',
+            'NV' => 'Nevada',
+            'NH' => 'New Hampshire',
+            'NJ' => 'New Jersey',
+            'NM' => 'New Mexico',
+            'NY' => 'New York',
+            'NC' => 'North Carolina',
+            'ND' => 'North Dakota',
+            'OH' => 'Ohio',
+            'OK' => 'Oklahoma',
+            'OR' => 'Oregon',
+            'PA' => 'Pennsylvania',
+            'RI' => 'Rhode Island',
+            'SC' => 'South Carolina',
+            'SD' => 'South Dakota',
+            'TN' => 'Tennessee',
+            'TX' => 'Texas',
+            'UT' => 'Utah',
+            'VT' => 'Vermont',
+            'VA' => 'Virginia',
+            'WA' => 'Washington',
+            'WV' => 'West Virginia',
+            'WI' => 'Wisconsin',
+            'WY' => 'Wyoming'
+        ];
+	}
+
+/*
 	protected function postValues()
 	{
 		foreach ($_POST as $k => $v)
@@ -121,60 +294,6 @@ class RegistrationController extends Controller
 							->first();
 		return $db;
 	}
-
-	protected function getTitles($i = 1)
-	{
-		return [
-			1 => 'Basic Information',
-			2 => 'Badge Details',
-			3 => 'Attendee Address',
-			4 => 'Direct Reports',
-			5 => 'Confirmation',
-			6 => 'Registration Confirmed',
-		];
-	}
-
-	protected function getStep($values) {
-		foreach ($values as $key => $value)
-		{
-
-		}
-	}
-
-	protected function getEvents($i = 1)
-	{
-		$events = [' ' => 'Select one...'];
-		if ($i === 1)
-		{
-			$conferences	= Conference::where('start_date', '>', Carbon::now())->get();
-			$conferences 	= Helpers::keysByField($conferences, 'slug');
-
-			foreach ($conferences as $slug => $event)
-			{
-				$events[$slug]	= $event->city . ', ' . $event->state . ' | ' . date('F j, Y', strtotime($event->start_date . (!empty( $event->timezone) ? ' ' . $event->timezone : '')));
-			}
-		}
-		return $events;
-	}
-
-	protected function getAttendance($i = 1)
-	{
-		return [
-			''			=> 'Select one...',
-			'advisor'	=> 'National Advisory Board',
-			'sponsor'	=> 'Conference Sponsor',
-			'attendee'	=> 'Conference Attendee',
-		];
-	}
-
-	protected function getDefaults($i = 1)
-	{
-		return (object)[
-			'conference'	=> '',
-			'attendance'	=> '',
-			'email'			=> '',
-			'phone'			=> '',
-		];
-	}
+*/
 
 }

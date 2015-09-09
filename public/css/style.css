@@ -14,7 +14,7 @@ p { padding: .75em 0; }
 **  SECTIONS
 ***************************************************/
 header { padding-top: 7.6em; }
-section { padding: 4em; background-color: white; }
+section { padding: 4em 0; background-color: white; }
 .section-title { padding-bottom: 4em; }
 .section-title h2 { color: black; }
 .section-title .border { display: block; margin: auto; width: 120px; border-bottom: 2px solid black; }

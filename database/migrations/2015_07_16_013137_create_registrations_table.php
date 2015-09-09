@@ -38,7 +38,7 @@ class CreateRegistrationsTable extends Migration {
 
 		Registration::create([
 				'conference'	=> 'austin',
-				'attendee'		=> 'attendee',
+				'attendance'	=> 'attendee',
 				'email'			=> 'jeff@spartanmartin.com',
 				'phone'			=> '9715061908',
 				'first_name'	=> 'Jeff',
@@ -49,9 +49,7 @@ class CreateRegistrationsTable extends Migration {
 				'city'			=> 'Beaverton',
 				'state'			=> 'OR',
 				'postal'		=> '97003',
-				'referral'		=> null,
-
-
+				'referrals'		=> null,
 			]);
 
 	}

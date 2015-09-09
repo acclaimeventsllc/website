@@ -102,7 +102,7 @@
 			{!! $event->about !!}
 			<div class="col-sm-6 col-sm-offset-3">
 
-				<a class="register btn btn-lg btn-primary" href="{{ route('contact') }}">Register Now!</a>
+				<a class="register btn btn-lg btn-primary" href="/register/{{ $event->slug }}">Register Now!</a>
 
 			</div>
 
@@ -205,7 +205,7 @@
 
 			<div class="col-sm-6 col-sm-offset-3">
 
-				<a class="register btn btn-lg btn-primary" href="{{ route('contact') }}">Register Now!</a>
+				<a class="register btn btn-lg btn-primary" href="/register/{{ $event->slug }}">Register Now!</a>
 
 			</div>
 

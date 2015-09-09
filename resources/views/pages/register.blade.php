@@ -5,7 +5,7 @@
 @stop
 
 @section('jsbot')
-	<script id="jquery-register" src="/js/jquery-registers.js"></script>@if ($step->step === 3)
+	<script id="jquery-register" src="/js/jquery-register.js"></script>
 	<script id="jquery-smartystreets" src="//d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/2.8/jquery.liveaddress.min.js"></script>
 	<script>
 		jQuery.LiveAddress({
@@ -13,7 +13,7 @@
 			autocomplete: 5,
 			autoVerify: false
 		});
-	</script>@endif
+	</script>
 @stop
 
 @section('content-01'){{-- OPEN THE SECTION --}}
@@ -28,48 +28,97 @@
 
 @stop
 
-@section('content-02'){{-- PROGRESS BAR --}}
-@if ($step->step <= $step->max)
-			<ul class="progressbar">
+@section('content-02'){{-- REGISTRATION FORM --}}
+@if (is_array($step->fields))<?php $i = 0; ?>
+@if (isset($step->debug) && $step->debug === true)
+			<pre>{!! print_r(\Session::all(), 1) !!}</pre>
 
-@if (is_array($step->titles))
-@foreach($step->titles as $i => $title)
-@if ($i <= $step->step)
-				<li class="active"><a href="/register/{{ $i }}" title="{{ $title }}">{{ $title }}</a></li>
-@elseif ($i <= $step->max)
-				<li>{{ $title }}</li>
 @endif
+			{!! Form::open(['url' => '/register']) !!}
+
+@if (Session::has('message'))
+				<div class="alert alert-success">
+					{{ Session::get('message') }}
+				</div>
+@endif
+
+@foreach ($step->fields as $group => $fields)@if ($i % 2 > 0)
+				<div class="row">
+@endif
+					<div class="register col-sm-6">
+
+						<fieldset>
+
+							<legend>{!! $group !!}</legend>
+
+@foreach ($fields as $field => $info)
+							<div class="form-group{{ $errors->has($field) ? ' has-error' : '' }}">@if ($info->type === 'checkbox')
+								{!! Form::checkbox() !!}@endif
+								{!! Form::label($field, $info->label) !!}@if ($info->type === 'text')
+								{!! Form::text($field, $info->value, $info->attr) !!}@elseif ($info->type === 'textarea')
+								{!! Form::textarea($field, $info->value, $info->attr) !!}@elseif ($info->type === 'email')
+								{!! Form::email($field, $info->value, $info->attr) !!}@elseif ($info->type === 'select')
+								{!! Form::select($field, $info->list, $info->value, $info->attr) !!}@elseif ($info->type === 'radio')
+								{!! Form::radio($field, $info->value, $info->attr) !!}@endif
+								{!! $errors->first($field, '<p class="help-block">:message</p>') !!}
+							</div>
+
 @endforeach
-@endif
+						</fieldset>
 
-			</ul>
+					</div>@if($i % 2 > 0)
+
+				</div>@endif<?php $i++; ?>
+
+@endforeach
+				<div class="row">
+
+					<div class="register submit col-sm-6 col-sm-offset-6">
+
+						<div class="form-group">
+							{!! Form::submit('Send Registration!', ['class' => 'btn btn-primary form-control']) !!}
+						</div>
+
+					</div>
+
+				</div>
+
+			{!! Form::close() !!}
 
 @endif
 @stop
 
-@section('content-03'){{-- DEBUGGING --}}
+@section('content-03'){{-- CLOSE THE SECTION --}}
+
+		</div>
+
+	</section>
+
+@stop
+
+@section('content-10003'){{-- DEBUGGING --}}{{--}}
 @if ($step->debug === true)
 			<pre class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 				{!! print_r(\Session::all(), 1) !!}
 			</pre>
 
-@endif
+@endif{{--}}
 @stop
 
-@section('content-04'){{-- OPEN FORM --}}
+@section('content-04'){{-- OPEN FORM --}}{{--}}
 @if ($step->step <= $step->max)
 			{!! Form::open(['url' => '/register/{{ $step->step }}']) !!}
 
-				<div class="register col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-
-					<fieldset class="step-{{ $step->step }}">
-
-						<legend> {{ $step->titles[$step->step] }}</legend>
-
-@endif
+@endif{{--}}
 @stop
 
-@section('content-05'){{-- BASIC INFORMATION --}}
+@section('content-05'){{-- BASIC INFORMATION --}}{{--}}
+				<div class="register col-sm-6">
+
+					<fieldset class="step-1">
+
+						<legend> {{ $step->titles[1] }}</legend>
+
 						<div class="form-group{{ $errors->has('conference') ? ' has-error' : '' }}">
 							{!! Form::label('conference', 'Choose a conference') !!}
 							{!! Form::select('conference', $step->events, $step->defaults->conference, ['class' => 'form-control']) !!}
@@ -94,10 +143,20 @@
 							{!! $errors->first('phone', '<p class="help-block">:message</p>') !!}
 						</div>
 
+					</fieldset>
+
+				</div>
+{{--}}
 @stop
 
-@section('content-06'){{-- BADGE DETAILS --}}
-{{--}}						<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+@section('content-06'){{-- BADGE DETAILS --}}{{--}}
+				<div class="register col-sm-6">
+
+					<fieldset class="step-2">
+
+						<legend> {{ $step->titles[2] }}</legend>
+
+						<div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
 							{!! Form::label('first_name', 'First Name') !!}
 							{!! Form::text('first_name', $step->defaults->first_name, ['class' => 'form-control', 'required' => '']) !!}
 							{!! $errors->first('first_name', '<p class="help-block">:message</p>') !!}
@@ -126,11 +185,21 @@
 							{!! Form::label('tagitm', 'I am a TAGITM member') !!}
 							{!! $errors->first('tagitm', '<p class="help-block">:message</p>') !!}
 						</div>
+
+					</fieldset>
+
+				</div>
 {{--}}
 @stop
 
-@section('content-07'){{-- ATTENDEE ADDRESS --}}
-{{--}}						<div class="form-group{{ $errors->has('street') ? ' has-error' : '' }}">
+@section('content-07'){{-- ATTENDEE ADDRESS --}}{{--}}
+				<div class="register col-sm-6">
+
+					<fieldset class="step-2">
+
+						<legend> {{ $step->titles[2] }}</legend>
+
+						<div class="form-group{{ $errors->has('street') ? ' has-error' : '' }}">
 							{!! Form::label('street', 'Street') !!}
 							{!! Form::text('street', $step->defaults->street, ['class' => 'form-control', 'required' => '']) !!}
 							{!! $errors->first('street', '<p class="help-block">:message</p>') !!}
@@ -153,15 +222,29 @@
 							{!! Form::text('postal', $step->defaults->postal, ['class' => 'form-control', 'required' => '']) !!}
 							{!! $errors->first('postal', '<p class="help-block">:message</p>') !!}
 						</div>
+
+					</fieldset>
+
+				</div>
 {{--}}
 @stop
 
-@section('content-08'){{-- DIRECT REPORTS --}}
-{{--}}						<div class="form-group{{ $errors->has('referral') ? ' has-error' : '' }}">
+@section('content-08'){{-- DIRECT REPORTS --}}{{--}}
+				<div class="register col-sm-6">
+
+					<fieldset class="step-2">
+
+						<legend> {{ $step->titles[2] }}</legend>
+
+						<div class="form-group{{ $errors->has('referral') ? ' has-error' : '' }}">
 							{!! Form::label('referral', 'Name, Title, Phone, Email') !!} <span>(optional)</span>
 							{!! Form::textarea('referral', $step->defaults->referrals, ['class' => 'form-control']) !!}
 							{!! $errors->first('referral', '<p class="help-block">:message</p>') !!}
 						</div>
+
+					</fieldset>
+
+				</div>
 {{--}}
 @stop
 
@@ -270,7 +353,7 @@
 @endif{{--}}
 @stop
 
-@section('content-15'){{-- CLOSE THE FORM AND SECTION --}}
+@section('content-15'){{-- CLOSE THE FORM AND SECTION --}}{{--}}
 @if ($step->step <= $step->max)
 						<div class="form-group">
 							{!! Form::label('', '') !!}
@@ -291,6 +374,6 @@
 
 	</section>
 
-@endif
+@endif{{--}}
 @stop
 
