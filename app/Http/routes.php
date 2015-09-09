@@ -41,15 +41,8 @@ Route::get('contact/{contact?}', ['as' => 'contact', 'uses' => 'ContactControlle
 Route::post('contact/{contact?}', ['as' => 'contact_store', 'uses' => 'ContactController@store']);
 
 
-/*
-Route::get('register/{step?}', 'RegistrationController@index');
-Route::post('register/{step?}', 'RegistrationController@store');
-
-Route::get('migrate/refresh', 'MigrationController@refresh');
-Route::get('migrate/rollback', 'MigrationController@rollback');
-Route::get('migrate/seed', 'MigrationController@seed');
-Route::get('migrate', 'MigrationController@migrate');
-*/
+Route::get('register/{conference?}', 'RegistrationController@index');
+Route::post('register/{conference?}', 'RegistrationController@store');
 
 Route::get('{conference?}', 'ConferencesController@index');
 

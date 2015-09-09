@@ -102,7 +102,7 @@
 			{!! $event->about !!}
 			<div class="col-sm-6 col-sm-offset-3">
 
-				<a class="register btn btn-lg btn-primary" href="{{ route('contact') }}">Register Now!</a>
+				<a class="register btn btn-lg btn-primary" href="/register/{{ $event->slug }}">Register Now!</a>
 
 			</div>
 
@@ -205,7 +205,7 @@
 
 			<div class="col-sm-6 col-sm-offset-3">
 
-				<a class="register btn btn-lg btn-primary" href="{{ route('contact') }}">Register Now!</a>
+				<a class="register btn btn-lg btn-primary" href="/register/{{ $event->slug }}">Register Now!</a>
 
 			</div>
 
@@ -290,7 +290,6 @@ $session	= $agendas[$date][$time][$slot];
 @if ((bool)$options->sponsors === true && isset($sponsors) && is_object($sponsors))
 			<div class="sponsors row">
 
-@endif
 @if ((bool)$options->sponsorlevels === true)
 @foreach ($sponsors as $level => $companies)
 				<div class="section-title">
@@ -309,7 +308,6 @@ $session	= $agendas[$date][$time][$slot];
 
 @endforeach
 @endif
-@if ((bool)$options->sponsors === true && isset($sponsors) && is_object($sponsors))
 			</div>
 
 @endif

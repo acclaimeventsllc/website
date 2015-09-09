@@ -86,7 +86,7 @@ class CreateAgendasTable extends Migration {
 				'type'			=> 'breakout',
 				'title'			=> 'Application Modernization',
 				'title_short'	=> 'Application Modernization',
-				'speakers'		=> Helpers::serialize(['panelist' => ['cook-dana', 'waldo-jay', 'rios-george']]),
+				'speakers'		=> Helpers::serialize(['moderator' => ['selissen-ahn'], 'panelist' => ['cook-dana', 'waldo-jay', 'rios-george']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
 
@@ -106,6 +106,7 @@ class CreateAgendasTable extends Migration {
 				'type'			=> 'session',
 				'title'			=> 'Business Continuity Disaster Recovery',
 				'title_short'	=> 'Business Continuity Disaster Recovery',
+				'desc'			=> 'Having an established business continuity and disaster recovery plan can help an organization to continue business and mitigate losses during catastrophic failures, cyber-attacks and malware infections, natural disasters and other critical emergencies. Join our panel of experts as they discuss some of the strategies and protocols that they have implemented within their organizations to help protect their companies in the event that an emergency strikes.',
 				'speakers'		=> Helpers::serialize(['panelist' => ['fernandes-andrew']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);

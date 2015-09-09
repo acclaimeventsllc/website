@@ -4,9 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Conference extends ExtendedEloquentModel
 {
-
 	//
-
 	protected $fillable = [
 		'slug',
 		'conference',

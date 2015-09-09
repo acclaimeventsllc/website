@@ -16,158 +16,278 @@ class RegistrationController extends Controller
 {
 	//
 
-	protected $debug	= true;
+	protected $debug	= false;
 	protected $steps	= 5;
-	protected $titles	= [
-			1 => 'Basic Information',
-			2 => 'Badge Details',
-			3 => 'Attendee Address',
-			4 => 'Direct Reports',
-			5 => 'Confirmation',
-			6 => 'Registration Confirmed',
-		];
+	protected $fields	= [
+		'Basic Information'	=> [
+				'conference'		=> ['type' => 'select', 'label' => 'Choose a conference', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required'], 'list' => []],
+				'attendance'		=> ['type' => 'select', 'label' => 'Attendee type', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required'], 'list' => []],
+				'email'				=> ['type' => 'email', 'label' => 'Email', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'phone'				=> ['type' => 'text', 'label' => 'Phone', 'value' => '', 'attr' => ['class' => 'form-control']],
+			],
+		'Badge Details'		=> [
+				'first_name'		=> ['type' => 'text', 'label' => 'First Name', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'last_name'			=> ['type' => 'text', 'label' => 'Last Name', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'title'				=> ['type' => 'text', 'label' => 'Title', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'company'			=> ['type' => 'text', 'label' => 'Company', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'affiliation'		=> ['type' => 'select', 'label' => 'Affiliation', 'value' => '', 'attr' => ['class' => 'form-control'], 'list' => []],
+			],
+		'Address'			=> [
+				'street'			=> ['type' => 'text', 'label' => 'Street', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'city'				=> ['type' => 'text', 'label' => 'City', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+				'state'				=> ['type' => 'select', 'label' => 'State', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required'], 'list' => []],
+				'postal'			=> ['type' => 'text', 'label' => 'Postal Code', 'value' => '', 'attr' => ['class' => 'form-control', 'required' => 'required']],
+			],
+		'Direct Reports'	=> [
+				'referrals[name]'	=> ['type' => 'text', 'label' => 'Name', 'value' => '', 'attr' => ['class' => 'form-control']],
+				'referrals[email]'	=> ['type' => 'text', 'label' => 'Email', 'value' => '', 'attr' => ['class' => 'form-control']],
+				'referrals[phone]'	=> ['type' => 'text', 'label' => 'Phone', 'value' => '', 'attr' => ['class' => 'form-control']],
+				'referrals[title]'	=> ['type' => 'text', 'label' => 'Title', 'value' => '', 'attr' => ['class' => 'form-control']],
+			],
+	];
 
 	public function index()
 	{
-		$route				= Helpers::routeinfo();
-		$options			= Helpers::options($route);
-		$navs				= Helpers::navigation($route, $options);
-		$sub				= Helpers::navigation($route, $options, true);
+		$route		= Helpers::routeinfo();
+		$options	= Helpers::options($route);
+		$navs		= Helpers::navigation($route, $options);
+		$sub		= Helpers::navigation($route, $options, true);
+		$fields 	= $this->getFields();
 
-		list($i, $method)	= $this->getStep();
-		$step				= $this->step($i);
+		$step 		= (object)[
+			'debug'			=> $this->debug,
+			'fields'		=> $this->fields,
+		];
+
+		$step->fields["Basic Information"]->conference->list	= $this->getEvents();
+		$step->fields["Basic Information"]->attendance->list	= $this->getAttendance();
+		$step->fields["Badge Details"]->affiliation->list		= $this->getAffiliations();
+		$step->fields["Address"]->state->list					= $this->getStates();
+
+		$step->fields["Basic Information"]->conference->value	= $this->getConference($route, $step->fields["Basic Information"]->conference->list);
 
 		return view('pages/register', compact('step', 'route', 'options', 'navs', 'sub'));
 	}
 
 	public function store(RegistrationRequest $request)
 	{
-		list($step, $method) = $this->getStep();
-
-		$step = $step + 1;
-
-		\Session::put('registration.step', $step);
-
-		foreach ($_POST as $key => $value)
-		{
-			if ($key !== '_token') {
-				\Session::put('registration.' . $key, $value);
-			}
-		}
-
-//		dd(\Session::all());
-		return redirect('/register');
-	}
-
-	protected function getStep()
-	{
-		$route 		= Helpers::routeinfo();
-		$method		= 'none';
-
-		if (count($route->params) === 1) {
-			if ($route->params['step'] === 'confirmed')
-			{
-				$step = 6;
-				$method = 'confirmed';
-			} else {
-				$step	= (int)$route->params['step'];
-				$method	= 'route';
-			}
-		}
-
-		if (empty($step)) {
-			$step 	= \Session::get('registration.step');
-			$step	= (int)$step;
-			$method	= 'session';
-		}
-
-		if ($step <= 0)
-		{
-			$step	= 1;
-			$method	= 'defaultvalue';
-		}
-
-		return [(int)$step, $method];
-	}
-
-	protected function step($step = 1)
-	{
-		$steps	= (object)[
-			'debug'		=> $this->debug,
-			'step'		=> $step,
-			'max'		=> $this->steps,
-			'titles'	=> $this->titles,
-			'defaults'	=> $this->defaults($step),
+		$contact = (object)[
+			'to'		=> ['alex@acclaimeventsllc.com', 'Alex Kaneen'],
+//			'to'		=> ['bob@acclaimeventsllc.com', 'Bob Fritz'],
+//			'to'		=> ['jeffm@acclaimeventsllc.com', 'Jeff Martin'],
+			'from'		=> [strtolower($request->get('email')), ucwords($request->get('first_name') . ' ' . $request->get('last_name'))],
+			'subj'		=> 'Registration for '.ucwords(preg_replace("/\_\-/", " ", $request->get('conference'))),
 		];
 
-		$conferences	= ['' => 'Select...'];
-		$attendee		= [];
+		$referrals = (object)$request->get('referrals');
+		$referrals->name	= ucwords($referrals->name);
+		$referrals->title	= strtoupper($referrals->title);
+		$referrals->email	= strtolower($referrals->email);
 
-		if ($step === 1 || $step >= $this->steps)
-		{
-				$events			= Conference::where('end_date', '>=', \Carbon\Carbon::now())
-											->published()
-											->orderBy('start_date')
-											->get();
+		$compact = [
+			'name'			=> ucwords($request->get('first_name') . ' ' . $request->get('last_name')),
+			'title'			=> ucwords($request->get('title')),
+			'email'			=> strtolower($request->get('email')),
+			'phone'			=> $request->get('phone'),
+			'company'		=> ucwords($request->get('company')),
+			'address'		=> strtoupper($request->get('street') . ', ' . $request->get('city') . ', ' . $request->get('state') . '  ' . $request->get('postal')),
+			'conference'	=> strtoupper(preg_replace("/\-\_/", " ", $request->get('conference'))),
+			'attendance'	=> strtoupper($request->get('attendance')),
+			'affiliation'	=> strtoupper($request->get('affiliation')),
+			'referrals'		=> $referrals,
+		];
 
-				if (is_object($events))
-				{
-					foreach ($events as $event)
-					{
-						$event = (object)$event->toArray();
-						$conferences[$event->slug] = $event->city . ', ' . $event->state . ' ' . ($step === 1 ? '| ' . ((bool)$event->coming === true ? date('F Y', strtotime($event->start_date)) : date('F j, Y', strtotime($event->start_date))) : date('Y', strtotime($event->start_date)));
-					}
-				}
+		$mail = \Mail::send('emails/registration', $compact, function($message) use($contact)
+			{
+				$fromEmail	= $contact->from[0];
+				$fromName	= $contact->from[1];
+				$toEmail	= $contact->to[0];
+				$toName		= $contact->to[1];
+				$subject	= $contact->subj;
 
-				$attendee		= [
-					''			=> 'Select...',
-					'advisor'	=> 'National Advisory Board',
-					'sponsor'	=> 'Sponsor',
-					'attendee'	=> 'Conference Attendee',
-				];
-		}
+				$message->from($fromEmail, $fromName);
+				$message->to($toEmail, $toName)->subject($subject);
+			});
 
-		switch ($step)
-		{
-			case 5:
-				$steps->events		= (array)$conferences;
-				$steps->attendee	= (array)$attendee;
-				break;
-			case 4:
-				break;
-			case 3:
-				break;
-			case 2:
-				break;
-			default:
-
-				$steps->events		= (array)$conferences;
-				$steps->attendee	= (array)$attendee;
-				break;
-		}
-
-		return $steps;
+		return back()->with('message', 'Registration complete!  We will be contact you within 2 business days.');
 	}
 
-	protected function defaults($step)
+	protected function getFields()
 	{
-
-		$defaults	= (object)[];
-		switch ($step)
+		foreach ($this->fields as $group => $fields)
 		{
-			case 5:		$fields = ['conference', 'attendee', 'email', 'phone', 'first_name', 'last_name', 'company', 'title', 'tagitm', 'street', 'city', 'state', 'postal', 'referrals']; break;
-			case 4:		$fields = ['referrals']; break;
-			case 3:		$fields = ['street', 'city', 'state', 'postal']; break;
-			case 2:		$fields = ['first_name', 'last_name', 'company', 'title', 'tagitm']; break;
-			default:	$fields = ['conference', 'attendee', 'email', 'phone']; break;
+			$this->fields[$group]	= (object)$fields;
+			foreach ($fields as $field => $info)
+			{
+				$this->fields[$group]->$field = (object)$info;
+			}
 		}
-
-		foreach ($fields as $field)
-		{
-			$defaults->$field = \Session::get('registration.' . $field, \Input::old($field));
-		}
-
-		return $defaults;
+		return $this->fields;
 	}
+
+	protected function getConference($route, $list)
+	{
+		if (count($route->params) > 0 && !empty($route->params['conference']))
+		{
+			if (isset($list[$route->params['conference']]))
+			{
+				return $route->params['conference'];
+			}
+		}
+		return '';
+	}
+
+	protected function getEvents()
+	{
+		$events = ['' => 'Select one...'];
+		$conferences	= Conference::where('start_date', '>', Carbon::now())->get();
+		$conferences 	= Helpers::keysByField($conferences, 'slug');
+
+		foreach ($conferences as $slug => $event)
+		{
+			$events[$slug]	= $event->city . ', ' . $event->state . ' | ';
+			$time			= $event->start_date . (!empty($event->timezone) ? $event->timezone : '');
+			if (!empty($event->coming))
+			{
+				$events[$slug] .= date('F Y', strtotime($time));
+			} else {
+				$events[$slug] .= date('F j, Y', strtotime($time));
+			}
+		}
+		return $events;
+	}
+
+	protected function getAttendance()
+	{
+		return [
+				''			=> 'Select one...',
+				'advisor'	=> 'National Advisory Board',
+				'sponsor'	=> 'Conference Sponsor',
+				'attendee'	=> 'Conference Attendee',
+			];
+	}
+
+	protected function getAffiliations()
+	{
+		return [
+				'' => 'Select one (optional)',
+				'tagitm'	=> 'TAGITM',
+			];
+	}
+
+	protected function getStates()
+	{
+		return [
+            '' => 'Select one...',
+            'AL' => 'Alabama',
+            'AK' => 'Alaska',
+            'AZ' => 'Arizona',
+            'AR' => 'Arkansas',
+            'CA' => 'California',
+            'CO' => 'Colorado',
+            'CT' => 'Connecticut',
+            'DE' => 'Delaware',
+            'DC' => 'District of Columbia',
+            'FL' => 'Florida',
+            'GA' => 'Georgia',
+            'HI' => 'Hawaii',
+            'ID' => 'Idaho',
+            'IL' => 'Illinois',
+            'IN' => 'Indiana',
+            'IA' => 'Iowa',
+            'KS' => 'Kansas',
+            'KY' => 'Kentucky',
+            'LA' => 'Louisiana',
+            'ME' => 'Maine',
+            'MD' => 'Maryland',
+            'MA' => 'Massachusetts',
+            'MI' => 'Michigan',
+            'MN' => 'Minnesota',
+            'MS' => 'Mississippi',
+            'MO' => 'Missouri',
+            'MT' => 'Montana',
+            'NE' => 'Nebraska',
+            'NV' => 'Nevada',
+            'NH' => 'New Hampshire',
+            'NJ' => 'New Jersey',
+            'NM' => 'New Mexico',
+            'NY' => 'New York',
+            'NC' => 'North Carolina',
+            'ND' => 'North Dakota',
+            'OH' => 'Ohio',
+            'OK' => 'Oklahoma',
+            'OR' => 'Oregon',
+            'PA' => 'Pennsylvania',
+            'RI' => 'Rhode Island',
+            'SC' => 'South Carolina',
+            'SD' => 'South Dakota',
+            'TN' => 'Tennessee',
+            'TX' => 'Texas',
+            'UT' => 'Utah',
+            'VT' => 'Vermont',
+            'VA' => 'Virginia',
+            'WA' => 'Washington',
+            'WV' => 'West Virginia',
+            'WI' => 'Wisconsin',
+            'WY' => 'Wyoming'
+        ];
+	}
+
+/*
+	protected function postValues()
+	{
+		foreach ($_POST as $k => $v)
+		{
+			if ($k !== '_token')
+			{
+				\Session::put('registration.' . $k, $v);
+			}
+		}
+		return $_POST;
+	}
+
+	protected function getValues()
+	{
+		$input		= $this->getInput();
+		$session	= $this->getSession();
+		$values		= [];
+
+		if (is_array($input))
+		{
+			foreach ($input as $k => $v)
+			{
+				$values[$k] = $v;
+			}
+		}
+
+		if (is_array($session))
+		{
+			foreach ($session as $k => $v)
+			{
+				$values[$k] = $v;
+			}
+		}
+
+		return (object)$values;
+	}
+
+	protected function getSession()
+	{
+		return \Session::get('registration');
+	}
+
+	protected function getInput()
+	{
+		return \Input::all();
+	}
+
+	protected function getDB($email = 'EMAIL', $conference = 'CONFERENCE')
+	{
+		$db	= Registrations::where('email', '=', strtolower($email))
+							->where('conference', '=', strtolower($conference))
+							->first();
+		return $db;
+	}
+*/
 
 }
