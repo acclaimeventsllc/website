@@ -210,7 +210,8 @@ class ConferencesController extends Controller
 										}
 									}
 								})
-								->where('published', '>', '0000-00-00 00:00:00')
+								->whereNotNull('photo')
+								->published()
 								->orderBy('company')
 								->get();
 			$sponsors		= Helpers::keysByField($sponsors, 'slug');
