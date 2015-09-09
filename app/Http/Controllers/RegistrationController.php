@@ -73,6 +73,7 @@ class RegistrationController extends Controller
 	{
 		$contact = (object)[
 			'to'		=> ['alex@acclaimeventsllc.com', 'Alex Kaneen'],
+//			'to'		=> ['bob@acclaimeventsllc.com', 'Bob Fritz'],
 //			'to'		=> ['jeffm@acclaimeventsllc.com', 'Jeff Martin'],
 			'from'		=> [strtolower($request->get('email')), ucwords($request->get('first_name') . ' ' . $request->get('last_name'))],
 			'subj'		=> 'Registration for '.ucwords(preg_replace("/\_\-/", " ", $request->get('conference'))),
