@@ -462,7 +462,7 @@ class CreateSpeakersTable extends Migration {
 				'bio'			=> '<p>A seasoned technologist with more than 20 years experience, with a comprehensive background in developing Business/Technology solutions in the areas of Information Security, Risk Management, Benchmarking, Compliance, and Business Continuity/Disaster Recovery Planning.</p>
 					<p>Mr. Yoder has a proven record of identifying and solving highly technical business technology challenges, developing secure architectures currently in place by multiple fortune 500 organizations, and working with Federal and International clients. He served as a principal on both the largest cyber-security and largest wireless projects in industry history.<p>
 					<p>An engaging speaker, Mr. Yoder has served as a guest speaker for organizations such as The American Petroleum Institute, The Axiom Lab for Applied Research, NATO, and at American and Foreign Universities.</p>
-					<p>Additionally, Mr. Yoder has written Information Security Management Systems (ISMSs) based upon ISO standards, and performed compliance benchmarking and strategy for Fortune 50 organizations.</p>'
+					<p>Additionally, Mr. Yoder has written Information Security Management Systems (ISMSs) based upon ISO standards, and performed compliance benchmarking and strategy for Fortune 50 organizations.</p>',
 				'photo'			=> '/images/speakers/yoder-marc.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
