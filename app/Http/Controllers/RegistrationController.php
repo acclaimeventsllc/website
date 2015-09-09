@@ -72,36 +72,31 @@ class RegistrationController extends Controller
 	public function store(RegistrationRequest $request)
 	{
 		$contact = (object)[
-//			'to'		=> ['alex@acclaimeventsllc.com', 'Alex Kaneen'],
-			'to'		=> ['jeffm@acclaimeventsllc.com', 'Jeff Martin'],
-			'from'		=> [$request->get('email'), $request->get('first_name') . ' ' . $request->get('last_name')],
-			'subj'		=> 'Registration for '.ucwords($request->get['conference']),
+			'to'		=> ['alex@acclaimeventsllc.com', 'Alex Kaneen'],
+//			'to'		=> ['jeffm@acclaimeventsllc.com', 'Jeff Martin'],
+			'from'		=> [strtolower($request->get('email')), ucwords($request->get('first_name') . ' ' . $request->get('last_name'))],
+			'subj'		=> 'Registration for '.ucwords(preg_replace("/\_\-/", " ", $request->get('conference'))),
 		];
 
-		$ref		= $request->get('referrals');
-		$referrals 	= [];
-		for ($i=0; $i<count($ref); $i++)
-		{
-			$referrals[] = (object)[
-				'name'	=> $ref['name'],
-				'title'	=> $ref['title'],
-				'email'	=> $ref['email'],
-				'phone'	=> $ref['phone']
-			];
-		}
+		$referrals = (object)$request->get('referrals');
+		$referrals->name	= ucwords($referrals->name);
+		$referrals->title	= strtoupper($referrals->title);
+		$referrals->email	= strtolower($referrals->email);
 
-		$mail = \Mail::send('emails/registration', [
-				'name'			=> $request->get('first_name') . ' ' . $request->get('last_name'),
-				'title'			=> $request->get('title'),
-				'company'		=> $request->get('company'),
-				'phone'			=> $request->get('phone'),
-				'address'		=> $request->get('street') . ', ' . $request->get('city') . ', ' . $request->get('state') . '  ' . $request->get('postal'),
-				'conference'	=> strtoupper($request->get('conference')),
-				'attendance'	=> $request->get('attendance'),
-				'affiliation'	=> $request->get('affiliation'),
-//				'referrals'		=> $referrals,
-				'refs'			=> $request->get('referrals'),
-			], function($message) use($contact)
+		$compact = [
+			'name'			=> ucwords($request->get('first_name') . ' ' . $request->get('last_name')),
+			'title'			=> ucwords($request->get('title')),
+			'email'			=> strtolower($request->get('email')),
+			'phone'			=> $request->get('phone'),
+			'company'		=> ucwords($request->get('company')),
+			'address'		=> strtoupper($request->get('street') . ', ' . $request->get('city') . ', ' . $request->get('state') . '  ' . $request->get('postal')),
+			'conference'	=> strtoupper(preg_replace("/\-\_/", " ", $request->get('conference'))),
+			'attendance'	=> strtoupper($request->get('attendance')),
+			'affiliation'	=> strtoupper($request->get('affiliation')),
+			'referrals'		=> $referrals,
+		];
+
+		$mail = \Mail::send('emails/registration', $compact, function($message) use($contact)
 			{
 				$fromEmail	= $contact->from[0];
 				$fromName	= $contact->from[1];
@@ -112,8 +107,6 @@ class RegistrationController extends Controller
 				$message->from($fromEmail, $fromName);
 				$message->to($toEmail, $toName)->subject($subject);
 			});
-
-		dd($mail);
 
 		return back()->with('message', 'Registration complete!  We will be contact you within 2 business days.');
 	}

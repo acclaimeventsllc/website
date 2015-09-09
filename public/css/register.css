@@ -35,6 +35,8 @@ textarea { min-height: 200px; }
 .register-slide { width: 100%; }
 .register-submit { display: none; }
 
+.alert { text-align: center; }
+
 
 /***************************************************
 **  DIRECT REPORTS
