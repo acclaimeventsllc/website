@@ -230,8 +230,8 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Tom',
 				'last_name'		=> 'Edwards',
 				'slug'			=> 'edwards-tom',
-				'title'			=> '',
-				'title_short'	=> '',
+				'title'			=> 'Resident Agent in Charge, Austin Resident Office',
+				'title_short'	=> 'Resident Agent in Charge, Austin Resident Office',
 				'company'		=> 'U.S Secret Service',
 				'bio'			=> '<p>Tom Edwards is a 16-year veteran of the U.S. Secret Service.  As the Resident Agent in Charge of the Austin Resident Office, Tom oversees the daily investigative and protective activities of the agency’s local office.  His office sponsors the Central Texas Financial Fraud Task Force which partners with local police agencies to combat various financial and electronic crimes impacting the community.  Throughout his law enforcement career, he has served in numerous protective, investigative, and headquarters assignments in California, Maryland, Washington, D.C., and Lima, Peru.  Prior to his current appointment, he developed and implemented agency policy relating to classified network security, insider threat, and risk assessments.  Tom was also congressional fellow to the U.S. Senate Committee on the Judiciary.  While on the Hill, he managed a legislative portfolio of law enforcement legislation regarding data breaches, currency counterfeiting, mortgage fraud, and the reauthorization of the Patriot Act.</p>',
 				'photo'			=> '/images/speakers/edwards-tom.png',
@@ -301,9 +301,9 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Jeff',
 				'last_name'		=> 'Martin',
 				'slug'			=> 'martin-jeff',
-				'title'			=> 'Former VP of Strategy, Architecture &amp; M&amp;A',
-				'title_short'	=> 'Former VP of Strategy, Architecture &amp; M&amp;A',
-				'company'		=> 'Dell, Inc',
+				'title'			=> 'Chief Executive Officer &amp; Founder',
+				'title_short'	=> 'CEO &amp; Founder',
+				'company'		=> 'Martin Vistra',
 				'bio'			=> '<p>As a leader in the executive IT community, Jeff has lent his exceptional leadership and subject-matter expertise to a variety of executive roles in the IT industry over his 23+ year career. Most recently holding the position of Vice President of Strategy and Architecture, Jeff was responsible for enabling Dell’s strategic transformation by deﬁning the IT (transformation) road map, guiding the delivery of globally consistent business value, and ensuring Dell IT systems were reliable, scalable and efficient. Prior to leading the Strategy and Architecture team, Jeff was the CIO of Dell IT – Product &amp; Supply Chain.</p>
 					<p>Before Dell, Jeff built his career in the IT Business and Transformation industry, holding key leadership roles at PepsiCo International, WM Wrigley Jr., Tellabs, Baxter Healthcare and in the U.S. Navy.</p>
 					<h4>SERVICE OFFERINGS</h4>
@@ -405,6 +405,17 @@ class CreateSpeakersTable extends Migration {
 			]);
 
 		Speaker::create([
+				'first_name'	=> 'Ahn',
+				'last_name'		=> 'Selissen',
+				'slug'			=> 'selissen-ahn',
+				'title'			=> 'Director Application Services',
+				'title_short'	=> 'Director Application Services',
+				'company'		=> 'Texas Comptroller of Public Accounts',
+				'photo'			=> '/images/speakers/selissen-ahn.jpg',
+				'published'		=> Carbon::create(2015, 09, 09, 11, 48, 32),
+			]);
+
+		Speaker::create([
 				'first_name'	=> 'Jeff',
 				'last_name'		=> 'Smedley',
 				'slug'			=> 'smedley-jeff',
@@ -436,6 +447,7 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Interim Chief Information Officer',
 				'title_short'	=> 'Interim CIO',
 				'company'		=> 'Texas Comptroller of Public Accounts',
+				'bio'			=> 'Jay Waldo has served in Texas state government since 2000 including software development and business process improvement work at the Department of Agriculture and the Comptroller of Public Accounts.  Prior to working in Texas, Jay worked as a software engineer and consultant in private industry.  Jay is currently the Director for Innovation and Technology at the Texas Comptroller of Public Accounts.  He is a graduate of Augustana College in Sioux Falls, South Dakota.',
 				'photo'			=> '/images/speakers/waldo-jay.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -447,6 +459,10 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'CISO and Senior Director, Security and Disaster Recovery',
 				'title_short'	=> 'CISO &amp; Sr. Dir. Security &amp; Disaster Recovery',
 				'company'		=> 'NTT Data Corporation',
+				'bio'			=> '<p>A seasoned technologist with more than 20 years experience, with a comprehensive background in developing Business/Technology solutions in the areas of Information Security, Risk Management, Benchmarking, Compliance, and Business Continuity/Disaster Recovery Planning.</p>
+					<p>Mr. Yoder has a proven record of identifying and solving highly technical business technology challenges, developing secure architectures currently in place by multiple fortune 500 organizations, and working with Federal and International clients. He served as a principal on both the largest cyber-security and largest wireless projects in industry history.<p>
+					<p>An engaging speaker, Mr. Yoder has served as a guest speaker for organizations such as The American Petroleum Institute, The Axiom Lab for Applied Research, NATO, and at American and Foreign Universities.</p>
+					<p>Additionally, Mr. Yoder has written Information Security Management Systems (ISMSs) based upon ISO standards, and performed compliance benchmarking and strategy for Fortune 50 organizations.</p>'
 				'photo'			=> '/images/speakers/yoder-marc.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
