@@ -298,13 +298,47 @@ $session	= $agendas[$date][$time][$slot];
 				</div>
 
 @foreach ($companies as $slug => $sponsor)
-				<a href="{{ $sponsor->website }}" title="{{ $sponsor->company }}" target="_blank"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></a>
+				<div class="sponsor">
+					<input id="sponsor-{{ $slug }}" class="modal-toggle no-move" type="checkbox">
+					<label for="sponsor-{{ $slug }}"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
+					<div class="modal-overlay">
+						<div class="vertical">
+							<div id="{{ $slug }}-overlay" class="row">
+								<div class="speaker modal-content col-md-6 col-md-offset-3">
+									<label for="sponsor-{{ $slug }}" class="modal-close">&#10006;</label>
+									<label for="sponsor-{{ $slug }}" class="sponsor-image"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
+									<p class="speaker-name acclaim-text">{{ $sponsor->company }}</p>
+									<div class="speaker-bio">
+										{!! $sponsor->bio !!}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 @endforeach
 @endforeach
 
 @else
 @foreach ($sponsors as $slug => $sponsor)
-				<a href="{{ $sponsor->website }}" title="{{ $sponsor->company }}" target="_blank"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></a>
+				<div class="sponsor">
+					<input id="sponsor-{{ $slug }}" class="modal-toggle no-move" type="checkbox">
+					<label for="sponsor-{{ $slug }}"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
+					<div class="modal-overlay">
+						<div class="vertical">
+							<div id="{{ $slug }}-overlay" class="row">
+								<div class="speaker modal-content col-md-6 col-md-offset-3">
+									<label for="sponsor-{{ $slug }}" class="modal-close">&#10006;</label>
+									<label for="sponsor-{{ $slug }}" class="sponsor-image"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
+									<div class="speaker-bio">
+										{!! $sponsor->bio !!}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
 @endforeach
 @endif

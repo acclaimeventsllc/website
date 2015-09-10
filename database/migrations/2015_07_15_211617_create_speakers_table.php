@@ -240,6 +240,17 @@ class CreateSpeakersTable extends Migration {
 			]);
 
 		Speaker::create([
+				'first_name'	=> 'Robert',
+				'last_name'		=> 'Felps',
+				'slug'			=> 'felps-robert',
+				'title'			=> 'vCIO & Vice President Business Development',
+				'title_short'	=> 'vCIO & VP Business Development',
+				'company'		=> 'Third Rock',
+				'photo'			=> '/images/speakers/felps-robert.jpg',
+				'published'		=> Carbon::create(2015, 09, 10, 12, 54, 32),
+			]);
+
+		Speaker::create([
 				'first_name'	=> 'Andrew',
 				'last_name'		=> 'Fernandes',
 				'slug'			=> 'fernandes-andrew',
@@ -385,24 +396,6 @@ class CreateSpeakersTable extends Migration {
 			]);
 
 		Speaker::create([
-				'first_name'	=> 'Neill',
-				'last_name'		=> 'Robert',
-				'slug'			=> 'neill-robert',
-				'title'			=> 'Chief Information Officer',
-				'title_short'	=> 'CIO',
-				'company'		=> 'Harte Hanks',
-				'bio'			=> '<p>Robert Neill is chief information officer for Harte Hanks.  In this role, Robert is responsible for the management of enterprise technical services.  This includes telecommunication infrastructure, electronic messaging, wireless communications, back-office applications (financial reporting, human resources, CRM), data center operations and end user support.</p>
-					<p>In addition, Robert is responsible for the development of security and information technology policies and plays a key role in monitoring compliance with Sarbanes-Oxley and data privacy related regulatory requirements.  Robert is also a member of the senior leadership team responsible for the establishment and execution of the company’s strategic business plans.</p>
-					<p>Prior to his arrival at Harte Hanks in 2001, Robert served as a consulting manager at BearingPoint (formerly KPMG Consulting), where he managed a variety of software implementation projects. In addition, he has experience as an accountant and financial analyst in state and local government.</p>
-					<p>Robert holds both a Bachelor in Business Administration and Master in Professional Accounting from the University of Texas at Austin.</p>
-					<p>Robert enjoys serving as golf caddy for his teenage daughters and is an avid Texas Longhorn fan.  He has also been known to blog occasionally at robertnotbob.net and to tweet now and then @rdntx</p>',
-				'photo'			=> '/images/speakers/neill-robert.jpg',
-				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
-			]);
-
-		Speaker::where('slug', '=', 'neill-robert')->delete();
-
-		Speaker::create([
 				'first_name'	=> 'Wendy',
 				'last_name'		=> 'Nather',
 				'slug'			=> 'nather-wendy',
@@ -441,6 +434,24 @@ class CreateSpeakersTable extends Migration {
 				'photo'			=> '/images/speakers/rios-george.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
+
+		Speaker::create([
+				'first_name'	=> 'Neill',
+				'last_name'		=> 'Robert',
+				'slug'			=> 'neill-robert',
+				'title'			=> 'Chief Information Officer',
+				'title_short'	=> 'CIO',
+				'company'		=> 'Harte Hanks',
+				'bio'			=> '<p>Robert Neill is chief information officer for Harte Hanks.  In this role, Robert is responsible for the management of enterprise technical services.  This includes telecommunication infrastructure, electronic messaging, wireless communications, back-office applications (financial reporting, human resources, CRM), data center operations and end user support.</p>
+					<p>In addition, Robert is responsible for the development of security and information technology policies and plays a key role in monitoring compliance with Sarbanes-Oxley and data privacy related regulatory requirements.  Robert is also a member of the senior leadership team responsible for the establishment and execution of the company’s strategic business plans.</p>
+					<p>Prior to his arrival at Harte Hanks in 2001, Robert served as a consulting manager at BearingPoint (formerly KPMG Consulting), where he managed a variety of software implementation projects. In addition, he has experience as an accountant and financial analyst in state and local government.</p>
+					<p>Robert holds both a Bachelor in Business Administration and Master in Professional Accounting from the University of Texas at Austin.</p>
+					<p>Robert enjoys serving as golf caddy for his teenage daughters and is an avid Texas Longhorn fan.  He has also been known to blog occasionally at robertnotbob.net and to tweet now and then @rdntx</p>',
+				'photo'			=> '/images/speakers/neill-robert.jpg',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Speaker::where('slug', '=', 'neill-robert')->delete();
 
 		Speaker::create([
 				'first_name'	=> 'Ahn',

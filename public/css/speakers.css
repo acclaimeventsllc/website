@@ -15,7 +15,7 @@ div.speaker .speaker-company { font-weight: bold; }
 div.speaker .speaker-bio { text-align: left; padding: 2em 0; }
 div.speaker .speaker-bio p { padding-top: .5em; }
 div.speaker .speaker-bio h1, div.speaker .speaker-bio h2, div.speaker .speaker-bio h3, div.speaker .speaker-bio h4, div.speaker .speaker-bio h5, div.speaker .speaker-bio h6 { text-align: left !important; padding-bottom: 1em; padding-top: 2em; margin: 0; }
-div.speaker.modal-content { height: calc(100%);}
+div.speaker.modal-content { height: 100%; }
 
 /***************************************************
 **  RESPONSIVE STYLES

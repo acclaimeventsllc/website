@@ -82,9 +82,11 @@ input.expand:checked ~ div.read-more { max-height: 250px; transition: all 1s eas
 ***************************************************/
 .sponsors { text-align: center; }
 .sponsors a { display: inline-block; padding: 2em 3em; }
-.sponsors img { max-width: 100%; }
+.sponsor { display: inline-block; width: auto; padding: 2em 3em; }
 .sponsors-contact { text-align: center; padding: 3em 0; }
 .sponsors-contact a { margin-top: 1em; width: 100%; max-width: 500px; line-height: 2; font-size: 18pt; }
+
+.modal-overlay .sponsor-image { padding: 4em 0 2em; }
 
 
 /***************************************************
