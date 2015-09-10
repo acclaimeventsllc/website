@@ -201,7 +201,7 @@ class CreateSpeakersTable extends Migration {
 				'slug'			=> 'cook-dana',
 				'title'			=> 'Director Enterprise Data &amp; App. Modernization',
 				'title_short'	=> 'Director Enterprise Data &amp; App. Modernization',
-				'company'		=> 'University of Texas, Austin',
+				'company'		=> 'The Univ. of Texas at Austin',
 				'bio'			=> '<p>Dana Cook serves as the Director for Enterprise Data and Application Modernization at The University of Texas at Austin and is responsible for strategic alignment, growth, and transition efforts for the administrative applications across campus.  This includes the coordination of over 1,000 application transitions from the University’s mainframe environment to new technologies.  She also serves on the Board of Directors for the Texas Association of State Systems for Computing and Communication (TASSCC).</p>
 					<p>Dana’s career includes a variety of roles at the University of Texas at Austin starting as an application developer in central IT, holding leadership positions in central IT, Facilities Services, Human Resources, and Financial Information Systems and leading a wide variety of enterprise programs and projects including the Human Resource Management System (HRMS) and the University Portal.  Dana serves as a guest lecturer at UT Austin and has contributed to a variety of higher education IT publications.</p>
 					<p>Prior to her current role, Dana was a Director at the Texas Comptroller of Public Accounts responsible for the implementation and support of such systems as the Texas Statewide ERP (CAPPS), Treasury, Statewide Fleet operations, and other legacy HR, Payroll and Financial statewide systems.</p>
@@ -232,7 +232,7 @@ class CreateSpeakersTable extends Migration {
 				'slug'			=> 'edwards-tom',
 				'title'			=> 'Resident Agent in Charge, Austin Resident Office',
 				'title_short'	=> 'Resident Agent in Charge, Austin Resident Office',
-				'company'		=> 'U.S Secret Service',
+				'company'		=> 'U.S. Secret Service',
 				'bio'			=> '<p>Tom Edwards is a 16-year veteran of the U.S. Secret Service.  As the Resident Agent in Charge of the Austin Resident Office, Tom oversees the daily investigative and protective activities of the agency’s local office.  His office sponsors the Central Texas Financial Fraud Task Force which partners with local police agencies to combat various financial and electronic crimes impacting the community.  Throughout his law enforcement career, he has served in numerous protective, investigative, and headquarters assignments in California, Maryland, Washington, D.C., and Lima, Peru.  Prior to his current appointment, he developed and implemented agency policy relating to classified network security, insider threat, and risk assessments.  Tom was also congressional fellow to the U.S. Senate Committee on the Judiciary.  While on the Hill, he managed a legislative portfolio of law enforcement legislation regarding data breaches, currency counterfeiting, mortgage fraud, and the reauthorization of the Patriot Act.</p>',
 				'photo'			=> '/images/speakers/edwards-tom.png',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
@@ -244,7 +244,7 @@ class CreateSpeakersTable extends Migration {
 				'slug'			=> 'fernandes-andrew',
 				'title'			=> 'Sr. Director, Global Resiliency Program',
 				'title_short'	=> 'Sr. Director, Global Resiliency Program',
-				'company'		=> 'Epicor',
+				'company'		=> 'Epicor Software Corporation',
 				'bio'			=> '					<p>Andrew has 20+ years management experience with a diverse educational background experience in finance, quality, risk management, business continuity and crisis management. He has implemented all ten professional practices from program initiation and management to coordination with external agencies.</p>
 					<p>Andrew is currently engaged as Senior Director, Global Resiliency Program, with Epicor Software Corporation.  Prior to Epicor, Andrew has been in a senior management position over the last 15 years either in a consulting or a  practitioner role with  IBM Resiliency Services, Dell Inc, and GE IT Solutions.</p>
 					<p>Andrew’s strength is in developing and building BCP program plans and provides frame planning to global business partners along with managing associated budget contracts and projects. His niche expertise is supply chain business continuity management. He has led development of business continuity testing training and exercise schedule at the enterprise level and maintained corporate wide management plans inclusive of working with communications team for incident management planning. He has also led development and created of standards to ensure regulatory readiness, and internal audits.  Andrew is also recognized by his peers as work place expert in pandemic preparedness having successfully rolled this out globally.</p>
@@ -375,7 +375,7 @@ class CreateSpeakersTable extends Migration {
 				'slug'			=> 'moore-larry',
 				'title'			=> 'Vice President &amp; IT Sector Chief',
 				'title_short'	=> 'VP &amp; IT Sector Chief',
-				'company'		=> 'Infragard - Capital of Texas chapter',
+				'company'		=> 'Infragard - Capital of Texas Chapter',
 				'bio'			=> '<p>Larry Moore has over sixteen years of Information Security experience as part of his thirty year IT career.  Larry has worded on diverse areas of Information Security including architecture, secure software development, penetration testing, server administration, project manager and executive manager.  Larry has served at the State of Texas in their critical infrastructure protection and in the technical and financial sector.</p>
 					<p>Larry graduated from the Florida Institute of Technology with a degree in Computer Science and began his work on various projects for NASA.  His post-NASA work included applications, device drivers and kernel extensions on various operation systems such as OS/2, Windows and Unix variants.  His work on the AIX security kernel included audit, single sign-on, PKI and a behavioral-based intrusion detection tool which was a precursor to his migration to the information security field.  Larry recently served as the lead Solution Security Officer for Gemalto’s North American region where he ensured the proper delivery of security requirements for the company’s trusted platforms and mobile payment solutions for large and small customers.  Larry has also audited, designed or modified the security programs for three of the company’s large data centers across the globe to enable customer mobile payment processing.</p>
 					<p>Larry serves on the board at the Computer Science department at Parker University in Dallas and the Austin chapter of the International Systems and Security Association.  Larry is also Vice-President and IT Sector Chief for the Austin chapter of Infragard and has given numerous presentations and written numerous articles on security architecture, threat intelligence and software development.</p>',

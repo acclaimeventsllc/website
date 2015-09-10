@@ -63,8 +63,9 @@ a.session-speaker .speaker-name { font-weight: bold; }
 a.session-speaker .speaker-title { font-style: italic; }
 
 div.read-more { max-height: 0; overflow: hidden; transition: all 1s ease; }
+div.read-more p { padding: .25em; }
 div.read-more p:first-child:before { content: 'Session Description: '; font-weight: bold; }
-label.expand { display: block; padding-top: 1em; cursor: pointer; }
+label.expand { display: block; /* padding-top: 1em; */ cursor: pointer; }
 label.expand.expand-ignore { cursor: auto; }
 label.expand-more { display: inline-block; width: 15em; padding: .2em; margin-top: .5em; text-align: center; line-height: 2; background-color: #337ab7; border-color: #2e6da4; color: white; }
 label.expand-more:after { content: 'Show Session Details'; }
