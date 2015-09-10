@@ -104,11 +104,11 @@ class CreateAgendasTable extends Migration {
 				'conference_id'	=> 1,
 				'timeslot'		=> '2015-09-15 11:45:00',
 				'priority'		=> 7,
-				'type'			=> 'session',
-				'title'			=> 'Business Continuity Disaster Recovery',
-				'title_short'	=> 'Business Continuity Disaster Recovery',
-				'desc'			=> '<p>Having an established business continuity and disaster recovery plan can help an organization to continue business and mitigate losses during catastrophic failures, cyber-attacks and malware infections, natural disasters and other critical emergencies. Join our panel of experts as they discuss some of the strategies and protocols that they have implemented within their organizations to help protect their companies in the event that an emergency strikes.</p>',
-				'speakers'		=> Helpers::serialize(['moderator' => ['harris-richard'], 'panelist' => ['fernandes-andrew', 'felps-robert']]),
+				'type'			=> 'breakout',
+				'title'			=> 'U.S. Secret Service vs. Cyber Criminals',
+				'title_short'	=> 'U.S. Secret Service',
+				'desc'			=> '<p>The U.S. Secret Service was established in 1865 to protect our nation\'s currency from counterfeiters. Today, the agency\'s investigative mission has evolved to combat cyber crime targeting U.S. banking infrastructure - specifically financial institutions and payment systems.  This briefing will provide an overview of the capabilities and efforts of the public/private/academic partnerships forged at the U.S. Secret Service Electronic Crimes Task Forces throughout the world.   As well as, current trends in cyber crime, related intelligence sharing, and examples of previous cyber case work by the agency.</p>',
+				'speakers'		=> Helpers::serialize(['speaker' => ['edwards-tom']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
 
@@ -116,11 +116,11 @@ class CreateAgendasTable extends Migration {
 				'conference_id'	=> 1,
 				'timeslot'		=> '2015-09-15 11:45:00',
 				'priority'		=> 8,
-				'type'			=> 'breakout',
-				'title'			=> 'U.S. Secret Service vs. Cyber Criminals',
-				'title_short'	=> 'U.S. Secret Service',
-				'desc'			=> '<p>The U.S. Secret Service was established in 1865 to protect our nation\'s currency from counterfeiters. Today, the agency\'s investigative mission has evolved to combat cyber crime targeting U.S. banking infrastructure - specifically financial institutions and payment systems.  This briefing will provide an overview of the capabilities and efforts of the public/private/academic partnerships forged at the U.S. Secret Service Electronic Crimes Task Forces throughout the world.   As well as, current trends in cyber crime, related intelligence sharing, and examples of previous cyber case work by the agency.</p>',
-				'speakers'		=> Helpers::serialize(['speaker' => ['edwards-tom']]),
+				'type'			=> 'session',
+				'title'			=> 'Business Continuity Disaster Recovery',
+				'title_short'	=> 'Business Continuity Disaster Recovery',
+				'desc'			=> '<p>Having an established business continuity and disaster recovery plan can help an organization to continue business and mitigate losses during catastrophic failures, cyber-attacks and malware infections, natural disasters and other critical emergencies. Join our panel of experts as they discuss some of the strategies and protocols that they have implemented within their organizations to help protect their companies in the event that an emergency strikes.</p>',
+				'speakers'		=> Helpers::serialize(['moderator' => ['harris-richard'], 'panelist' => ['fernandes-andrew', 'felps-robert']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
 
