@@ -454,13 +454,13 @@ class CreateSpeakersTable extends Migration {
 		Speaker::where('slug', '=', 'neill-robert')->delete();
 
 		Speaker::create([
-				'first_name'	=> 'Ahn',
+				'first_name'	=> 'Anh',
 				'last_name'		=> 'Selissen',
-				'slug'			=> 'selissen-ahn',
+				'slug'			=> 'selissen-anh',
 				'title'			=> 'Director Application Services',
 				'title_short'	=> 'Director Application Services',
 				'company'		=> 'Texas Comptroller of Public Accounts',
-				'photo'			=> '/images/speakers/selissen-ahn.jpg',
+				'photo'			=> '/images/speakers/selissen-anh.jpg',
 				'published'		=> Carbon::create(2015, 09, 09, 11, 48, 32),
 			]);
 
