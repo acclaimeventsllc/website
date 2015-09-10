@@ -61,7 +61,7 @@
 
 		<div class="container">
 
-@if ((bool)$options->countdown === true && isset($event) && is_object($event) && isset($venue) && is_object($venue))
+@if ((bool)$options->countdown === true && isset($event) && is_object($event))
 			<ul class="countdown" data-date="{{ $event->start_date }}">
 				<li class="countdown-days">
 					<div class="countdown-digit">{{ $days }}</div>
@@ -184,7 +184,7 @@
 									<div class="read-more">
 @if (!empty($session->desc))
 										{!! $session->desc !!}
-@else
+@elseif ($session->type !== 'break')
 										<p>Session description coming soon...</p>
 @endif
 									</div>

@@ -70,7 +70,6 @@ class CreateConferencesTable extends Migration {
 				'timezone'		=> 'CDT',
 				'coming'		=> 1,
 				'about'			=> '<p>Our San Antonio IT Strategies Conference will bring together CIOs, CTOs SVPs &#038; VPs of IT, IT Directors and Sr. Level IT Leaders of fortune 100-5000 companies and equivalent healthcare, government and educational entities in the greater San Antonio Region.  Our attendee’s will have the opportunity to hear from Industry experts, network with their peers and discuss critical challenges and issues that they face within their organizations.  We encourage our attendee’s to share and discuss their lessons learned, knowledge and insight as we dive into some of today’s biggest IT challenges.</p><p>We strive to produce content-rich presentations that will provide answers to many of today’s business challenges and hope that you will be able to gain practical knowledge and insights that you can then use within your own organization.</p>',
-				'venue_slug'	=> 'texas-san-antonio-san-antonio-something-or-other',
 				'sponsors'		=> Helpers::serialize(['acclaim-events']),
 				'tags'			=> 'san-antonio,texas,it-strategies,information-technology,it-solutions',
 				'options'		=> Helpers::serialize(['link' => '0', 'title' => 'event:conference', 'jumbotron' => 'event:hero', 'countdown' => true, 'about' => true, 'partners' => false, 'agenda' => true, 'speakers' => false, 'sponsors' => false, 'sponsorlevels' => false, 'venue' => true]),

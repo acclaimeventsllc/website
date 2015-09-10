@@ -76,11 +76,8 @@ class ConferencesController extends Controller
 
 	protected function conference($route, $event)
 	{
-		$venue		= DB::table('venues')
-						->where('slug', '=', $event->venue_slug)
-						->where('published', '>', '0000-00-00 00:00:00')
-						->get();
-		$venue 		= (!empty($venue[0]) ? $venue[0] : null);
+		$venue		= Venue::where('slug', '=', $event->venue_slug)->published()->get();
+		$venue 		= (!empty($venue[0]) ? (object)$venue[0]->toArray() : null);
 
 		$event->options = (!empty($event->options) ? Helpers::unserialize($event->options) : []);
 		$options	= Helpers::options($route, 'conference', $event->options);

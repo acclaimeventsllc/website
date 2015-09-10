@@ -9,6 +9,9 @@ class Venue extends ExtendedEloquentModel
 
 	protected $fillable = [
 		'venue',
+		'slug',
+		'city',
+		'state',
 		'place',
 		'address',
 		'coords',

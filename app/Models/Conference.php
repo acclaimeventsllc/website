@@ -16,7 +16,7 @@ class Conference extends ExtendedEloquentModel
 		'coming',
 		'about',
 		'partners',
-		'venue_id',
+		'venue_slug',
 		'sponsors',
 		'tags',
 		'options',

@@ -177,6 +177,7 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Enterprise Network Practice Manager',
 				'title_short'	=> 'Enterprise Network Practice Manager',
 				'company'		=> 'Forsythe',
+				'bio'			=> 'Brewer has more than 25 years of experience in the information technology industry. Throughout his career, he has helped enterprises with the strategic development and design of their enterprise network infrastructures, technology management and complex networking solutions consulting, professional services management, and strategic business leadership. Utilizing his industry insight, consulting skills, technical knowledge and profound wisdom of enterprise networking technology and communications industry Brewer has become a trusted advisor for many Forsythe clients.',
 				'photo'			=> '/images/speakers/brewer-bob.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
