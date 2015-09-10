@@ -120,7 +120,7 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Dave',
 				'last_name'		=> 'Bhattacharjee',
 				'slug'			=> 'bhattacharjee-dave',
-				'title'			=> 'VP Data Analytics',
+				'title'			=> 'Vice President Data Analytics',
 				'title_short'	=> 'VP Data Analytics',
 				'company'		=> 'Stanley Black and Decker',
 				'bio'			=> '<p>Dave Bhattacharjee is the Vice President of Data Analytics for Stanley Black and Decker.  In this role, Dave is responsible for building a business unit tasked with monetizing Stanley, Black and Decker’s data assets.  Dave’s organization includes Professional Services focused on Data Science Services and big data and analytics platforms for Retail, Healthcare and Physical Security.</p>
@@ -133,8 +133,8 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Michael',
 				'last_name'		=> 'Botts',
 				'slug'			=> 'botts-michael',
-				'title'			=> 'Director IS, CISO',
-				'title_short'	=> 'Director IS, CISO',
+				'title'			=> 'Director Information Security &amp; CISO',
+				'title_short'	=> 'Director IS &amp; CISO',
 				'company'		=> 'SunPower Corporation',
 				'bio'			=> '<p>Michael Botts currently serves as Sunpower’s CISO. Mr. Botts manages a talented team in the US and Philippines charged with protecting an inspired organization “Changing the Way Our World Is Powered”.</p>
 					<p>He and his team are responsible for enterprise Cybersecurity Strategy, oversight of COGS and Non-COGS security investments, product design, manufacturing, Power Plant security services, residential and commercial data protection/privacy as well as IT/NERC compliance.</p>
@@ -187,7 +187,7 @@ class CreateSpeakersTable extends Migration {
 				'last_name'		=> 'Bynum',
 				'slug'			=> 'bynum-andy',
 				'title'			=> 'Corporate Vice President, Global IT Lead',
-				'title_short'	=> 'Corp. VP, Global IT Lead',
+				'title_short'	=> 'Corporate VP, Global IT Lead',
 				'company'		=> 'Advanced Micro Devices (AMD)',
 				'bio'			=> '<p>Andy Bynum is Corporate Vice President for Corporate IT Services at Advanced Micro devices (AMD).  Andy is responsible infrastructure, operations, application development/support, business partner relations and information security.   He brings more than 25 years of information technology experience, with a diverse background in public utilities, financial service, and manufacturing.</p>
 					<p>Before joining AMD in July 2013, he was Vice President of Information Technology for Freddie Mac and prior to that Senior Vice President for Service Delivery at National City Corporation (now PNC Bank). In both roles he was responsible for leading IT transformational efforts in support of corporate turnarounds.</p>
@@ -200,9 +200,9 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Dana',
 				'last_name'		=> 'Cook',
 				'slug'			=> 'cook-dana',
-				'title'			=> 'Dir. Enterprise Data &amp; App. Modernization',
-				'title_short'	=> 'Dir. Enterprise Data &amp; App. Modernization',
-				'company'		=> 'University of Texas, Austin',
+				'title'			=> 'Director Enterprise Data &amp; App. Modernization',
+				'title_short'	=> 'Director Enterprise Data &amp; App. Modernization',
+				'company'		=> 'The Univ. of Texas at Austin',
 				'bio'			=> '<p>Dana Cook serves as the Director for Enterprise Data and Application Modernization at The University of Texas at Austin and is responsible for strategic alignment, growth, and transition efforts for the administrative applications across campus.  This includes the coordination of over 1,000 application transitions from the University’s mainframe environment to new technologies.  She also serves on the Board of Directors for the Texas Association of State Systems for Computing and Communication (TASSCC).</p>
 					<p>Dana’s career includes a variety of roles at the University of Texas at Austin starting as an application developer in central IT, holding leadership positions in central IT, Facilities Services, Human Resources, and Financial Information Systems and leading a wide variety of enterprise programs and projects including the Human Resource Management System (HRMS) and the University Portal.  Dana serves as a guest lecturer at UT Austin and has contributed to a variety of higher education IT publications.</p>
 					<p>Prior to her current role, Dana was a Director at the Texas Comptroller of Public Accounts responsible for the implementation and support of such systems as the Texas Statewide ERP (CAPPS), Treasury, Statewide Fleet operations, and other legacy HR, Payroll and Financial statewide systems.</p>
@@ -233,7 +233,7 @@ class CreateSpeakersTable extends Migration {
 				'slug'			=> 'edwards-tom',
 				'title'			=> 'Resident Agent in Charge, Austin Resident Office',
 				'title_short'	=> 'Resident Agent in Charge, Austin Resident Office',
-				'company'		=> 'U.S Secret Service',
+				'company'		=> 'U.S. Secret Service',
 				'bio'			=> '<p>Tom Edwards is a 16-year veteran of the U.S. Secret Service.  As the Resident Agent in Charge of the Austin Resident Office, Tom oversees the daily investigative and protective activities of the agency’s local office.  His office sponsors the Central Texas Financial Fraud Task Force which partners with local police agencies to combat various financial and electronic crimes impacting the community.  Throughout his law enforcement career, he has served in numerous protective, investigative, and headquarters assignments in California, Maryland, Washington, D.C., and Lima, Peru.  Prior to his current appointment, he developed and implemented agency policy relating to classified network security, insider threat, and risk assessments.  Tom was also congressional fellow to the U.S. Senate Committee on the Judiciary.  While on the Hill, he managed a legislative portfolio of law enforcement legislation regarding data breaches, currency counterfeiting, mortgage fraud, and the reauthorization of the Patriot Act.</p>',
 				'photo'			=> '/images/speakers/edwards-tom.png',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
@@ -243,9 +243,9 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Andrew',
 				'last_name'		=> 'Fernandes',
 				'slug'			=> 'fernandes-andrew',
-				'title'			=> 'Senior Director, Global Resiliency Program',
-				'title_short'	=> 'Sr. Dir., Global Resiliency Program',
-				'company'		=> 'Epicor',
+				'title'			=> 'Sr. Director, Global Resiliency Program',
+				'title_short'	=> 'Sr. Director, Global Resiliency Program',
+				'company'		=> 'Epicor Software Corporation',
 				'bio'			=> '					<p>Andrew has 20+ years management experience with a diverse educational background experience in finance, quality, risk management, business continuity and crisis management. He has implemented all ten professional practices from program initiation and management to coordination with external agencies.</p>
 					<p>Andrew is currently engaged as Senior Director, Global Resiliency Program, with Epicor Software Corporation.  Prior to Epicor, Andrew has been in a senior management position over the last 15 years either in a consulting or a  practitioner role with  IBM Resiliency Services, Dell Inc, and GE IT Solutions.</p>
 					<p>Andrew’s strength is in developing and building BCP program plans and provides frame planning to global business partners along with managing associated budget contracts and projects. His niche expertise is supply chain business continuity management. He has led development of business continuity testing training and exercise schedule at the enterprise level and maintained corporate wide management plans inclusive of working with communications team for incident management planning. He has also led development and created of standards to ensure regulatory readiness, and internal audits.  Andrew is also recognized by his peers as work place expert in pandemic preparedness having successfully rolled this out globally.</p>
@@ -274,8 +274,8 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Gregory',
 				'last_name'		=> 'Flay',
 				'slug'			=> 'flay-gregory',
-				'title'			=> 'Vice President, Information Technology',
-				'title_short'	=> 'Vice President IT',
+				'title'			=> 'Vice President Information Technology',
+				'title_short'	=> 'VP IT',
 				'company'		=> 'NRG Home Solar',
 				'bio'			=> '<p>As Vice President of Information Technology for the Home Solar division of NRG Energy, Greg Flay oversees the development and operation of systems and processes that support one of the top sales, installation, and financing residential solar panel systems businesses in the US.</p>
 					<p>Mr. Flay joined NRG in 2000 as a Manager of Plant Operations IT, working primarily on power station acquisitions in Australia, the Czech Republic, Estonia, Hungary, Turkey, Bolivia, Peru, and Brazil as well as a large portfolio within the US. Mr. Flay led the $18M integration of Texas Genco in 2006 as well as the $45M integration of Reliant Energy in 2009. In 2011, he moved to Austin to serve as a turnaround CIO for Green Mountain Energy. He later served in a similar capacity within NRG’s home warranty, home services, and residential solar businesses, in each case migrating the business from a homegrown set of business systems and processes onto enterprise-class systems based on the Salesforce platform.</p>
@@ -288,6 +288,31 @@ class CreateSpeakersTable extends Migration {
 			]);
 
 		Speaker::create([
+				'first_name'	=> 'Richard',
+				'last_name'		=> 'Harris',
+				'slug'			=> 'harris-richard',
+				'title'			=> 'Vice President ITS & CTO',
+				'title_short'	=> 'VP ITS & CTO',
+				'company'		=> 'SecureNation',
+				'bio'			=> '<p>Richard has been interested in the computer industry since high school and has worked in the field for the last 30 years. Richard has been a lead consultant for SecureNation for three years and he excels at quickly understanding new technologies and how they interact with existing installations. Richard is a native of Baton Rouge.</p>
+					<p>Richard is an insightful, results-driven Information Technology Professional with notable success directing a broad range of programming and operational initiatives while participating in planning, analyzing, and implementing solutions in support of key business objectives. With his eye for detail while still keeping the big picture in mind, Richard excels at providing comprehensive system analysis, information security, risk management, internal audit, and full cycle project management. Richards hands-on experience with all stages of system development including defining project requirements, project design, architecture, testing and support are the key values that he brings to SecureNation clientele.</p>
+					<p>Richard has spent the last several years as the IT Director of a locally based company with offices statewide and sales of over $300 million where he was the Technology and IT Security Director. He also has worked as a subcontractor for NASA. Richard has CISM and CRISC certifications as well as numerous certifications from our vendors. He is an active member of ISACA and InfraGard.</p>',
+				'photo'			=> '/images/speakers/harris-richard.jpg',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Speaker::create([
+				'first_name'	=> 'Kevin',
+				'last_name'		=> 'Jackson',
+				'slug'			=> 'jackson-kevin',
+				'title'			=> 'Sr. Solution Engineer',
+				'title_short'	=> 'Sr. Solution Engineer',
+				'company'		=> 'Dynatrace',
+				'photo'			=> '/images/speakers/jackson-kevin.jpg',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Speaker::create([
 				'first_name'	=> 'Rani',
 				'last_name'		=> 'Johnson',
 				'slug'			=> 'johnson-rani',
@@ -295,6 +320,17 @@ class CreateSpeakersTable extends Migration {
 				'title_short'	=> 'CIO',
 				'company'		=> 'Lower Colorado River Authority (LCRA)',
 				'photo'			=> '/images/speakers/johnson-rani.jpg',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Speaker::create([
+				'first_name'	=> 'Debra',
+				'last_name'		=> 'Ketchum',
+				'slug'			=> 'ketchum-debra',
+				'title'			=> 'National Advisory Director, Healthcare Analytics',
+				'title_short'	=> 'National Advisory Director, Healthcare Analytics',
+				'company'		=> 'PricewaterhouseCoopers',
+				'photo'			=> '/images/speakers/ketchum-debra.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
 
@@ -338,9 +374,9 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Larry',
 				'last_name'		=> 'Moore',
 				'slug'			=> 'moore-larry',
-				'title'			=> 'VP &amp; IT Sector Chief',
+				'title'			=> 'Vice President &amp; IT Sector Chief',
 				'title_short'	=> 'VP &amp; IT Sector Chief',
-				'company'		=> 'Infragard (Austin chapter)',
+				'company'		=> 'Infragard - Capital of Texas Chapter',
 				'bio'			=> '<p>Larry Moore has over sixteen years of Information Security experience as part of his thirty year IT career.  Larry has worded on diverse areas of Information Security including architecture, secure software development, penetration testing, server administration, project manager and executive manager.  Larry has served at the State of Texas in their critical infrastructure protection and in the technical and financial sector.</p>
 					<p>Larry graduated from the Florida Institute of Technology with a degree in Computer Science and began his work on various projects for NASA.  His post-NASA work included applications, device drivers and kernel extensions on various operation systems such as OS/2, Windows and Unix variants.  His work on the AIX security kernel included audit, single sign-on, PKI and a behavioral-based intrusion detection tool which was a precursor to his migration to the information security field.  Larry recently served as the lead Solution Security Officer for Gemalto’s North American region where he ensured the proper delivery of security requirements for the company’s trusted platforms and mobile payment solutions for large and small customers.  Larry has also audited, designed or modified the security programs for three of the company’s large data centers across the globe to enable customer mobile payment processing.</p>
 					<p>Larry serves on the board at the Computer Science department at Parker University in Dallas and the Austin chapter of the International Systems and Security Association.  Larry is also Vice-President and IT Sector Chief for the Austin chapter of Infragard and has given numerous presentations and written numerous articles on security architecture, threat intelligence and software development.</p>',
@@ -401,6 +437,7 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Chief Information Officer',
 				'title_short'	=> 'CIO',
 				'company'		=> 'Texas Parks &amp; Wildlife',
+				'bio'			=> '<p>George Rios serves as the Director of Information Technology for Texas Parks and Wildlife Department. As a senior level executive, with over 27 years of experience, he has provided leadership, direction, and oversight, in all aspects of information technology. As the agency’s Chief Information Officer (CIO), George has set a technological direction that aligns with the agency’s mission, goals, and programs. He has emphasized increased collaboration across functional areas and strengthened how technology is implemented and service delivery is viewed within the agency.</p>',
 				'photo'			=> '/images/speakers/rios-george.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -437,6 +474,8 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Director Information Technology',
 				'title_short'	=> 'Director IT',
 				'company'		=> 'City of San Marcos',
+				'bio'			=> '<p>Mike Sturm is the Director of Information Technology for the City of San Marcos. He has been employed by the City for eighteen years. He manages 17 employees that are responsible for the Service Desk, System Administration, Business Relations, Network Infrastructure and GIS. He is also a member of the Texas Association of Government Information Technology Managers.</p>
+					<p>As for a personal life, he has been married for twenty five years and has two children.  Their daughter graduated from Texas A&M in 2012, and their son graduated from Texas A&M in 2015 and is a former member of the ‘Fighting Aggie’ Band.</p>',
 				'photo'			=> '/images/speakers/sturm-mike.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -448,7 +487,7 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Interim Chief Information Officer',
 				'title_short'	=> 'Interim CIO',
 				'company'		=> 'Texas Comptroller of Public Accounts',
-				'bio'			=> 'Jay Waldo has served in Texas state government since 2000 including software development and business process improvement work at the Department of Agriculture and the Comptroller of Public Accounts.  Prior to working in Texas, Jay worked as a software engineer and consultant in private industry.  Jay is currently the Director for Innovation and Technology at the Texas Comptroller of Public Accounts.  He is a graduate of Augustana College in Sioux Falls, South Dakota.',
+				'bio'			=> '<p>Jay Waldo has served in Texas state government since 2000 including software development and business process improvement work at the Department of Agriculture and the Comptroller of Public Accounts.  Prior to working in Texas, Jay worked as a software engineer and consultant in private industry.  Jay is currently the Director for Innovation and Technology at the Texas Comptroller of Public Accounts.  He is a graduate of Augustana College in Sioux Falls, South Dakota.</p>',
 				'photo'			=> '/images/speakers/waldo-jay.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -457,8 +496,8 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Marc',
 				'last_name'		=> 'Yoder',
 				'slug'			=> 'yoder-marc',
-				'title'			=> 'CISO and Senior Director, Security and Disaster Recovery',
-				'title_short'	=> 'CISO &amp; Sr. Dir. Security &amp; Disaster Recovery',
+				'title'			=> 'CISO &amp; Sr. Director, Security &amp; Disaster Recovery',
+				'title_short'	=> 'CISO &amp; Sr. Director Security &amp; Disaster Recovery',
 				'company'		=> 'NTT Data Corporation',
 				'bio'			=> '<p>A seasoned technologist with more than 20 years experience, with a comprehensive background in developing Business/Technology solutions in the areas of Information Security, Risk Management, Benchmarking, Compliance, and Business Continuity/Disaster Recovery Planning.</p>
 					<p>Mr. Yoder has a proven record of identifying and solving highly technical business technology challenges, developing secure architectures currently in place by multiple fortune 500 organizations, and working with Federal and International clients. He served as a principal on both the largest cyber-security and largest wireless projects in industry history.<p>
