@@ -121,7 +121,7 @@ class CreateSponsorsTable extends Migration {
 			]);
 
 		Sponsor::create([
-				'company'	=> 'Secure Nation',
+				'company'	=> 'SecureNation',
 				'slug'		=> 'secure-nation',
 				'website'	=> 'http://www.securenation.com',
 				'bio'		=> 'SecureNation’s is a “Network Security Advocate and Technology Ally” for our clients addressing almost all of their IT Security needs.  We are partnered with most of the industry leading technologies and we have over 300 Gartner Magic Quadrant partners.  We have saved millions of dollars for organizations across the US from colleges, financial institutions, state and local government, health-care to Fortune 500.  Solving information security and overall technology issues normally at a fraction of the cost.  The backbone of SecureNation is total transparency, deep discount negotiation, honesty and long lasting relationships.',

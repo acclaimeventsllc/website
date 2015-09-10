@@ -287,6 +287,31 @@ class CreateSpeakersTable extends Migration {
 			]);
 
 		Speaker::create([
+				'first_name'	=> 'Richard',
+				'last_name'		=> 'Harris',
+				'slug'			=> 'harris-richard',
+				'title'			=> 'VP ITS & CTO',
+				'title_short'	=> 'VP ITS & CTO',
+				'company'		=> 'SecureNation',
+				'bio'			=> '<p>Richard has been interested in the computer industry since high school and has worked in the field for the last 30 years. Richard has been a lead consultant for SecureNation for three years and he excels at quickly understanding new technologies and how they interact with existing installations. Richard is a native of Baton Rouge.</p>
+					<p>Richard is an insightful, results-driven Information Technology Professional with notable success directing a broad range of programming and operational initiatives while participating in planning, analyzing, and implementing solutions in support of key business objectives. With his eye for detail while still keeping the big picture in mind, Richard excels at providing comprehensive system analysis, information security, risk management, internal audit, and full cycle project management. Richards hands-on experience with all stages of system development including defining project requirements, project design, architecture, testing and support are the key values that he brings to SecureNation clientele.</p>
+					<p>Richard has spent the last several years as the IT Director of a locally based company with offices statewide and sales of over $300 million where he was the Technology and IT Security Director. He also has worked as a subcontractor for NASA. Richard has CISM and CRISC certifications as well as numerous certifications from our vendors. He is an active member of ISACA and InfraGard.</p>',
+				'photo'			=> '/images/speakers/harris-richard.jpg',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Speaker::create([
+				'first_name'	=> 'Kevin',
+				'last_name'		=> 'Jackson',
+				'slug'			=> 'jackson-kevin',
+				'title'			=> 'Sr. Solution Engineer',
+				'title_short'	=> 'Sr. Solution Engineer',
+				'company'		=> 'Dynatrace',
+				'photo'			=> '/images/speakers/jackson-kevin.jpg',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Speaker::create([
 				'first_name'	=> 'Rani',
 				'last_name'		=> 'Johnson',
 				'slug'			=> 'johnson-rani',
@@ -294,6 +319,17 @@ class CreateSpeakersTable extends Migration {
 				'title_short'	=> 'CIO',
 				'company'		=> 'Lower Colorado River Authority (LCRA)',
 				'photo'			=> '/images/speakers/johnson-rani.jpg',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Speaker::create([
+				'first_name'	=> 'Debra',
+				'last_name'		=> 'Ketchum',
+				'slug'			=> 'ketchum-debra',
+				'title'			=> 'National Advisory Director, Healthcare Analytics',
+				'title_short'	=> 'National Advisory Director, Healthcare Analytics',
+				'company'		=> 'PriceWaterhouseCoopers',
+				'photo'			=> '/images/speakers/ketchum-debra.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
 
@@ -400,6 +436,7 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Chief Information Officer',
 				'title_short'	=> 'CIO',
 				'company'		=> 'Texas Parks &amp; Wildlife',
+				'bio'			=> '<p>George Rios serves as the Director of Information Technology for Texas Parks and Wildlife Department. As a senior level executive, with over 27 years of experience, he has provided leadership, direction, and oversight, in all aspects of information technology. As the agency’s Chief Information Officer (CIO), George has set a technological direction that aligns with the agency’s mission, goals, and programs. He has emphasized increased collaboration across functional areas and strengthened how technology is implemented and service delivery is viewed within the agency.</p>',
 				'photo'			=> '/images/speakers/rios-george.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -436,6 +473,8 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Director Information Technology',
 				'title_short'	=> 'Director IT',
 				'company'		=> 'City of San Marcos',
+				'bio'			=> '<p>Mike Sturm is the Director of Information Technology for the City of San Marcos. He has been employed by the City for eighteen years. He manages 17 employees that are responsible for the Service Desk, System Administration, Business Relations, Network Infrastructure and GIS. He is also a member of the Texas Association of Government Information Technology Managers.</p>
+					<p>As for a personal life, he has been married for twenty five years and has two children.  Their daughter graduated from Texas A&M in 2012, and their son graduated from Texas A&M in 2015 and is a former member of the ‘Fighting Aggie’ Band.</p>',
 				'photo'			=> '/images/speakers/sturm-mike.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -447,7 +486,7 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Interim Chief Information Officer',
 				'title_short'	=> 'Interim CIO',
 				'company'		=> 'Texas Comptroller of Public Accounts',
-				'bio'			=> 'Jay Waldo has served in Texas state government since 2000 including software development and business process improvement work at the Department of Agriculture and the Comptroller of Public Accounts.  Prior to working in Texas, Jay worked as a software engineer and consultant in private industry.  Jay is currently the Director for Innovation and Technology at the Texas Comptroller of Public Accounts.  He is a graduate of Augustana College in Sioux Falls, South Dakota.',
+				'bio'			=> '<p>Jay Waldo has served in Texas state government since 2000 including software development and business process improvement work at the Department of Agriculture and the Comptroller of Public Accounts.  Prior to working in Texas, Jay worked as a software engineer and consultant in private industry.  Jay is currently the Director for Innovation and Technology at the Texas Comptroller of Public Accounts.  He is a graduate of Augustana College in Sioux Falls, South Dakota.</p>',
 				'photo'			=> '/images/speakers/waldo-jay.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
