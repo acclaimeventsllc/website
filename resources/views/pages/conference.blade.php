@@ -324,7 +324,7 @@ $session	= $agendas[$date][$time][$slot];
 @foreach ($sponsors as $slug => $sponsor)
 				<div class="sponsor">
 					<input id="sponsor-{{ $slug }}" class="modal-toggle no-move" type="checkbox">
-					<label for="sponsor-{{ $slug }}"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
+					<label for="sponsor-{{ $slug }}" class="sponsor-photo"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
 					<div class="modal-overlay">
 						<div class="vertical">
 							<div id="{{ $slug }}-overlay" class="row">

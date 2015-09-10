@@ -72,6 +72,7 @@ class CreateSponsorsTable extends Migration {
 				'company'	=> 'Workday',
 				'slug'		=> 'workday',
 				'website'	=> 'http://www.workday.com',
+				'bio'		=> '<p>Workday is a leading provider of enterprise cloud applications for financeand human resources. Founded in 2005, Workday delivers financial management, human capital management, and analytics applications designed for the world\'s largest companies, educational institutions, and government agencies. Hundreds of organizations, ranging from medium-sized businesses to Fortune 50 enterprises, have selected Workday.</p>',
 				'photo'		=> '/images/sponsors/workday.png',
 				'published'	=> Carbon::create(2015, 09, 04, 19, 37, 05),
 			]);
@@ -107,6 +108,8 @@ class CreateSponsorsTable extends Migration {
 				'company'	=> 'Windstream',
 				'slug'		=> 'windstream',
 				'website'	=> 'http://www.windstream.com',
+				'bio'		=> '<p>Windstream, a FORTUNE 500 company, is a leading provider of advanced network communications and technology solutions, including cloud computing and managed services, to businesses nationwide.</p>
+					<p>Windstream Hosted Solutions offers one of the most comprehensive enterprise-class cloud and managed services portfolios in the industry. From robust cloud computing solutions including public, private and hybrid cloud and cloud storage to complete managed services and colocation options, your network infrastructure, applications, systems and data are maintained in highly secure data centers strategically located nationwide.</p>',
 				'photo'		=> '/images/sponsors/windstream.jpg',
 				'published'	=> Carbon::create(2015, 09, 04, 19, 37, 05),
 			]);

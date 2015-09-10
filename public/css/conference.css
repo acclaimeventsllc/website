@@ -86,7 +86,8 @@ input.expand:checked ~ div.read-more { max-height: 250px; transition: all 1s eas
 .sponsors-contact { text-align: center; padding: 3em 0; }
 .sponsors-contact a { margin-top: 1em; width: 100%; max-width: 500px; line-height: 2; font-size: 18pt; }
 
-.modal-overlay .sponsor-image { padding: 4em 0 2em; }
+.sponsor-photo { cursor: pointer; }
+.sponsor-image { padding: 4em 0 2em; cursor: pointer; }
 
 
 /***************************************************
