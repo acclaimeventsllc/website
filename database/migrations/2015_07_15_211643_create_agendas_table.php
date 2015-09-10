@@ -87,7 +87,7 @@ class CreateAgendasTable extends Migration {
 				'title'			=> 'Application Modernization',
 				'title_short'	=> 'Application Modernization',
 				'desc'			=> '<p>As technology advances, we are forced to upgrade our old legacy systems to more modern and efficient systems.  Many of the businesses critical operations are often housed within older legacy systems and are completely developed with custom code.  Application Modernization allows the business to extend the life of their current system by incrementally updating applications and systems, allowing them to work together while avoiding costly downtime that would affect business operations.  Join our panel as they discuss some of the challenges strategies and lessons learned as a result of updating to newer more modern systems.</p>',
-				'speakers'		=> Helpers::serialize(['moderator' => ['selissen-ahn'], 'panelist' => ['cook-dana', 'waldo-jay', 'rios-george']]),
+				'speakers'		=> Helpers::serialize(['moderator' => ['selissen-anh'], 'panelist' => ['cook-dana', 'waldo-jay', 'rios-george']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
 
