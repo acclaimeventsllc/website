@@ -120,7 +120,7 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Dave',
 				'last_name'		=> 'Bhattacharjee',
 				'slug'			=> 'bhattacharjee-dave',
-				'title'			=> 'VP Data Analytics',
+				'title'			=> 'Vice President Data Analytics',
 				'title_short'	=> 'VP Data Analytics',
 				'company'		=> 'Stanley Black and Decker',
 				'bio'			=> '<p>Dave Bhattacharjee is the Vice President of Data Analytics for Stanley Black and Decker.  In this role, Dave is responsible for building a business unit tasked with monetizing Stanley, Black and Decker’s data assets.  Dave’s organization includes Professional Services focused on Data Science Services and big data and analytics platforms for Retail, Healthcare and Physical Security.</p>
@@ -133,8 +133,8 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Michael',
 				'last_name'		=> 'Botts',
 				'slug'			=> 'botts-michael',
-				'title'			=> 'Director IS, CISO',
-				'title_short'	=> 'Director IS, CISO',
+				'title'			=> 'Director Information Security &amp; CISO',
+				'title_short'	=> 'Director IS &amp; CISO',
 				'company'		=> 'SunPower Corporation',
 				'bio'			=> '<p>Michael Botts currently serves as Sunpower’s CISO. Mr. Botts manages a talented team in the US and Philippines charged with protecting an inspired organization “Changing the Way Our World Is Powered”.</p>
 					<p>He and his team are responsible for enterprise Cybersecurity Strategy, oversight of COGS and Non-COGS security investments, product design, manufacturing, Power Plant security services, residential and commercial data protection/privacy as well as IT/NERC compliance.</p>
@@ -199,8 +199,8 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Dana',
 				'last_name'		=> 'Cook',
 				'slug'			=> 'cook-dana',
-				'title'			=> 'Dir. Enterprise Data &amp; App. Modernization',
-				'title_short'	=> 'Dir. Enterprise Data &amp; App. Modernization',
+				'title'			=> 'Director Enterprise Data &amp; App. Modernization',
+				'title_short'	=> 'Director Enterprise Data &amp; App. Modernization',
 				'company'		=> 'University of Texas, Austin',
 				'bio'			=> '<p>Dana Cook serves as the Director for Enterprise Data and Application Modernization at The University of Texas at Austin and is responsible for strategic alignment, growth, and transition efforts for the administrative applications across campus.  This includes the coordination of over 1,000 application transitions from the University’s mainframe environment to new technologies.  She also serves on the Board of Directors for the Texas Association of State Systems for Computing and Communication (TASSCC).</p>
 					<p>Dana’s career includes a variety of roles at the University of Texas at Austin starting as an application developer in central IT, holding leadership positions in central IT, Facilities Services, Human Resources, and Financial Information Systems and leading a wide variety of enterprise programs and projects including the Human Resource Management System (HRMS) and the University Portal.  Dana serves as a guest lecturer at UT Austin and has contributed to a variety of higher education IT publications.</p>
@@ -242,8 +242,8 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Andrew',
 				'last_name'		=> 'Fernandes',
 				'slug'			=> 'fernandes-andrew',
-				'title'			=> 'Senior Director, Global Resiliency Program',
-				'title_short'	=> 'Sr. Dir., Global Resiliency Program',
+				'title'			=> 'Sr. Director, Global Resiliency Program',
+				'title_short'	=> 'Sr. Director, Global Resiliency Program',
 				'company'		=> 'Epicor',
 				'bio'			=> '					<p>Andrew has 20+ years management experience with a diverse educational background experience in finance, quality, risk management, business continuity and crisis management. He has implemented all ten professional practices from program initiation and management to coordination with external agencies.</p>
 					<p>Andrew is currently engaged as Senior Director, Global Resiliency Program, with Epicor Software Corporation.  Prior to Epicor, Andrew has been in a senior management position over the last 15 years either in a consulting or a  practitioner role with  IBM Resiliency Services, Dell Inc, and GE IT Solutions.</p>
@@ -273,8 +273,8 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Gregory',
 				'last_name'		=> 'Flay',
 				'slug'			=> 'flay-gregory',
-				'title'			=> 'Vice President, Information Technology',
-				'title_short'	=> 'Vice President IT',
+				'title'			=> 'Vice President Information Technology',
+				'title_short'	=> 'VP IT',
 				'company'		=> 'NRG Home Solar',
 				'bio'			=> '<p>As Vice President of Information Technology for the Home Solar division of NRG Energy, Greg Flay oversees the development and operation of systems and processes that support one of the top sales, installation, and financing residential solar panel systems businesses in the US.</p>
 					<p>Mr. Flay joined NRG in 2000 as a Manager of Plant Operations IT, working primarily on power station acquisitions in Australia, the Czech Republic, Estonia, Hungary, Turkey, Bolivia, Peru, and Brazil as well as a large portfolio within the US. Mr. Flay led the $18M integration of Texas Genco in 2006 as well as the $45M integration of Reliant Energy in 2009. In 2011, he moved to Austin to serve as a turnaround CIO for Green Mountain Energy. He later served in a similar capacity within NRG’s home warranty, home services, and residential solar businesses, in each case migrating the business from a homegrown set of business systems and processes onto enterprise-class systems based on the Salesforce platform.</p>
@@ -290,7 +290,7 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Richard',
 				'last_name'		=> 'Harris',
 				'slug'			=> 'harris-richard',
-				'title'			=> 'VP ITS & CTO',
+				'title'			=> 'Vice President ITS & CTO',
 				'title_short'	=> 'VP ITS & CTO',
 				'company'		=> 'SecureNation',
 				'bio'			=> '<p>Richard has been interested in the computer industry since high school and has worked in the field for the last 30 years. Richard has been a lead consultant for SecureNation for three years and he excels at quickly understanding new technologies and how they interact with existing installations. Richard is a native of Baton Rouge.</p>
@@ -328,7 +328,7 @@ class CreateSpeakersTable extends Migration {
 				'slug'			=> 'ketchum-debra',
 				'title'			=> 'National Advisory Director, Healthcare Analytics',
 				'title_short'	=> 'National Advisory Director, Healthcare Analytics',
-				'company'		=> 'PriceWaterhouseCoopers',
+				'company'		=> 'PricewaterhouseCoopers',
 				'photo'			=> '/images/speakers/ketchum-debra.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -373,9 +373,9 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Larry',
 				'last_name'		=> 'Moore',
 				'slug'			=> 'moore-larry',
-				'title'			=> 'VP &amp; IT Sector Chief',
+				'title'			=> 'Vice President &amp; IT Sector Chief',
 				'title_short'	=> 'VP &amp; IT Sector Chief',
-				'company'		=> 'Infragard (Austin chapter)',
+				'company'		=> 'Infragard - Capital of Texas chapter',
 				'bio'			=> '<p>Larry Moore has over sixteen years of Information Security experience as part of his thirty year IT career.  Larry has worded on diverse areas of Information Security including architecture, secure software development, penetration testing, server administration, project manager and executive manager.  Larry has served at the State of Texas in their critical infrastructure protection and in the technical and financial sector.</p>
 					<p>Larry graduated from the Florida Institute of Technology with a degree in Computer Science and began his work on various projects for NASA.  His post-NASA work included applications, device drivers and kernel extensions on various operation systems such as OS/2, Windows and Unix variants.  His work on the AIX security kernel included audit, single sign-on, PKI and a behavioral-based intrusion detection tool which was a precursor to his migration to the information security field.  Larry recently served as the lead Solution Security Officer for Gemalto’s North American region where he ensured the proper delivery of security requirements for the company’s trusted platforms and mobile payment solutions for large and small customers.  Larry has also audited, designed or modified the security programs for three of the company’s large data centers across the globe to enable customer mobile payment processing.</p>
 					<p>Larry serves on the board at the Computer Science department at Parker University in Dallas and the Austin chapter of the International Systems and Security Association.  Larry is also Vice-President and IT Sector Chief for the Austin chapter of Infragard and has given numerous presentations and written numerous articles on security architecture, threat intelligence and software development.</p>',
@@ -495,8 +495,8 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Marc',
 				'last_name'		=> 'Yoder',
 				'slug'			=> 'yoder-marc',
-				'title'			=> 'CISO and Senior Director, Security and Disaster Recovery',
-				'title_short'	=> 'CISO &amp; Sr. Dir. Security &amp; Disaster Recovery',
+				'title'			=> 'CISO &amp; Sr. Director, Security &amp; Disaster Recovery',
+				'title_short'	=> 'CISO &amp; Sr. Director Security &amp; Disaster Recovery',
 				'company'		=> 'NTT Data Corporation',
 				'bio'			=> '<p>A seasoned technologist with more than 20 years experience, with a comprehensive background in developing Business/Technology solutions in the areas of Information Security, Risk Management, Benchmarking, Compliance, and Business Continuity/Disaster Recovery Planning.</p>
 					<p>Mr. Yoder has a proven record of identifying and solving highly technical business technology challenges, developing secure architectures currently in place by multiple fortune 500 organizations, and working with Federal and International clients. He served as a principal on both the largest cyber-security and largest wireless projects in industry history.<p>
