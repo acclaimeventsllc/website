@@ -74,7 +74,7 @@ class CreateAgendasTable extends Migration {
 				'type'			=> 'session',
 				'title'			=> 'Enterprise Mobility – Embracing BYOD While Keeping your Information Secure',
 				'title_short'	=> 'Enterprise Mobility',
-				'desc'			=> '<p>Today’s workforce has an expectation that they will be able to access to information through a multitude of various devices, applications and infrastructures. We as IT Leaders need to be able to have policies in place that will accommodate the mobile workforce while maintaining information security. Join our experts as they discuss various strategies, policies and best practices that they have implemented to deal with the ever increasing number of mobile users within their organization.</p>',
+				'desc'			=> '<p>Today’s workforce has an expectation that they will be able to access information through a multitude of various devices, applications and infrastructures. We as IT Leaders need to be able to have policies in place that will accommodate the mobile workforce while maintaining information security. Join our experts as they discuss various strategies, policies and best practices that they have implemented to deal with the ever increasing number of mobile users within their organization.</p>',
 				'speakers'		=> Helpers::serialize(['speaker' => ['brewer-bob']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -131,7 +131,8 @@ class CreateAgendasTable extends Migration {
 				'type'			=> 'keynote',
 				'title'			=> 'Innovative Strategic Planning – Aligning IT Strategy to the Needs of the Business',
 				'title_short'	=> 'Innovative Strategic Planning',
-				'desc'			=> '<p>Integrating IT initiatives with the business strategy can often be challenging and complex. The speed of business and access to countless software applications and more connected networks make keeping company information secure a major challenge. IT continues to be under pressure to drive productivity and enable innovation, in many cases with fewer dollars.</p><p>Join our experts in discussion as they talk about some innovative ways to help integrate your IT strategy to meet the needs of the business while maintaining a high level of security.</p>',
+				'desc'			=> '<p>Integrating IT initiatives with the business strategy can often be challenging and complex. The speed of business and access to countless software applications and more connected networks make keeping company information secure a major challenge. IT continues to be under pressure to drive productivity and enable innovation, in many cases with fewer dollars.</p>
+					<p>Join our experts as they discuss some innovative ways to help integrate your IT strategy to meet the needs of the business while maintaining a high level of security.</p>',
 				'speakers'		=> Helpers::serialize(['moderator' => ['martin-jeff'], 'panelist' => ['smedley-jeff','flay-gregory','johnson-rani','parnell-lawanda']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);

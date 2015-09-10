@@ -186,7 +186,7 @@ class CreateSpeakersTable extends Migration {
 				'last_name'		=> 'Bynum',
 				'slug'			=> 'bynum-andy',
 				'title'			=> 'Corporate Vice President, Global IT Lead',
-				'title_short'	=> 'Corp. VP, Global IT Lead',
+				'title_short'	=> 'Corporate VP, Global IT Lead',
 				'company'		=> 'Advanced Micro Devices (AMD)',
 				'bio'			=> '<p>Andy Bynum is Corporate Vice President for Corporate IT Services at Advanced Micro devices (AMD).  Andy is responsible infrastructure, operations, application development/support, business partner relations and information security.   He brings more than 25 years of information technology experience, with a diverse background in public utilities, financial service, and manufacturing.</p>
 					<p>Before joining AMD in July 2013, he was Vice President of Information Technology for Freddie Mac and prior to that Senior Vice President for Service Delivery at National City Corporation (now PNC Bank). In both roles he was responsible for leading IT transformational efforts in support of corporate turnarounds.</p>
