@@ -340,9 +340,21 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Debra',
 				'last_name'		=> 'Ketchum',
 				'slug'			=> 'ketchum-debra',
-				'title'			=> 'National Advisory Director, Healthcare Analytics',
-				'title_short'	=> 'National Advisory Director, Healthcare Analytics',
-				'company'		=> 'PricewaterhouseCoopers',
+				'title'			=> 'Director Healthcare Analytics',
+				'title_short'	=> 'Director Healthcare Analytics',
+				'bio'			=> '<h2>Professional Background</h2>
+					<p>Debra assists Healthcare clients with data sharing, information management, mastering of patient and provider data via transformation by solution delivery of enterprise architecture for credible data, transformation, business process modernization, data governance and strategic roadmaps to transform their data into actionable insights.</p>
+					<p>Debra has extensive experience of healthcare demands and has lead solution architecting enterprise information management and analytics for improvement of patient health outcomes, in support of ACA compliance , while reducing risk and costs.</p>
+					<p>Debra leverages her Computer Information Systems Management, Finance and Business Degrees  with  Public Sector CIO and over 22 years of successful Public Sector engagements and Public Sector relationships.</p>
+					<h2>Project Experience Highlights</h2>
+					<p>Debra brings 15+ years of experience helping  Healthcare and State, Local Government, Education organizations with complex analytics solutions to improve healthcare outcomes.</p>
+					<p>Debra is  a Director of  Healthcare Analytics  with a focus on providers and the movement to value based care, requires population healthcare insights real-time to positively impact patient care.</p>
+					<p>Improve clinical performance, with value based care healthcare ecosystems, by enabling business processes and workflow with technology to support collaboration across demographic data, claims records, care management data, with clinical data, leveraging analytics to maximize clinical outcomes, with informed decision making, reduction of duplicity, risk and costs. </p>
+					<p>Population Health Management and Risk Solutions, turn data into intellectual capital for providers to predictively manage patient care at the population health level and patient levels with interventions.  With data collaboration across healthcare organizations, state eligibility and Medicaid systems, providers, physicians, insurance and pharmaceutical companies, that provides a comprehensive collaborative view and evidence-based decision support to healthcare and treatment.</p>
+					<p>Real-time streaming analytics across multiple types of data; including natural language, text or machine learning that is monitored to provide alerts that are based rules, goals or risks that provides insight real-time for proactive intervention, with improves management and quality of care.</p>
+					<p>Also, provides the capabilities to understand why the event occurred, that is based on trends and patterns over time, that improves efficiency, reduce risk, and improved cost management.</p>
+					<p>Manage compliance requirements with medical necessity risk for fraud, waste and abuse, with identity analytics to determine provider sanctions, beneficiaries, social networking analytics and analytics to detect patterns of overage charges, deceased or incarcerated and deter payments proactively before they are paid.</p>
+					<p>Providers are moving from treating symptoms reactively to a value based rewards outcome model.  Patients/Consumers, Employers and Health Plans are redistributing risk and demanding quality services, providers are using technology and analytics specifically to keep costs down, understand their patient and population health trends to deliver proactive quality improvements, while keeping costs down to meet consumer demands and expectations.</p>',
 				'photo'			=> '/images/speakers/ketchum-debra.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
