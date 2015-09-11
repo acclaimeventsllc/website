@@ -492,6 +492,28 @@ class CreateSpeakersTable extends Migration {
 			]);
 
 		Speaker::create([
+				'first_name'	=> 'Neera',
+				'last_name'		=> 'Talbert',
+				'slug'			=> 'talbert-neera',
+				'title'			=> 'Vice President, Big Data &amp; Advanced Analytics Services',
+				'title_short'	=> 'VP, Big Data &amp; Advanced Analytics Services',
+				'company'		=> 'Revolution Analytics',
+				'photo'			=> '/images/speakers/talbert-neera.jpg',
+//				'published'		=> Carbon::create(2015, 09, 10, 18, 51, 29),
+			]);
+
+		Speaker::create([
+				'first_name'	=> 'Brandon',
+				'last_name'		=> 'Theis',
+				'slug'			=> 'theis-brandon',
+				'title'			=> 'Director, Security',
+				'title_short'	=> 'Director, Security',
+				'company'		=> 'Texas A&amp;M Center for Innovation in Advanced Development and Manufacturing (CIADM)',
+				'photo'			=> '/images/speakers/theis-brandon.jpg',
+				'published'		=> Carbon::create(2015, 09, 10, 18, 51, 29),
+			]);
+
+		Speaker::create([
 				'first_name'	=> 'Jay',
 				'last_name'		=> 'Waldo',
 				'slug'			=> 'waldo-jay',

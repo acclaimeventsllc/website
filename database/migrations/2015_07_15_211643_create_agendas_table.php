@@ -54,7 +54,7 @@ class CreateAgendasTable extends Migration {
 				'title'			=> 'Analyzing Big Data – Using the Massive Volume of Information Collected',
 				'title_short'	=> 'Analyzing Big Data',
 				'desc'			=> '<p>Many organizations now have the ability to collect a massive amounts of structured and unstructured data every day. If companies are able to analyze and extract value from the information it can provide great insights and information about business trends. Join our experts as they discuss Big Data, some of its uses and some of the challenges around analysis, capture, curation, storage and privacy/security of the information collected.</p>',
-				'speakers'		=> Helpers::serialize(['moderator' => ['sturm-mike'], 'panelist' => ['bhattacharjee-dave', 'ketchum-debra']]),
+				'speakers'		=> Helpers::serialize(['moderator' => ['sturm-mike'], 'panelist' => ['bhattacharjee-dave', 'ketchum-debra', 'talbert-neera']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
 
@@ -120,7 +120,7 @@ class CreateAgendasTable extends Migration {
 				'title'			=> 'Business Continuity Disaster Recovery',
 				'title_short'	=> 'Business Continuity Disaster Recovery',
 				'desc'			=> '<p>Having an established business continuity and disaster recovery plan can help an organization to continue business and mitigate losses during catastrophic failures, cyber-attacks and malware infections, natural disasters and other critical emergencies. Join our panel of experts as they discuss some of the strategies and protocols that they have implemented within their organizations to help protect their companies in the event that an emergency strikes.</p>',
-				'speakers'		=> Helpers::serialize(['moderator' => ['harris-richard'], 'panelist' => ['fernandes-andrew', 'felps-robert']]),
+				'speakers'		=> Helpers::serialize(['moderator' => ['harris-richard'], 'panelist' => ['fernandes-andrew', 'felps-robert', 'theis-brandon']]),
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
 
