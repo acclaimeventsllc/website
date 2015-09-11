@@ -177,7 +177,7 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Enterprise Network Practice Manager',
 				'title_short'	=> 'Enterprise Network Practice Manager',
 				'company'		=> 'Forsythe',
-				'bio'			=> 'Brewer has more than 25 years of experience in the information technology industry. Throughout his career, he has helped enterprises with the strategic development and design of their enterprise network infrastructures, technology management and complex networking solutions consulting, professional services management, and strategic business leadership. Utilizing his industry insight, consulting skills, technical knowledge and profound wisdom of enterprise networking technology and communications industry Brewer has become a trusted advisor for many Forsythe clients.',
+				'bio'			=> '<p>Brewer has more than 25 years of experience in the information technology industry. Throughout his career, he has helped enterprises with the strategic development and design of their enterprise network infrastructures, technology management and complex networking solutions consulting, professional services management, and strategic business leadership. Utilizing his industry insight, consulting skills, technical knowledge and profound wisdom of enterprise networking technology and communications industry Brewer has become a trusted advisor for many Forsythe clients.</p>',
 				'photo'			=> '/images/speakers/brewer-bob.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
@@ -330,6 +330,7 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Chief Information Officer',
 				'title_short'	=> 'CIO',
 				'company'		=> 'Lower Colorado River Authority (LCRA)',
+				'bio'			=> '<p>Rani Johnson is the Chief Information Officer at Lower Colorado River Authority (LCRA). LCRA supplies cost-effective electricity for Central Texas, manages the water supplies for the lower Colorado River basin, provides public parks, and supports community development in 58 Texas counties. Prior to joining LCRA, Rani led the IT project management team at Austin Energy, was the Director of R&amp;D / Project Office at Ventyx - ABB and was the Director of Technology Operations at E2open (a Silicon Valley start up). Rani has a wealth of sales and product management experience gained during years at Intel Corporation. Her most proud accomplishment is that she has code deployed on the International Space Station from her work as a software developer at NASA – Johnson Space Center. Rani holds dual degrees in Computer Science and Electrical Engineering from Spelman College and Georgia Institute of Technology.</p>',
 				'photo'			=> '/images/speakers/johnson-rani.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
