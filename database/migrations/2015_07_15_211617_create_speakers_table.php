@@ -246,6 +246,7 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'vCIO & Vice President Business Development',
 				'title_short'	=> 'vCIO & VP Business Development',
 				'company'		=> 'Third Rock',
+				'bio'			=> '<p>Trusted adviser and innovative problem solver with over 25 years of tech experience.  He designs and executes IT strategies and cost saving solutions for Fortune 50s and venture-funded start-ups.  He has provided invaluable insight to verify and maintain functional compliance in daily operations, including a new Disaster Recovery approach for Healthcare providers.  Currently focused on providing the Healthcare industry a comprehensive cloud based HIPAA/HITECH compliance solution, including cyber-security that drastically reduces Mean-Time-To-Detection of cyber-breaches.</p>',
 				'photo'			=> '/images/speakers/felps-robert.jpg',
 				'published'		=> Carbon::create(2015, 09, 10, 12, 54, 32),
 			]);
@@ -461,6 +462,11 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Director Application Services',
 				'title_short'	=> 'Director Application Services',
 				'company'		=> 'Texas Comptroller of Public Accounts',
+				'bio'			=> '<p>Anh Selissen oversees all software development at the Texas Comptroller of Public Accounts.  Anh has been in this position since October 2011 and she is responsible for managing a division of 175+ staff of business analysts, software engineers, developers, and database administrators to provide ERP and statewide financial applications for the state of Texas.  She oversees the development and support of agency systems including internally developed applications, PeopleSoft systems, database modeling and administration, business intelligence/data warehouse and reporting, and software quality assurance.</p>
+					<p>Anh’s career includes leadership roles at private, public, and academia.  Anh has been the CTO at NuStats, a research transportation consulting company, where she led the technological advancements and efforts related to developing new lines of business, and new technology products.  Anh was also the director of enterprise systems at the University of Texas at Austin where her group delivered services to the flagship institution’s many constituents, which included faculty, staff, students, and alumni.  Anh started her leadership as the software development director at the Texas Water Development Board.</p>
+					<p>In each of her leadership roles, Anh has built a diverse range of experience working across the organization to manage IT projects and objectives and to offer a sound and stable service portfolio.  This has resulted in improved interactions with the end user communities and positive positioning of the organizations.</p>
+					<p>Anh has her Master and Bachelor of Science degrees in Geoscience.  She is a certified project manager and Certified Information Security Manager.</p>
+					<p>Anh’s main priority in life is her family – her husband, Mike, and their two kids, Anh-Alisse and Trey.  The family loves to travel and spending time at their lake house on Lake LBJ.</p>',
 				'photo'			=> '/images/speakers/selissen-anh.jpg',
 				'published'		=> Carbon::create(2015, 09, 09, 11, 48, 32),
 			]);
@@ -500,7 +506,7 @@ class CreateSpeakersTable extends Migration {
 				'title_short'	=> 'VP, Big Data &amp; Advanced Analytics Services',
 				'company'		=> 'Revolution Analytics',
 				'photo'			=> '/images/speakers/talbert-neera.jpg',
-//				'published'		=> Carbon::create(2015, 09, 10, 18, 51, 29),
+				'published'		=> Carbon::create(2015, 09, 10, 18, 51, 29),
 			]);
 
 		Speaker::create([
@@ -510,6 +516,12 @@ class CreateSpeakersTable extends Migration {
 				'title'			=> 'Director, Security',
 				'title_short'	=> 'Director, Security',
 				'company'		=> 'Texas A&amp;M Center for Innovation in Advanced Development and Manufacturing (CIADM)',
+				'bio'			=> '<p>Brandon L. Theis serves as the Director, Security for the Texas A&M Center for Innovation in Advanced Development and Manufacturing (CIADM).  Mr. Theis manages and executes all cybersecurity and physical aspects to assure the protection of the Center’s program.  Mr. Theis’ team consists of a network of security personnel and vendors who safeguard the enterprise’s assets, intellectual property, computer systems, and safety of employees and visitors.</p>
+					<p>Before joining CIADM, Mr. Theis was the Associate Research Specialist – Information Technology at Texas A&M Institute for Preclinical Studies (TIPS) where he managed Computer System Validation for all enterprise systems in accordance with Unites States Food and Drug Administration (FDA) Good Laboratory Practices (GLP) and electronic records requirements.</p>
+					<p>Prior to serving at TIPS, Mr. Theis was the Lead Information Technology Policy & Security Programs Administrator and Web Accessibility Coordinator for the Texas A&M Engineering Experiment Station (TEES) where he was responsible for organization wide policy creation for Software Development Life Cycle and Web Accessibility and in addition conducted and disseminated information from Agency Wide Security Monitoring Audits, Controlled Penetration, Web Application Vulnerability Scan, and Internet Security Scan testing.</p>
+					<p>Before joining TEES, Mr. Theis was the Chief Information Officer for the Texas A&M Veterinary Medical Diagnostic Laboratory (TVMDL) where his team was responsible for all Information Technology Operations with multiple locations throughout the State of Texas.</p>
+					<p>Prior to serving within the public sector, Mr. Theis was an Information Analyst for the Global Fortune 500 Information Technology Services Integrator Electronic Data Systems (EDS) an HP Company for 8 years where he served in multifaceted Information Technology roles supporting major automotive, insurance, sales, and human resource clients and industries.</p>
+					<p>Mr. Theis holds a Bachelor of Business Administration in Management Information Systems from Texas A&M University.</p>',
 				'photo'			=> '/images/speakers/theis-brandon.jpg',
 				'published'		=> Carbon::create(2015, 09, 10, 18, 51, 29),
 			]);
