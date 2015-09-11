@@ -502,9 +502,9 @@ class CreateSpeakersTable extends Migration {
 				'first_name'	=> 'Neera',
 				'last_name'		=> 'Talbert',
 				'slug'			=> 'talbert-neera',
-				'title'			=> 'Vice President, Big Data &amp; Advanced Analytics Services',
-				'title_short'	=> 'VP, Big Data &amp; Advanced Analytics Services',
-				'company'		=> 'Revolution Analytics',
+				'title'			=> 'Sr. Director',
+				'title_short'	=> 'Sr. Director',
+				'company'		=> 'Revolution Analytics (a Microsoft Company)',
 				'photo'			=> '/images/speakers/talbert-neera.jpg',
 				'published'		=> Carbon::create(2015, 09, 10, 18, 51, 29),
 			]);

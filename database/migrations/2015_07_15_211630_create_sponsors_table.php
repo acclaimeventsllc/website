@@ -73,7 +73,7 @@ class CreateSponsorsTable extends Migration {
 				'slug'		=> 'workday',
 				'website'	=> 'http://www.workday.com',
 				'bio'		=> '<p>Workday is a leading provider of enterprise cloud applications for financeand human resources. Founded in 2005, Workday delivers financial management, human capital management, and analytics applications designed for the world\'s largest companies, educational institutions, and government agencies. Hundreds of organizations, ranging from medium-sized businesses to Fortune 50 enterprises, have selected Workday.</p>',
-				'photo'		=> '/images/sponsors/workday.png',
+				'photo'		=> '/images/sponsors/workday.jpg',
 				'published'	=> Carbon::create(2015, 09, 04, 19, 37, 05),
 			]);
 
