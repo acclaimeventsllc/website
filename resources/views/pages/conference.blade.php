@@ -27,7 +27,7 @@
 	$end		= strtotime($event->end_date.$timezone);
 
 	if ($start < 0 || $end < $now) {
-		$options['countdown'] = false;
+		$options->countdown = false;
 	} else {
 		$min 	= 60;
 		$hour 	= 60 * $min;

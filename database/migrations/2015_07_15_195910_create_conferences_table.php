@@ -19,7 +19,7 @@ class CreateConferencesTable extends Migration {
 		Schema::create('conferences', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('slug')->unique();
+			$table->string('slug');
 			$table->string('conference');
 			$table->string('city');
 			$table->string('state');
@@ -46,7 +46,7 @@ class CreateConferencesTable extends Migration {
 				'city'			=> 'Austin',
 				'state'			=> 'TX',
 				'start_date'	=> Carbon::create(2015, 9, 15, 7, 30, 0),
-				'end_date'		=> Carbon::create(2015, 9, 31, 16, 30, 0),
+				'end_date'		=> Carbon::create(2015, 9, 15, 16, 30, 0),
 				'timezone'		=> 'CDT',
 				'coming'		=> 'September 2015',
 				'about'			=> '<p>Our Austin IT Strategies Conference will bring together CIOs, CTOs SVPs &#038; VPs of IT, IT Directors and Sr. Level IT Leaders of fortune 100-5000 companies and equivalent healthcare, government and educational entities in the greater Austin Region.  Our attendee’s will have the opportunity to hear from Industry experts, network with their peers and discuss critical challenges and issues that they face within their organizations.  We encourage our attendee’s to share and discuss their lessons learned, knowledge and insight as we dive into some of today’s biggest IT challenges.</p><p>We strive to produce content-rich presentations that will provide answers to many of today’s business challenges and hope that you will be able to gain practical knowledge and insights that you can then use within your own organization.</p>',

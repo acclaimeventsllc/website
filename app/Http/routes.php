@@ -32,6 +32,9 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/', 'PagesController@index');
 Route::get('about', 'PagesController@about');
+
+Route::get('conferences/new/{conference}', 'ConferencesController@create');
+Route::get('conferences/{year}/{conference?}', 'ConferencesController@past');
 Route::get('conferences/{conference?}', 'ConferencesController@index');
 
 Route::get('contact/sponsorship/{conference?}', 'ContactController@index');
