@@ -27,7 +27,7 @@
 <?php $date = 'Coming Soon!'; ?>
 @endif
 					<div class="event col-sm-4">
-						<a class="event-link" href="/conferences/{{ $event->slug }}" title="{{ $event->conference }}">
+						<a class="event-link" href="/conferences/{{ date('Y',strtotime($event->start_date)) }}/{{ $event->slug }}" title="{{ $event->conference }}">
 							<div class="event-background" style="background-image: url('{{ $event->photo }}');">
 								<div class="shader">
 									<div class="vertical">

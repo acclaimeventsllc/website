@@ -33,14 +33,9 @@ class ExtendedEloquentModel extends Model
 		return $query->whereNull('activated');
 	}
 
-	public function scopeUpcomingEvents($query)
+	public function scopeSlug($query, $slug)
 	{
-		return $query->where('start_date', '>', Carbon::now());
-	}
-
-	public function scopePastEvents($query)
-	{
-		return $query->where('end_date', '<', Carbon::now());
+		return $query->where('slug', '=', 'slug');
 	}
 
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use DB;
 use Carbon;
 use App\Helpers\Helpers;
+use App\Helpers\Lookup;
 
 class PagesController extends Controller {
 
@@ -22,6 +23,9 @@ class PagesController extends Controller {
 							->orderBy('start_date')
 							->take(3)
 							->get();
+
+		$events			= Lookup::lookup('conferences', [], ['upcoming' => true, 'current' => true, 'home' => true, 'published' => true]);
+//		dd($events);
 
 		$venues 		= DB::table('venues')
 							-> where(function($query) use($events) {

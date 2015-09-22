@@ -28,7 +28,7 @@
 	}
 
 ?>				<div class="conference col-sm-4">
-					<a href="/conferences/{{ $event->slug }}"@if (!empty($event->photo)) style="background-image: url('{{ $event->photo }}');"@endif>
+					<a href="/conferences/{{ date('Y', strtotime($event->start_date)) }}/{{ $event->slug }}"@if (!empty($event->photo)) style="background-image: url('{{ $event->photo }}');"@endif>
 						<div class="shader">
 							<div class="vertical">
 								<h3>{{ $event->city }}, {{ $event->state }}</h3>
@@ -49,7 +49,7 @@
 
 @stop
 
-@section('content-02'){{-- DISPLAY PAST CONFERENCES --}}
+@section('content-02'){{-- DISPLAY PAST CONFERENCES --}}@if (isset($past) && count($past) > 0)
 	<section id="past-conferences" class="section-alternating">
 
 		<div class="section-title">
@@ -74,7 +74,7 @@
 	}
 
 ?>				<div class="conference col-sm-4">
-					<a href="/conferences/{{ $event->slug }}"@if (!empty($event->photo)) style="background-image: url('{{ $event->photo }}');"@endif>
+					<a href="/conferences/{{ date('Y', strtotime($event->start_date)) }}/{{ $event->slug }}"@if (!empty($event->photo)) style="background-image: url('{{ $event->photo }}');"@endif>
 						<div class="shader">
 							<div class="vertical">
 								<h3>{{ $event->city }}, {{ $event->state }}</h3>
@@ -93,6 +93,7 @@
 
 	</section>
 
+@endif
 @stop
 
 

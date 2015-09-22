@@ -23,7 +23,7 @@ class CreateConferencesTable extends Migration {
 			$table->string('conference');
 			$table->string('city');
 			$table->string('state');
-			$table->timestamp('start_date');
+			$table->datetime('start_date');
 			$table->timestamp('end_date');
 			$table->string('timezone',3)->nullable();
 			$table->tinyInteger('coming')->default(0);

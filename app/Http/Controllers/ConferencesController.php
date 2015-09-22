@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Helpers\Helpers;
+use App\Helpers\Lookup;
 use DB;
 use Carbon\Carbon;
 use App\Models\Conference;
+use App\Models\ConferenceSponsor;
 use App\Models\Venue;
 use App\Models\Partner;
 use App\Models\Agenda;
@@ -20,7 +22,8 @@ class ConferencesController extends Controller
 	//
 	public function index()
 	{
-		$route = Helpers::routeinfo();
+		$route	= Helpers::routeinfo();
+
 		if (!isset($route->params) || !isset($route->params['conference']))
 		{
 			$events	= Conference::where('start_date', '>', Carbon::now())
@@ -41,11 +44,18 @@ class ConferencesController extends Controller
 		}
 		$events = $this->collectionToArray($events);
 
+		$allEvents = Lookup::lookup('conferences', $route->params, ['published' => true]);
+		$events	= Lookup::lookup('conferences', $route->params, ['upcoming' => true, 'current' => true, 'published' => true]);
+
 		if (count($events) > 1)
 		{
 			return $this->conferences($route, $events);
 		} elseif (count($events) === 1) {
 			return $this->conference($route, $events[0]);
+		} elseif (count($allEvents) > 1) {
+			return $this->conferences($route, $events);
+		} elseif (count($allEvents) === 1) {
+			return $this->conference($route, $allEvents[0]);
 		} elseif ($route->action === '{conference?}') {
 			return redirect('/');
 		} else {
@@ -53,204 +63,69 @@ class ConferencesController extends Controller
 		}
 	}
 
-	public function past()
-	{
-		$route	= Helpers::routeinfo();
-		if (!isset($route->params) || !isset($route->params['year']))
-		{
-			return redirect('/conferences');
-		} else {
-			$events	= Conference::where('end_date', '<', Carbon::now())
-								->whereYear('start_date', '=', $route->params['year'])
-								->where(function($query) use($route) {
-									if (isset($route->params) && !empty($route->params['conference']))
-									{
-										$query->where('slug', '=', $route->params['conference']);
-									}
-								})
-								->published()
-								->orderBy('start_date', 'asc')
-								->get();
-
-//			dd($events);
-			if (count($events) === 0)
-			{
-				return redirect('/conferences');
-			} elseif (count($events) === 1) {
-				return $this->conference($route, $events[0]);
-			} else {
-				return $this->conferences($route, $events);
-			}
-		}
-	}
-
 	protected function create()
 	{
-		$route			= Helpers::routeinfo();
-
+		$route	= Helpers::routeinfo();
+/*
 		$event 			= Conference::where('slug', '=', $route->params['conference'])
 									->published()
 									->latest();
-		if (!is_object($event))
-			$event = (object)$event->toArray();
-		{
-			$conference	= Conference::create([
-					'slug'		=> $
-				]);
-		}
-		$slug_formatted	= preg_replace("/\-/", ' ', $route->params['conference']);
-		$id = Conference::create([
+*/
+		$events		= Lookup::lookup('conferences', [$route->params['conference']], ['latest' => true, 'published' => true]);
+		$event		= $events[0];
+
+		$options	= Helpers::unserialize($event->options);
+		$options['speakers'] = false;
+		$options['sponsors'] = false;
+		$options['partners'] = false;
+
+		$newEvent		= Conference::create([
 				'slug'			=> $route->params['conference'],
-				'conference'	=> ucwords($slug_formatted).' IT Strategies Conference',
-				'city'			=> ucwords($slug_formatted),
-				'state'			=> '',
-				'start_date'	=> Carbon::now()->addWeek(),
-				'end_date'		=> Carbon::now()->addWeek()->addHours(8),
-				'timezone'		=> '',
+				'conference'	=> $event->conference,
+				'city'			=> $event->city,
+				'state'			=> $event->state,
+				'start_date'	=> Carbon::createFromFormat('Y-m-d H:i:s', $event->start_date)->addYear(),
+				'end_date'		=> Carbon::createFromFormat('Y-m-d H:i:s', $event->end_date)->addYear(),
+				'timezone'		=> $event->timezone,
 				'coming'		=> 1,
-				'about'			=> '<p>About this conference...</p>',
-				'sponsors'		=> Helpers::serialize([]),
-				'tags'			=> '',
-				'options'		=> Helpers::serialize(['link' => '0', 'title' => 'event:conference', 'jumbotron' => 'event:hero']),
-				'hero'			=> '/images/conferences/'.$route->params['conference'].'.jpg',
-				'photo'			=> '/images/conferences/'.$route->params['conference'].'-portfolio.jpg',
-				'published'		=> Carbon::now(),
-			]);
-		$id = (object)$id->toArray();
-
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 07:30:00',
-				'priority'		=> 1,
-				'type'			=> 'break',
-				'title'			=> 'Networking Breakfast',
+				'about'			=> $event->about,
+				'tags'			=> $event->tags,
+				'options'		=> Helpers::serialize($options),
+				'hero'			=> $event->hero,
+				'photo'			=> $event->photo,
 				'published'		=> Carbon::now(),
 			]);
 
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 09:00:00',
-				'priority'		=> 2,
-				'type'			=> 'keynote',
-				'title'			=> 'Keynote',
-				'published'		=> Carbon::now(),
-			]);
+		$newEvent	= (object)$newEvent->toArray();
+		$newAgendas	= [];
+		$agendas	= Lookup::lookup('agendas', ['conference' => $event->id], ['published' => true]);
 
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 10:00:00',
-				'priority'		=> 3,
-				'type'			=> 'break',
-				'title'			=> 'Networking Break',
-				'published'		=> Carbon::now(),
-			]);
+		if (is_array($agendas))
+		{
+			foreach ($agendas as $agenda) {
+				$agenda->conference_id	= $newEvent->id;
+				$agenda->timeslot		= Carbon::createFromFormat('Y-m-d H:i:s', $agenda->timeslot)->addYear();
+				$agenda->title			= ($agenda->type === 'breakout' || $agenda->type === 'session' ? 'Breakout Session' : ($agenda->type === 'break' ? $agenda->title : 'Keynote'));
+				$agenda->title_short	= ($agenda->type === 'breakout' || $agenda->type === 'session' ? 'Breakout Session' : ($agenda->type === 'break' ? $agenda->title : 'Keynote'));
+				$agenda->subtitle		= null;
+				$agenda->desc 			= null;
+				$agenda->speakers		= null;
+				$agenda->published		= Carbon::now();
+				$newAgendas[] 			= Agenda::create((array)$agenda);
+			}
+		}
 
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 10:30:00',
-				'priority'		=> 4,
-				'type'			=> 'session',
-				'title'			=> 'Breakout',
-				'published'		=> Carbon::now(),
-			]);
+		$container = (object)[
+			'event'		=> (object)$newEvent,
+			'agendas'	=> (object)$newAgendas,
+		];
 
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 10:30:00',
-				'priority'		=> 5,
-				'type'			=> 'breakout',
-				'title'			=> 'Breakout',
-				'published'		=> Carbon::now(),
-			]);
-
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 11:30:00',
-				'priority'		=> 6,
-				'type'			=> 'break',
-				'title'			=> 'Networking Break',
-				'published'		=> Carbon::now(),
-			]);
-
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 11:45:00',
-				'priority'		=> 7,
-				'type'			=> 'session',
-				'title'			=> 'Breakout',
-				'published'		=> Carbon::now(),
-			]);
-
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 11:45:00',
-				'priority'		=> 8,
-				'type'			=> 'breakout',
-				'title'			=> 'Breakout',
-				'published'		=> Carbon::now(),
-			]);
-
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 12:45:00',
-				'priority'		=> 9,
-				'type'			=> 'keynote',
-				'title'			=> 'Keynote',
-				'published'		=> Carbon::now(),
-			]);
-
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 14:15:00',
-				'priority'		=> 10,
-				'type'			=> 'break',
-				'title'			=> 'Networking Break',
-				'published'		=> Carbon::now(),
-			]);
-
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 14:30:00',
-				'priority'		=> 11,
-				'type'			=> 'session',
-				'title'			=> 'Breakout',
-				'published'		=> Carbon::now(),
-			]);
-
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 14:30:00',
-				'priority'		=> 12,
-				'type'			=> 'breakout',
-				'title'			=> 'Breakout',
-				'published'		=> Carbon::now(),
-			]);
-
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 15:30:00',
-				'priority'		=> 13,
-				'type'			=> 'break',
-				'title'			=> 'Networking Break',
-				'published'		=> Carbon::now(),
-			]);
-
-		Agenda::create([
-				'conference_id'	=> $id->id,
-				'timeslot'		=> '2015-09-15 15:45:00',
-				'priority'		=> 14,
-				'type'			=> 'keynote',
-				'title'			=> 'Keynote',
-				'published'		=> Carbon::now(),
-			]);
+		dd($newEvent);
 	}
 
 	protected function conferences($route, $events)
 	{
-		$past		= Conference::where('start_date', '<', Carbon::now())
-								->published()
-								->orderBy('start_date')
-								->get();
+		$past		= Lookup::lookup('conferences', $route->params, ['past' => true, 'published' => true]);
 		$venues		= Venue::where(function($query) use($events) {
 							foreach ($events as $i => $event) {
 								if ($i === 0) {
@@ -376,70 +251,14 @@ class ConferencesController extends Controller
 								}, true);
 		}
 
-		$sponsorList = [];
-		$sponsorFlat = [];
-		if (!empty($event->sponsors))
+		if ((bool)$options->sponsorlevels === true)
 		{
-			$sponsorList	= Helpers::unserialize($event->sponsors);
-			if (is_array($sponsorList))
-			{
-				foreach ($sponsorList as $sponsors) {
-					if (is_array($sponsorList) && is_array($sponsors))
-					{
-						$sponsorFlat = array_merge($sponsorFlat, $sponsors);
-					}
-				}
-			}
+			$sponsors = Lookup::lookup('sponsors', ['conference' => $event->id], ['published' => true, 'sponsorlevels' => true]);
+		} else {
+			$sponsors = Lookup::lookup('sponsors', ['conference' => $event->id], ['published' => true]);
 		}
 
-		if (count($sponsorFlat) > 0)
-		{
-			$sponsors		= Sponsor::where(function($query) use($sponsorFlat)
-								{
-									foreach ($sponsorFlat as $i => $sponsor)
-									{
-										if ($i === 0)
-										{
-											$query->where('slug', '=', $sponsor);
-										} else {
-											$query->orWhere('slug', '=', $sponsor);
-										}
-									}
-								})
-								->whereNotNull('photo')
-								->published()
-								->orderBy('company')
-								->get();
-			$sponsors		= Helpers::keysByField($sponsors, 'slug');
-
-			$sponsorsFinal	= (object)[];
-			if ((bool)$options->sponsorlevels === true && count($sponsors) > 0)
-			{
-				foreach ($sponsorList as $level => $companies)
-				{
-					if (!isset($sponsorsFinal->$level))
-					{
-						$sponsorsFinal->$level = (object)[];
-					}
-
-					foreach ($companies as $slug)
-					{
-						$sponsorsFinal->$level->$slug = (object)$sponsors[$slug];
-					}
-				}
-
-				$sponsors	= $sponsorsFinal;
-			} else {
-				foreach ($sponsors as $slug => $sponsor)
-				{
-					$sponsorsFinal->$slug = (object)$sponsor;
-				}
-
-				$sponsors	= $sponsorsFinal;
-			}
-		}
-
-//		dd($agendas);
+//		dd($sponsors);
 		return view('pages/conference', compact('event', 'venue', 'partners', 'agendas', 'speakers', 'sponsors', 'options', 'navs', 'sub'));
 	}
 
