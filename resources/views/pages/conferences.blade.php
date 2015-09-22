@@ -4,7 +4,11 @@
 	<link rel="stylesheet" id="styles-conferences" href="/css/conferences.css" type="text/css">
 @stop
 
-@section('content-01'){{-- DISPLAY MULTIPLE CONFERENCES --}}
+@section('jsbot')
+	<script type="text/javascript" src="/js/jquery-conferences.js"></script>
+@stop
+
+@section('content-01'){{-- DISPLAY UPCOMING AND CURRENT CONFERENCES --}}
 	<section id="conferences" class="section-alternating">
 
 		<div class="section-title">

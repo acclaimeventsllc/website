@@ -46,5 +46,5 @@ Route::post('contact/{contact?}', ['as' => 'contact_store', 'uses' => 'ContactCo
 Route::get('register/{conference?}', 'RegistrationController@index');
 Route::post('register/{conference?}', 'RegistrationController@store');
 
-Route::get('{conference?}', 'ConferencesController@index');
+Route::get('{year?}/{conference?}', 'ConferencesController@index');
 
