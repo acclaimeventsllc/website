@@ -42,13 +42,18 @@
 
 @foreach ($team as $person)
 				<li class="profile">
-					<a href="/contact/{{ strtolower($person->first_name) }}">
-						<div class="profile-pic" style="background-image: url('{{ $person->photo }}');"><div class="contact"><div class="vertical">Contact {{ $person->first_name }}</div></div></div>
+					<div class="profile-hover">
+						<div class="profile-pic" style="background-image: url('{{ $person->photo }}');"><div class="contact"></div></div>
+						<div class="profile-contact">
+							<div class="vertical">
+								<a href="/contact/{{ strtolower($person->first_name) }}" title="Email {{ ucwords($person->first_name) }}">Contact {{ ucwords($person->first_name) }}</a>
+							</div>
+						</div>
 						<div class="profile-info acclaim-box">
 							<p class="profile-name">{{ $person->first_name }} {{ $person->last_name }}</p>
 							<p class="profile-title">{!! $person->title !!}</p>
 						</div>
-					</a>
+					</div>
 				</li>
 
 @endforeach
@@ -66,7 +71,7 @@
 		<div class="speakers container">
 
 			<div class="section-title">
-				<h2>National Advisory Board</h2>
+				<h2>National Advisors</h2>
 				<span class="border"></span>
 			</div>
 

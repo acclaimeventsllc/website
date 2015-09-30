@@ -166,7 +166,7 @@ footer { clear: both; background-color: black; }
 	.menu-page { -webkit-border-radius: 0 0 0 5em; -moz-border-radius: 0 0 0 5em; border-radius: 0 0 0 5em; }
 	.menu-page li:first-child { display: inline-block; width: 50px; }
 	.menu-page a:hover, .menu-page .menu-active { transition: all 1s ease; color: #1b84c2 !important; background-color: rgba(25,130,190,.3); border-bottom-color: #1b84c2 !important; }
-	.register-now { color: white !important; background-color: #1b84c2; }
+	.register-now { color: white !important; background-color: red; }
 }
 
 /*  LAPTOPS  (MD) */

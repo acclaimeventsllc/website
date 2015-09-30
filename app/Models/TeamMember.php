@@ -13,6 +13,7 @@ class TeamMember extends ExtendedEloquentModel
 		'slug',
 		'title',
 		'email',
+		'linkedin',
 		'bio',
 		'priority',
 		'photo',

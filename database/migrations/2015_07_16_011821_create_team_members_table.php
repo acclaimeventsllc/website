@@ -23,6 +23,7 @@ class CreateTeamMembersTable extends Migration {
 			$table->string('slug');
 			$table->string('title');
 			$table->string('email');
+			$table->string('linkedin')->nullable();
 			$table->text('bio')->nullable();
 			$table->integer('priority');
 			$table->string('photo')->nullable();
@@ -37,6 +38,7 @@ class CreateTeamMembersTable extends Migration {
 				'slug'			=> 'kaneen-alex',
 				'title'			=> 'President &amp CEO',
 				'email'			=> 'alex@acclaimeventsllc.com',
+				'linkedin'		=> 'pub/alex-kaneen/1/474/b3a',
 				'priority'		=> 1,
 				'photo'			=> '/images/team/kaneen-alex.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
@@ -48,6 +50,7 @@ class CreateTeamMembersTable extends Migration {
 				'slug'			=> 'fritz-bob',
 				'title'			=> 'Senior Vice President',
 				'email'			=> 'bob@acclaimeventsllc.com',
+				'linkedin'		=> 'in/bobf2003',
 				'priority'		=> 2,
 				'photo'			=> '/images/team/fritz-bob.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
@@ -59,6 +62,7 @@ class CreateTeamMembersTable extends Migration {
 				'slug'			=> 'martin-jeff',
 				'title'			=> 'VP Business Development',
 				'email'			=> 'jeffm@acclaimeventsllc.com',
+				'linkedin'		=> 'in/spartanmartin',
 				'priority'		=> 3,
 				'photo'			=> '/images/team/martin-jeff.jpg',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
