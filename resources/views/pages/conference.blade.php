@@ -9,6 +9,7 @@
 @stop
 
 @section('jsbot')
+	<script id="jquery-speakers" src="/js/jquery.speakers.js"></script>
 	<script id="jquery-modal" src="/js/jquery-modal.js"></script>
 	<script id="jquery-paralax" src="/js/jquery-paralax.js"></script>
 	<script id="jquery-agenda" src="/js/jquery-agenda.js"></script>
@@ -19,7 +20,23 @@
 
 @section('content-01') {{-- EVENT COUNTDOWN --}}
 <?php
-
+/*
+	$options	= (object)[
+		'hero'				=> true,
+		'jumbotron'			=> 'event:hero',
+		'title'				=> 'event:title',
+		'countdown'			=> true,
+		'venue'				=> true,
+		'sponsors'			=> true,
+		'partners'			=> true,
+		'agenda'			=> true,
+		'agendaspeakers'	=> true,
+		'speakers'			=> true,
+		'sponsorlevels'		=> false,
+		'active'			=> 'conferences',
+	];
+*/
+	$options->agendaspeakers = true;
 	$now		= time();
 	$timezone	= (!empty($event->timezone) ? ' '.$event->timezone : '');
 	$timezone	= " PDT";
@@ -159,7 +176,7 @@
 										<div class="session-subtitle">{{ $session->subtitle }}</div>@endif
 
 									</label>
-@if ((bool)$options->speakers === true)@if (is_array($session->speakers))
+@if ((bool)$options->agendaspeakers === true)@if (is_array($session->speakers))
 									<div class="session-speakers">
 
 @foreach ($session->speakers as $type => $slugs)
@@ -217,7 +234,76 @@
 @endif
 @stop
 
-@section('content-04') {{-- CONFERENCE SPEAKERS --}}
+@section('content-04'){{-- CONFERENCE SPEAKERS --}}
+@if ((bool)$options->speakers === true && isset($speakers) && (is_array($speakers) || is_object($speakers)))
+	<!-- SPEAKERS -->
+	<section id="speakers">
+
+		<div class="section-title">
+			<h2>Speakers</h2>
+			<span class="border"></span>
+		</div>
+
+		<div class="speakers container">
+
+			<input id="modal-speaker" class="modal-toggle no-move" type="checkbox">
+
+			<div class="modal-overlay">
+				<div class="vertical">
+					<div id="modal-speaker-content" class="container">
+						<div class="row modal-content">
+							<label for="modal-speaker"><div class="modal-close">&#10006;</div></label>
+							<div class="noscript">
+								This feature requires Javascript to be turned on.
+							</div>
+							<div class="speaker">
+								<label for="modal-speaker"><div class="speaker-image">&nbsp;</div></label>
+								<p class="speaker-name acclaim-text"></p>
+								<p class="speaker-title"></p>
+								<p class="speaker-company"></p>
+								<div class="speaker-bio"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+
+@foreach ($speakers as $speaker)
+				<div class="col-md-4 col-sm-6">
+					<div id="speaker-{{ $speaker->slug }}" class="speaker">
+						<label for="modal-speaker" class="speaker-image modal-toggle" data-target="modal-speaker"@if (!empty($speaker->photo)) style="background-image: url('{{ $speaker->photo }}');"@endif><div class="read-bio">Read bio...</div></label>
+						<p class="speaker-name acclaim-text">{{ $speaker->first_name }} {{ $speaker->last_name }}</p>
+						<p class="speaker-title">{{ $speaker->title }}</p>
+						<p class="speaker-company">{{ $speaker->company }}</p>
+@if (is_array($speaker->sessions))
+						<div class="speaker-sessions">
+@foreach ($speaker->sessions as $string)<?php
+@list($date, $time, $slot) = explode(' ', $string);
+$session	= $agendas[$date][$time][$slot];
+?>
+							<a href="#session-{{ $session->id }}" title="{{ $session->title }}">{{ $session->title_short }}</a>
+@endforeach
+						</div>
+@endif
+						<div class="speaker-bio">
+							{!! $speaker->bio !!}
+						</div>
+					</div>
+				</div>
+@endforeach
+
+			</div>
+
+		</div>
+
+	</section>
+
+@endif
+@stop
+
+@section('content-10004'){{-- CONFERENCE SPEAKERS --}}
 @if ((bool)$options->speakers === true && isset($speakers) && (is_array($speakers) || is_object($speakers)))
 	<!-- Speakers -->
 	<section id="speakers">
@@ -247,10 +333,12 @@ $session	= $agendas[$date][$time][$slot];
 @endforeach
 @endif						</div>
 					</div>
+
 					<div class="modal-overlay">
 						<div class="vertical">
 							<div id="{{ $speaker->slug }}-overlay" class="row">
-								<div class="speaker modal-content col-md-6 col-md-offset-3">
+								<div class="speaker col-md-6 col-md-offset-3">
+<!--
 									<label for="speaker-{{ $speaker->slug }}" class="modal-close">&#10006;</label>
 									<div class="speaker-image"@if (!empty($speaker->photo)) style="background-image: url('{{ $speaker->photo }}');">@endif</div>
 									<p class="speaker-name acclaim-text">{{ $speaker->first_name }} {{ $speaker->last_name }}</p>
@@ -259,10 +347,12 @@ $session	= $agendas[$date][$time][$slot];
 									<div class="speaker-bio">
 										{!! $speaker->bio !!}
 									</div>
+-->
 								</div>
 							</div>
 						</div>
 					</div>
+
 				</div>
 
 @endforeach

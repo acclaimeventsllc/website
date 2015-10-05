@@ -10,10 +10,13 @@ $(document).ready(function() {
 		if (e.target.className == 'modal-overlay') {
 			$(this).parent().find('input.modal-toggle:checkbox').click();
 		} else if (e.target.className == 'row' && e.target.id.length) {
+			alert(e.target.className);
 			var obj = $('#' + e.target.id);
 			if (obj.length && obj.parent().parent().hasClass('modal-overlay')) {
 				$(this).parent().find('input.modal-toggle:checkbox').click();
 			}
+		} else if (e.target.className === 'vertical') {
+			$(this).parent().parent().find('input.modal-toggle:checkbox').click();
 		}
 	});
 
