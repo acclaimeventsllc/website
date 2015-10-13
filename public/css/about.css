@@ -35,7 +35,7 @@
 .profile-contact { position: absolute; top: 194px; left: 0; height: 66px; width: 260px; background-color: white; text-align: left; padding: 0 1.5em; z-index: 2; transition: .3s top ease; }
 .profile-contact > div { position: relative; }
 .profile-contact a { position: relative; display: block; margin-right: .5em; font-size: 1.2em; font-weight: bold; line-height: 66px; color: #1b84c2; vertical-align: center; }
-.profile-contact i { font-size: 3.8em; }
+.profile-contact i { margin-left: 1em; }
 
 .profile-hover:hover { background-color: red !important; }
 .profile-hover:hover .profile-contact { top: 260px; }

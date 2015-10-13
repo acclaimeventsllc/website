@@ -85,7 +85,7 @@
 					<div class="profile-hover">
 						<div class="profile-pic" style="background-image: url('{{ $person->photo }}');"><div class="contact"></div></div>
 						<div class="profile-contact">
-							<a href="/contact/{{ strtolower($person->first_name) }}" title="Email {{ ucwords($person->first_name) }}">Contact {{ ucwords($person->first_name) }}</a>
+							<a href="/contact/{{ strtolower($person->first_name) }}" title="Email {{ ucwords($person->first_name) }}">Contact {{ ucwords($person->first_name) }}: <i class="fa fa-envelope"></i></a>
 						</div>
 						<div class="profile-info acclaim-box">
 							<p class="profile-name">{{ $person->first_name }} {{ $person->last_name }}</p>

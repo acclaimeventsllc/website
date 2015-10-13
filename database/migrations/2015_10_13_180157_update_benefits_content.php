@@ -22,7 +22,7 @@ class UpdateBenefitsContent extends Migration
 
 		Benefit::find(2)->update([
 				'title'			=> 'Networking',
-				'text'			=> '<p>Networking and the sharing of valuable information is what really makes our events stand out. Many of our peers have faced similar challenges to ones that you may currently be working with. Being able to sit down and talk with them, one on one, about their experiences, what worked and what did not, can provide valuable insight into finding a solution to your challenges at hand.</p>',
+				'text'			=> '<p>Networking and the sharing of valuable information is what really makes our events stand out. Many of our colleagues have faced similar challenges to ones that you may currently be working with. Being able to sit down and talk with them, one on one, about their experiences, what worked and what did not, can provide valuable insight into finding a solution to your current challenges at hand.</p>',
 			]);
 
 		Benefit::find(3)->update([
@@ -37,7 +37,7 @@ class UpdateBenefitsContent extends Migration
 
 		Benefit::find(5)->update([
 				'title'			=> 'Our Partners',
-				'text'			=> '<p>We work to align ourselves with local IT support groups, user groups and IT professionals who are dedicated to promoting IT within the local community.  These groups are working to promote IT within the local community through the sharing of knowledge and information and educational scholarships; thus building our next generation of IT professionals.</p>',
+				'text'			=> '<p>We work to align ourselves with local IT support groups and IT professionals who are dedicated to promoting IT within the local community.  These groups are working to promote IT within the local community through the sharing of knowledge and information and educational scholarships; thus building our next generation of IT professionals.</p>',
 			]);
 
 	}
