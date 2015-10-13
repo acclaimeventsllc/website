@@ -26,7 +26,7 @@
 			<div class="row">
 
 				<div class="contact-info col-sm-6">
-@if(!empty($contact->photo))
+@if (!empty($contact->photo))
 
 					<div class="photo row">
 						<div class="label col-sm-4"></div>
@@ -34,26 +34,30 @@
 					</div>
 @endif
 
+@if (empty($contact->photo))
 					<div class="phone row">
 						<div class="label col-sm-4">Phone</div>
 						<div class="col-sm-8"><a href="tel:{{ $contact->phone_short }}">{{ $contact->phone }}</a></div>
 					</div>
 
+@endif
 					<div class="social row">
 						<div class="label col-sm-4">Social Media</div>
 						<div class="col-sm-8">
-							<ul>
-								<li><a class="facebook" href="{{ $contact->facebook }}" target="_blank"><i class="fa fa-facebook-square fa-lg normal-icon"></i></a></li>
+							<ul>@if (!empty($contact->facebook))
+								<li><a class="facebook" href="{{ $contact->facebook }}" target="_blank"><i class="fa fa-facebook-square fa-lg normal-icon"></i></a></li>@endif
 								<li><a class="linkedin" href="{{ $contact->linkedin }}" target="_blank"><i class="fa fa-linkedin-square fa-lg normal-icon"></i></a></li>
 							</ul>
 						</div>
 					</div>
 
+@if (!empty($contact->address))
 					<div class="address row">
 						<div class="label col-sm-4">Address</div>
 						<div class="col-sm-8"><a class="move" href="#location">{!! $contact->address !!}</a></div>
 					</div>
 
+@endif
 				</div>
 
 				<div class="contact-form col-sm-6">

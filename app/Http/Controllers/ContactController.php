@@ -51,6 +51,10 @@ class ContactController extends Controller
 					$contact->first_name	= $team->first_name;
 					$contact->last_name		= $team->last_name;
 					$contact->photo			= $team->photo;
+					$contact->linkedin		= $team->linkedin;
+					$contact->facebook		= null;
+					$contact->phone			= null;
+					$contact->address		= null;
 					$route->url				= '/contact/' . $route->params['contact'];
 				} else {
 					redirect('/contact');
