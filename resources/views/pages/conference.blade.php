@@ -20,23 +20,9 @@
 
 @section('content-01') {{-- EVENT COUNTDOWN --}}
 <?php
-/*
-	$options	= (object)[
-		'hero'				=> true,
-		'jumbotron'			=> 'event:hero',
-		'title'				=> 'event:title',
-		'countdown'			=> true,
-		'venue'				=> true,
-		'sponsors'			=> true,
-		'partners'			=> true,
-		'agenda'			=> true,
-		'agendaspeakers'	=> true,
-		'speakers'			=> true,
-		'sponsorlevels'		=> false,
-		'active'			=> 'conferences',
-	];
-*/
+
 	$options->agendaspeakers = true;
+
 	$now		= time();
 	$timezone	= (!empty($event->timezone) ? ' '.$event->timezone : '');
 	$timezone	= " PDT";
@@ -250,9 +236,9 @@
 
 			<div class="modal-overlay">
 				<div class="vertical">
-					<div id="modal-speaker-content" class="container">
+					<div class="container">
 						<div class="row modal-content">
-							<label for="modal-speaker"><div class="modal-close">&#10006;</div></label>
+							<label for="modal-speaker" class="modal-close">&#10006;</label>
 							<div class="noscript">
 								This feature requires Javascript to be turned on.
 							</div>
@@ -303,71 +289,28 @@ $session	= $agendas[$date][$time][$slot];
 @endif
 @stop
 
-@section('content-10004'){{-- CONFERENCE SPEAKERS --}}
-@if ((bool)$options->speakers === true && isset($speakers) && (is_array($speakers) || is_object($speakers)))
-	<!-- Speakers -->
-	<section id="speakers">
-		<div class="speakers container">
-
-			<div class="section-title">
-				<h2>Speakers</h2>
-				<span class="border"></span>
-			</div>
-
-			<div class="row">
-@foreach ($speakers as $speaker)
-				<div class="col-md-4 col-sm-6">
-					<input id="speaker-{{ $speaker->slug }}" class="modal-toggle no-move" type="checkbox">
-					<div class="speaker">
-						<label for="speaker-{{ $speaker->slug }}" class="speaker-image"@if (!empty($speaker->photo)) style="background-image: url('{{ $speaker->photo }}');"@endif><div class="read-bio">Read Bio...</div></label>
-						<p class="speaker-name acclaim-text">{{ $speaker->first_name }} {{ $speaker->last_name }}</p>
-						<p class="speaker-title">{{ $speaker->title }}</p>
-						<p class="speaker-company">{{ $speaker->company }}</p>
-						<div class="speaker-sessions">
-@if(is_array($speaker->sessions))
-@foreach ($speaker->sessions as $string)<?php
-@list ($date, $time, $slot) = explode(' ', $string);
-$session	= $agendas[$date][$time][$slot];
-?>
-							<a href="#session-{{ $session->id }}" title="{{ $session->title }}">{{ $session->title_short }}</a>
-@endforeach
-@endif						</div>
-					</div>
-
-					<div class="modal-overlay">
-						<div class="vertical">
-							<div id="{{ $speaker->slug }}-overlay" class="row">
-								<div class="speaker col-md-6 col-md-offset-3">
-<!--
-									<label for="speaker-{{ $speaker->slug }}" class="modal-close">&#10006;</label>
-									<div class="speaker-image"@if (!empty($speaker->photo)) style="background-image: url('{{ $speaker->photo }}');">@endif</div>
-									<p class="speaker-name acclaim-text">{{ $speaker->first_name }} {{ $speaker->last_name }}</p>
-									<p class="speaker-title">{{ $speaker->title }}</p>
-									<p class="speaker-company">{{ $speaker->company }}</p>
-									<div class="speaker-bio">
-										{!! $speaker->bio !!}
-									</div>
--->
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-@endforeach
-			</div>
-
-		</div>
-
-	</section>
-
-@endif
-@stop
-
 @section('content-05'){{-- CONFERENCE SPONSORS --}}
 	<!--// SPONSORS //-->
 	<section id="sponsors">
+
+		<input id="modal-sponsor" class="modal-toggle no-move" type="checkbox">
+
+		<div class="modal-overlay">
+			<div class="vertical">
+				<div class="container">
+					<div class="row modal-content">
+						<label for="modal-sponsor" class="modal-close">&#10006;</label>
+						<div class="noscript">
+							This feature requires Javascript to be turned on.
+						</div>
+						<div class="sponsor">
+							<label for="modal-sponsor" class="sponsor-photo"><img class="sponsor-image" src="" alt=""></label>
+							<div class="sponsor-bio"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="container">
 @if ((bool)$options->sponsorlevels !== true)
@@ -389,21 +332,9 @@ $session	= $agendas[$date][$time][$slot];
 
 @foreach ($companies as $slug => $sponsor)
 				<div class="sponsor">
-					<input id="sponsor-{{ $slug }}" class="modal-toggle no-move" type="checkbox">
-					<label for="sponsor-{{ $slug }}"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
-					<div class="modal-overlay">
-						<div class="vertical">
-							<div id="{{ $slug }}-overlay" class="row">
-								<div class="speaker modal-content col-md-6 col-md-offset-3">
-									<label for="sponsor-{{ $slug }}" class="modal-close">&#10006;</label>
-									<label for="sponsor-{{ $slug }}" class="sponsor-image"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
-									<p class="speaker-name acclaim-text">{{ $sponsor->company }}</p>
-									<div class="speaker-bio">
-										{!! $sponsor->bio !!}
-									</div>
-								</div>
-							</div>
-						</div>
+					<label for="modal-sponsor" class="sponsor-photo modal-toggle" data-target="modal-sponsor"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
+					<div class="sponsor-bio">
+						{!! $sponsor->bio !!}
 					</div>
 				</div>
 
@@ -413,20 +344,9 @@ $session	= $agendas[$date][$time][$slot];
 @else
 @foreach ($sponsors as $slug => $sponsor)
 				<div class="sponsor">
-					<input id="sponsor-{{ $slug }}" class="modal-toggle no-move" type="checkbox">
-					<label for="sponsor-{{ $slug }}" class="sponsor-photo"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
-					<div class="modal-overlay">
-						<div class="vertical">
-							<div id="{{ $slug }}-overlay" class="row">
-								<div class="speaker modal-content col-md-6 col-md-offset-3">
-									<label for="sponsor-{{ $slug }}" class="modal-close">&#10006;</label>
-									<label for="sponsor-{{ $slug }}" class="sponsor-image"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
-									<div class="speaker-bio">
-										{!! $sponsor->bio !!}
-									</div>
-								</div>
-							</div>
-						</div>
+					<label for="modal-sponsor" class="sponsor-photo modal-toggle" data-target="modal-sponsor"><img src="{{ $sponsor->photo }}" alt="{{ $sponsor->company }}"></label>
+					<div class="sponsor-bio">
+						{!! $sponsor->bio !!}
 					</div>
 				</div>
 

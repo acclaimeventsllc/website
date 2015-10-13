@@ -88,6 +88,10 @@ input.expand:checked ~ div.read-more { max-height: 250px; transition: all 1s eas
 
 .sponsor-photo { cursor: pointer; }
 .sponsor-image { padding: 4em 0 2em; cursor: pointer; }
+.sponsor .sponsor-bio { display: none; }
+
+div.modal-overlay .sponsor-photo { display: block; margin: auto; text-align: center; }
+div.modal-overlay .sponsor .sponsor-bio { display: none; }
 
 
 /***************************************************
