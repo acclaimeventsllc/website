@@ -60,19 +60,26 @@
 		<div class="container">
 
 			<div class="section-title">
-				<h2>Who Should Attend?</h2>
+				<h2>@if (!empty($intro->title)){{ $intro->title }}@else About our Conferences @endif</h2>
 				<span class="border"></span>
 			</div>
 
-			<p>@if (!empty($intro->text)){{ $intro->text }}@endif</p>
+			@if (!empty($intro->text)){!! $intro->text !!}@endif
 
+@foreach ($benefits as $i => $benefit)
+@if ($i%2 === 0)
 			<div class="row">
 
-@foreach ($benefits as $benefit)
+@endif
 				<div class="about-events col-sm-6">
 					<h3><span>{{ $benefit->title }}</span></h3>
-					<p>{{ $benefit->text }}</p>
+					{!! $benefit->text !!}
 				</div>
+
+@if ($i%2 > 0)
+			</div>
+			
+@endif
 
 @endforeach
 			</div>

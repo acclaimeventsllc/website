@@ -30,6 +30,10 @@
 .carousel li div { position: relative; top: 50%; width: 85%; margin: auto; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
 .carousel-slides { overflow: hidden; }
 
+/***************************************************
+**  TESTIMONIALS
+***************************************************/
+.about-events {  }
 
 
 /*  APPLE WATCH  */

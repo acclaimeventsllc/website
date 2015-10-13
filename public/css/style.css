@@ -145,7 +145,6 @@ footer { clear: both; background-color: black; }
 /*  HANDHELD PHONES (XS) */
 @media only screen and (min-width: 300px) {
 	#logo { display: none; }
-	.modal-content { max-height: 600px; }
 }
 
 @media only screen and (min-width: 321px) {
@@ -167,16 +166,39 @@ footer { clear: both; background-color: black; }
 	.menu-page { -webkit-border-radius: 0 0 0 5em; -moz-border-radius: 0 0 0 5em; border-radius: 0 0 0 5em; }
 	.menu-page li:first-child { display: inline-block; width: 50px; }
 	.menu-page a:hover, .menu-page .menu-active { transition: all 1s ease; color: #1b84c2 !important; background-color: rgba(25,130,190,.3); border-bottom-color: #1b84c2 !important; }
-	.register-now { color: white !important; background-color: #1b84c2; }
+	.register-now { color: white !important; background-color: red; }
 }
 
 /*  LAPTOPS  (MD) */
 @media only screen and (min-width: 992px) {
 	.jumbotron h1 { font-size: 75pt; }
-	.modal-content { max-height: 800px; }
 }
 
 /*  DESKTOPS  (LG)  */
 @media only screen and (min-width: 1200px) {
-	.modal-content { max-height: 1000px; }
+}
+
+/*  HEIGHT-BASED MODAL WINDOWS  */
+@media only screen and (max-height: 300px) {
+	.modal-content { height: 200px; }
+}
+
+@media only screen and (max-height: 400px) {
+	.modal-content { height: 300px; }
+}
+
+@media only screen and (max-height: 600px) {
+	.modal-content { height: 500px; }
+}
+
+@media only screen and (max-height: 800px) {
+	.modal-content { height: 600px; }
+}
+
+@media only screen and (max-height: 1200px) {
+	.modal-content { height: 800px; }
+}
+
+@media only screen and (min-height: 1201px) {
+	.modal-content { height: 1000px; }
 }
