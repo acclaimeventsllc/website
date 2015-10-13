@@ -31,7 +31,7 @@ class UpdateBenefitsContent extends Migration
 			]);
 
 		Benefit::find(4)->update([
-				'title'			=> 'Event Topics &amp; Presentations',
+				'title'			=> 'Topics &amp; Presentations',
 				'text'			=> '<p>We work closely with our advisors to ensure that our topics and discussions are current, on point and address critical challenges that are being faced by IT Professionals within the local community.</p>',
 			]);
 
