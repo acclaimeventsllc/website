@@ -1,5 +1,22 @@
-
+/***************************************************
+**  TITLE
+***************************************************/
 .header h1 { position: absolute; top: 50%; left: 0; width: 100%; text-align: center; color: white !important; transform: translateY(-50%); }
+
+
+/***************************************************
+**  ACCLAIM EVENTS - WHO WE ARE
+***************************************************/
+.bullet-points h3 { text-align: left; }
+
+.features { padding: 3em 0; overflow: hidden; }
+.features .feature { margin: 2em 0; }
+.features .feature-inside { padding: 1em; border: 1px solid #aaa; background-color: #eee; }
+.features .feature-head { margin: 2em; text-align: center; }
+.features .feature-head i { font-size: 120pt; }
+.features .feature-title { position: relative; height: 5em; }
+.features .feature-content { height: 9em; }
+
 
 /***************************************************
 **  MEET OUR TEAM
@@ -11,19 +28,15 @@
 .profile-pic .contact { opacity: 0; width: 100%; height: 100%; font-size: larger; font-weight: bold; text-align: center; color: white; text-transform: uppercase; background-color: rgba(0,0,0,.5); transition: all .3s ease-in-out; }
 .profile-pic:hover .contact { opacity: 1; }
 
-.profile-info { padding: 1em 1.5em; color: white; text-align: left; background-color: #1b84c2; z-index: 1; transition: .3s top ease; }
+.profile-info { height: 66px; padding: 1em 1.5em; color: white; text-align: left; background-color: #1b84c2; z-index: 1; transition: .3s top ease; }
 .profile-name { padding: 0; margin: 0; font-family: Montserrat, sans-serif; font-weight: bold; text-transform: uppercase; }
 .profile-title { padding: 0; margin: 0; font-family: 'Open Sans', sans-serif; font-size: 10pt; }
 
-.profile-contact { position: absolute; top: 210px; left: 0; width: 260px; background-color: white; text-align: left; padding: .5em; z-index: 2; transition: .3s top ease; }
-.profile-contact a { display: inline-block; margin-right: .5em; font-size: 1.5em; height: 60px; color: #1b84c2; vertical-align: center; }
+.profile-contact { position: absolute; top: 194px; left: 0; height: 66px; width: 260px; background-color: white; text-align: left; padding: 0 1.5em; z-index: 2; transition: .3s top ease; }
+.profile-contact > div { position: relative; }
+.profile-contact a { position: relative; display: block; margin-right: .5em; font-size: 1.2em; font-weight: bold; line-height: 66px; color: #1b84c2; vertical-align: center; }
 .profile-contact i { font-size: 3.8em; }
 
 .profile-hover:hover { background-color: red !important; }
 .profile-hover:hover .profile-contact { top: 260px; }
-
-
-.alex-kaneen { background-image: url('/images/team/alex-kaneen.jpg'); }
-.bob-fritz { background-image: url('/images/team/bob-fritz.jpg'); }
-.jeff-martin { background-image: url('/images/team/jeff-martin.jpg'); }
-
+.profile-hover:hover .profile-pic .contact { opacity: 1; }
