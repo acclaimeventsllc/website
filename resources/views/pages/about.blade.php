@@ -41,9 +41,6 @@
 
 					<div class="col-sm-4 feature">
 						<div class="feature-inside">
-							<div class="feature-head">
-								<i class="fa fa-shield acclaim-text"></i>
-							</div>
 							<div class="feature-title">
 								<h3>INTEGRITY</h3>
 							</div>
@@ -55,9 +52,6 @@
 
 					<div class="col-sm-4 feature">
 						<div class="feature-inside">
-							<div class="feature-head">
-								<i class="fa fa-arrow-up acclaim-text"></i>
-							</div>
 							<div class="feature-title">
 								<h3>HIGH STANDARDS &amp; EXPECTATIONS</h3>
 							</div>
@@ -69,9 +63,6 @@
 
 					<div class="col-sm-4 feature">
 						<div class="feature-inside">
-							<div class="feature-head">
-								<i class="fa fa-exchange acclaim-text"></i>
-							</div>
 							<div class="feature-title">
 								<h3>SHARING OF KNOWLEDGE</h3>
 							</div>

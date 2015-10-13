@@ -17,9 +17,7 @@ class UpdateBenefitsContent extends Migration
 		Benefit::find(1)->update([
 				'title'			=> 'About our Conferences',
 				'text'			=> '
-					<p>Our IT Strategies Conferences foster an exclusive environment for CIOs & Sr. level IT Executives that is conducive to learning, networking and sharing of information with their peers and colleagues giving them valuable insight and knowledge that they can use within their IT organizations.</p>
-
-					<p>Attendees have the opportunity to hear from Industry experts as they discuss critical business challenges, strategies and solutions that many IT organizations face. We encourage attendee’s to share their expertise and discuss lessons learned as we dive into some of today’s biggest IT challenges.</p>',
+					<p>Our IT Strategies Conferences foster an exclusive environment for CIOs & Sr. level IT Executives that is conducive to learning, networking and sharing of information with their peers and colleagues giving them valuable insight and knowledge that they can use within their IT organizations.  Attendees have the opportunity to hear from Industry experts as they discuss critical business challenges, strategies and solutions that many IT organizations face. We encourage attendee’s to share their expertise and discuss lessons learned as we dive into some of today’s biggest IT challenges.</p>',
 			]);
 
 		Benefit::find(2)->update([
@@ -34,7 +32,7 @@ class UpdateBenefitsContent extends Migration
 
 		Benefit::find(4)->update([
 				'title'			=> 'Event Topics &amp; Presentations',
-				'text'			=> '<p>We work closely with our advisors to ensure that our topics and discussions are current and address critical challenges that are being faced by IT Professionals within the local community.  We work to ensure that the topics are current, on point and are appropriately addressing the needs of our audience.</p>',
+				'text'			=> '<p>We work closely with our advisors to ensure that our topics and discussions are current, on point and address critical challenges that are being faced by IT Professionals within the local community.</p>',
 			]);
 
 		Benefit::find(5)->update([
