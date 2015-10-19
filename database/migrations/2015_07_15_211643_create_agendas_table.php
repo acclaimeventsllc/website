@@ -192,10 +192,10 @@ class CreateAgendasTable extends Migration {
 			]);
 
 
-		/*****  SAN ANTONIO IT STRATEGIES CONFERENCE (DATE TBD) *****/
+		/*****  SAN ANTONIO IT STRATEGIES CONFERENCE 2016-05-24 *****/
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 07:30:00',
+				'timeslot'		=> '2016-05-24 07:30:00',
 				'priority'		=> 1,
 				'type'			=> 'break',
 				'title'			=> 'Networking Breakfast',
@@ -204,7 +204,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 09:00:00',
+				'timeslot'		=> '2016-05-24 09:00:00',
 				'priority'		=> 2,
 				'type'			=> 'keynote',
 				'title'			=> 'Keynote',
@@ -213,7 +213,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 10:00:00',
+				'timeslot'		=> '2016-05-24 10:00:00',
 				'priority'		=> 3,
 				'type'			=> 'break',
 				'title'			=> 'Networking Break',
@@ -222,7 +222,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 10:30:00',
+				'timeslot'		=> '2016-05-24 10:30:00',
 				'priority'		=> 4,
 				'type'			=> 'session',
 				'title'			=> 'Breakout',
@@ -231,7 +231,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 10:30:00',
+				'timeslot'		=> '2016-05-24 10:30:00',
 				'priority'		=> 5,
 				'type'			=> 'breakout',
 				'title'			=> 'Breakout',
@@ -240,7 +240,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 11:30:00',
+				'timeslot'		=> '2016-05-24 11:30:00',
 				'priority'		=> 6,
 				'type'			=> 'break',
 				'title'			=> 'Networking Break',
@@ -249,7 +249,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 11:45:00',
+				'timeslot'		=> '2016-05-24 11:45:00',
 				'priority'		=> 7,
 				'type'			=> 'session',
 				'title'			=> 'Breakout',
@@ -258,7 +258,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 11:45:00',
+				'timeslot'		=> '2016-05-24 11:45:00',
 				'priority'		=> 8,
 				'type'			=> 'breakout',
 				'title'			=> 'Breakout',
@@ -267,7 +267,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 12:45:00',
+				'timeslot'		=> '2016-05-24 12:45:00',
 				'priority'		=> 9,
 				'type'			=> 'keynote',
 				'title'			=> 'Keynote',
@@ -276,7 +276,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 14:15:00',
+				'timeslot'		=> '2016-05-24 14:15:00',
 				'priority'		=> 10,
 				'type'			=> 'break',
 				'title'			=> 'Networking Break',
@@ -285,7 +285,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 14:30:00',
+				'timeslot'		=> '2016-05-24 14:30:00',
 				'priority'		=> 11,
 				'type'			=> 'session',
 				'title'			=> 'Breakout',
@@ -294,7 +294,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 14:30:00',
+				'timeslot'		=> '2016-05-24 14:30:00',
 				'priority'		=> 12,
 				'type'			=> 'breakout',
 				'title'			=> 'Breakout',
@@ -303,7 +303,7 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 15:30:00',
+				'timeslot'		=> '2016-05-24 15:30:00',
 				'priority'		=> 13,
 				'type'			=> 'break',
 				'title'			=> 'Networking Break',
@@ -312,7 +312,135 @@ class CreateAgendasTable extends Migration {
 
 		Agenda::create([
 				'conference_id'	=> 2,
-				'timeslot'		=> '2015-09-15 15:45:00',
+				'timeslot'		=> '2016-05-24 15:45:00',
+				'priority'		=> 14,
+				'type'			=> 'keynote',
+				'title'			=> 'Keynote',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+
+		/*****  AUSTIN IT STRATEGIES CONFERENCE 2015-09-21 *****/
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 07:30:00',
+				'priority'		=> 1,
+				'type'			=> 'break',
+				'title'			=> 'Networking Breakfast',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 09:00:00',
+				'priority'		=> 2,
+				'type'			=> 'keynote',
+				'title'			=> 'Keynote',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 10:00:00',
+				'priority'		=> 3,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 10:30:00',
+				'priority'		=> 4,
+				'type'			=> 'session',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 10:30:00',
+				'priority'		=> 5,
+				'type'			=> 'breakout',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 11:30:00',
+				'priority'		=> 6,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 11:45:00',
+				'priority'		=> 7,
+				'type'			=> 'session',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 11:45:00',
+				'priority'		=> 8,
+				'type'			=> 'breakout',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 12:45:00',
+				'priority'		=> 9,
+				'type'			=> 'keynote',
+				'title'			=> 'Keynote',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 14:15:00',
+				'priority'		=> 10,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 14:30:00',
+				'priority'		=> 11,
+				'type'			=> 'session',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 14:30:00',
+				'priority'		=> 12,
+				'type'			=> 'breakout',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 15:30:00',
+				'priority'		=> 13,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 3,
+				'timeslot'		=> '2016-09-21 15:45:00',
 				'priority'		=> 14,
 				'type'			=> 'keynote',
 				'title'			=> 'Keynote',
@@ -322,8 +450,8 @@ class CreateAgendasTable extends Migration {
 
 		/*****  TAMPA IT STRATEGIES CONFERENCE (DATE TBD) *****/
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 07:30:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 07:30:00',
 				'priority'		=> 1,
 				'type'			=> 'break',
 				'title'			=> 'Networking Breakfast',
@@ -331,8 +459,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 09:00:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 09:00:00',
 				'priority'		=> 2,
 				'type'			=> 'keynote',
 				'title'			=> 'Keynote',
@@ -340,8 +468,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 10:00:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 10:00:00',
 				'priority'		=> 3,
 				'type'			=> 'break',
 				'title'			=> 'Networking Break',
@@ -349,8 +477,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 10:30:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 10:30:00',
 				'priority'		=> 4,
 				'type'			=> 'session',
 				'title'			=> 'Breakout',
@@ -358,8 +486,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 10:30:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 10:30:00',
 				'priority'		=> 5,
 				'type'			=> 'breakout',
 				'title'			=> 'Breakout',
@@ -367,8 +495,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 11:30:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 11:30:00',
 				'priority'		=> 6,
 				'type'			=> 'break',
 				'title'			=> 'Networking Break',
@@ -376,8 +504,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 11:45:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 11:45:00',
 				'priority'		=> 7,
 				'type'			=> 'session',
 				'title'			=> 'Breakout',
@@ -385,8 +513,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 11:45:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 11:45:00',
 				'priority'		=> 8,
 				'type'			=> 'breakout',
 				'title'			=> 'Breakout',
@@ -394,8 +522,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 12:45:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 12:45:00',
 				'priority'		=> 9,
 				'type'			=> 'keynote',
 				'title'			=> 'Keynote',
@@ -403,8 +531,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 14:15:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 14:15:00',
 				'priority'		=> 10,
 				'type'			=> 'break',
 				'title'			=> 'Networking Break',
@@ -412,8 +540,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 14:30:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 14:30:00',
 				'priority'		=> 11,
 				'type'			=> 'session',
 				'title'			=> 'Breakout',
@@ -421,8 +549,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 14:30:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 14:30:00',
 				'priority'		=> 12,
 				'type'			=> 'breakout',
 				'title'			=> 'Breakout',
@@ -430,8 +558,8 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 15:30:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 15:30:00',
 				'priority'		=> 13,
 				'type'			=> 'break',
 				'title'			=> 'Networking Break',
@@ -439,8 +567,264 @@ class CreateAgendasTable extends Migration {
 			]);
 
 		Agenda::create([
-				'conference_id'	=> 3,
-				'timeslot'		=> '2015-09-15 15:45:00',
+				'conference_id'	=> 4,
+				'timeslot'		=> '2016-09-21 15:45:00',
+				'priority'		=> 14,
+				'type'			=> 'keynote',
+				'title'			=> 'Keynote',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+
+		/*****  SAN ANTONIO IT STRATEGIES CONFERENCE (DATE TBD) *****/
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 07:30:00',
+				'priority'		=> 1,
+				'type'			=> 'break',
+				'title'			=> 'Networking Breakfast',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 09:00:00',
+				'priority'		=> 2,
+				'type'			=> 'keynote',
+				'title'			=> 'Keynote',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 10:00:00',
+				'priority'		=> 3,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 10:30:00',
+				'priority'		=> 4,
+				'type'			=> 'session',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 10:30:00',
+				'priority'		=> 5,
+				'type'			=> 'breakout',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 11:30:00',
+				'priority'		=> 6,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 11:45:00',
+				'priority'		=> 7,
+				'type'			=> 'session',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 11:45:00',
+				'priority'		=> 8,
+				'type'			=> 'breakout',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 12:45:00',
+				'priority'		=> 9,
+				'type'			=> 'keynote',
+				'title'			=> 'Keynote',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 14:15:00',
+				'priority'		=> 10,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 14:30:00',
+				'priority'		=> 11,
+				'type'			=> 'session',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 14:30:00',
+				'priority'		=> 12,
+				'type'			=> 'breakout',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 15:30:00',
+				'priority'		=> 13,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 5,
+				'timeslot'		=> '2016-09-21 15:45:00',
+				'priority'		=> 14,
+				'type'			=> 'keynote',
+				'title'			=> 'Keynote',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+
+		/*****  AUSTIN IT STRATEGIES CONFERENCE (DATE TBD) *****/
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 07:30:00',
+				'priority'		=> 1,
+				'type'			=> 'break',
+				'title'			=> 'Networking Breakfast',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 09:00:00',
+				'priority'		=> 2,
+				'type'			=> 'keynote',
+				'title'			=> 'Keynote',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 10:00:00',
+				'priority'		=> 3,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 10:30:00',
+				'priority'		=> 4,
+				'type'			=> 'session',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 10:30:00',
+				'priority'		=> 5,
+				'type'			=> 'breakout',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 11:30:00',
+				'priority'		=> 6,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 11:45:00',
+				'priority'		=> 7,
+				'type'			=> 'session',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 11:45:00',
+				'priority'		=> 8,
+				'type'			=> 'breakout',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 12:45:00',
+				'priority'		=> 9,
+				'type'			=> 'keynote',
+				'title'			=> 'Keynote',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 14:15:00',
+				'priority'		=> 10,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 14:30:00',
+				'priority'		=> 11,
+				'type'			=> 'session',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 14:30:00',
+				'priority'		=> 12,
+				'type'			=> 'breakout',
+				'title'			=> 'Breakout',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 15:30:00',
+				'priority'		=> 13,
+				'type'			=> 'break',
+				'title'			=> 'Networking Break',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+		Agenda::create([
+				'conference_id'	=> 6,
+				'timeslot'		=> '2016-09-21 15:45:00',
 				'priority'		=> 14,
 				'type'			=> 'keynote',
 				'title'			=> 'Keynote',
