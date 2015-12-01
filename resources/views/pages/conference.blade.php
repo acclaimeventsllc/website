@@ -134,7 +134,19 @@
 @if ((bool)$options->agenda === true && isset($agendas) && is_array($agendas))
 	<section id="agenda">
 
-		<div class="container">
+		<div class="container">@if ((bool)$options->show_topics === true)
+
+			<h4>Here are some of the topics that we are looking to address at our 2016 conferences:</h4>
+
+			<div class="topics">
+
+						<ul>
+@foreach ($topics as $topic)
+							<li>{{ $topic }}</li>
+@endforeach
+						</ul>
+
+			</div>@endif
 
 			<div class="agenda">
 

@@ -16,6 +16,8 @@ use App\Models\Partner;
 use App\Models\Agenda;
 use App\Models\Speaker;
 use App\Models\Sponsor;
+use App\Models\Topic;
+use App\Models\TopicLinkage;
 
 class ConferencesController extends Controller
 {
@@ -205,6 +207,22 @@ class ConferencesController extends Controller
 			}
 		}
 
+		$unfilteredTopics		= TopicLinkage::select('topics.title')
+									->where('topics_conference_linkage.conference_id', '=', $event->id)
+									->join('topics', 'topics_conference_linkage.topic_id', '=', 'topics.id')
+									->get();
+		$topics					= [];
+
+		foreach ($unfilteredTopics as $topic)
+		{
+			$topics[]	= $topic->title;
+		}
+
+		if ((bool)$options->topics_by_alpha === true)
+		{
+			sort($topics);
+		}
+
 		$agendasRaw	= Agenda::where('conference_id', '=', $event->id)
 						->published()
 						->orderBy('timeslot')
@@ -259,7 +277,7 @@ class ConferencesController extends Controller
 		}
 
 //		dd($sponsors);
-		return view('pages/conference', compact('event', 'venue', 'partners', 'agendas', 'speakers', 'sponsors', 'options', 'navs', 'sub'));
+		return view('pages/conference', compact('event', 'venue', 'partners', 'topics', 'agendas', 'speakers', 'sponsors', 'options', 'navs', 'sub'));
 	}
 
 	protected function collectionToArray($collection)

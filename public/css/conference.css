@@ -33,6 +33,13 @@ label.register, a.register { width: 100%; margin-top: 2em; color: white; font-si
 .partners p { padding-bottom: 2em; }
 .partners a img { max-width: 100%; }
 
+
+/***************************************************
+**  TOPICS 
+***************************************************/
+.topics { width: 33.3333333%; margin: auto; padding-bottom: 5em; }
+
+
 /***************************************************
 **  AGENDA 
 ***************************************************/
