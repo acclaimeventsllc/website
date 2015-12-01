@@ -46,7 +46,7 @@
 						<div class="col-sm-8">
 							<ul>@if (!empty($contact->facebook))
 								<li><a class="facebook" href="{{ $contact->facebook }}" target="_blank"><i class="fa fa-facebook-square fa-lg normal-icon"></i></a></li>@endif
-								<li><a class="linkedin" href="{{ $contact->linkedin }}" target="_blank"><i class="fa fa-linkedin-square fa-lg normal-icon"></i></a></li>
+								<li><a class="linkedin" href="http://www.linkedin.com/{{ $contact->linkedin }}" target="_blank"><i class="fa fa-linkedin-square fa-lg normal-icon"></i></a></li>
 							</ul>
 						</div>
 					</div>
