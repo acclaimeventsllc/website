@@ -62,6 +62,7 @@ class ContactController extends Controller
 			} elseif ($route->uri === 'contact/sponsorship/{conference?}') {
 				if (!empty($route->params['conference']))
 				{
+					$options->title			= 'Request Sponsorship Information';
 					$events	= Conference::where('slug', '=', $route->params['conference'])
 										->where('start_date', '>', Carbon::now())
 										->published()
