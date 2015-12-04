@@ -161,7 +161,16 @@ class CreateNavigationsTable extends Migration
                 'menu'      => 'conference',
                 'href'      => '#countdown',
                 'content'   => 'Countdown',
-                'option'    => 'options:countdown=true',
+                'option'    => 'options:show_countdown=0',
+                'priority'  => '2',
+                'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
+            ]);
+
+        Navigation::create([
+                'menu'      => 'conference',
+                'href'      => '#about',
+                'content'   => 'About',
+                'option'    => 'options:show_about=1',
                 'priority'  => '2',
                 'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
             ]);
@@ -170,7 +179,7 @@ class CreateNavigationsTable extends Migration
                 'menu'      => 'conference',
                 'href'      => '#agenda',
                 'content'   => 'Agenda',
-                'option'    => 'options:agenda=true',
+                'option'    => 'options:show_agenda=1',
                 'priority'  => '3',
                 'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
             ]);
@@ -179,7 +188,7 @@ class CreateNavigationsTable extends Migration
                 'menu'      => 'conference',
                 'href'      => '#speakers',
                 'content'   => 'Speakers',
-                'option'    => 'options:speakers=true',
+                'option'    => 'options:show_speakers=1',
                 'priority'  => '4',
                 'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
             ]);
@@ -197,7 +206,7 @@ class CreateNavigationsTable extends Migration
                 'menu'      => 'conference',
                 'href'      => '#location',
                 'content'   => 'Venue',
-                'option'    => 'options:venue=true',
+                'option'    => 'options:show_map=1',
                 'priority'  => '5',
                 'published' => Carbon::create(2015, 08, 28, 15, 05, 29),
             ]);

@@ -322,7 +322,7 @@ class CreateOptionsTable extends Migration {
 		Option::create([
 				'slug'			=> 'conference',
 				'option'		=> 'show_venue',
-				'value'			=> '1',
+				'value'			=> '0',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);
 
@@ -442,6 +442,14 @@ class CreateOptionsTable extends Migration {
 		Option::create([
 				'slug'			=> '2015/austin',
 				'option'		=> 'show_address',
+				'value'			=> '1',
+				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
+			]);
+
+
+		Option::create([
+				'slug'			=> '2015/austin',
+				'option'		=> 'show_venue',
 				'value'			=> '1',
 				'published'		=> Carbon::create(2015, 08, 28, 15, 05, 29),
 			]);

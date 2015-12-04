@@ -29,24 +29,7 @@
 					<ul>
 						<li></li>
 @foreach ($sub as $item)
-@if (!empty($item->href) && !empty($item->content))<?php
-	$return = true;
-	if (!empty($item->option)) {
-		$return = false;
-		@list($statement, $val) = explode('=', $item->option);
-		@list($obj, $var) = explode(':', $statement);
-		if (isset($$obj->$var) && $$obj->$var === (bool)$val) {
-			if (isset($$var) && (is_array($$var) || is_object($$var))) {
-				$return = true;
-			}
-		}
-	}
-	$item->option = $return;
-?>
-@if ($item->option === true)
 						<li><a href="{{ $item->href }}" title="@if(!empty($item->title)){{ $item->title }}@else{{ $item->content }}@endif">{{ $item->content }}</a></li>
-@endif
-@endif
 @endforeach
 					</ul>
 				</div>

@@ -106,17 +106,6 @@ class Helpers {
 						->where('published', '>', '0000-00-00 00:00:00')
 						->orderBy('priority')
 						->get();
-
-			if (!is_array($options)) {
-				$options = [];
-			}
-
-			if (is_array($nav)) {
-				foreach ($nav as $i => $item) {
-					$shown = true;
-				}
-			}
-
 			return $nav;
 		} else {
 			$nav	= DB::table('navigations')
@@ -125,17 +114,66 @@ class Helpers {
 						->orderBy('priority')
 						->get();
 
-			if (!is_array($options)) {
-				$options = [];
+			if (!is_object($options)) {
+				$options = (object)[];
 			}
 
 			if (is_array($nav)) {
 				foreach ($nav as $i => $item) {
-					if (!empty($item->options)) {
-						// finish this
+					$shown = true;
+					if (!empty($item->option)) {
+						if (preg_match("/^options\:(.+)\=(.+)$/", $item->option, $match))
+						{
+							$trash = array_shift($match);
+							list($option, $value) = $match;
+//							printf('<pre>'.$option);
+							if (!empty($options->$option)) {
+								switch ($value) {
+									case 'true' || true || '1' || 1:
+										if ((bool)$options->$option !== true) {
+//											printf(' <span style="color:red;">is not true</span> ('. (bool)$options->$option .')');
+											$shown = false;
+										} else {
+//											printf(' <span style="color:green;">is true</span>');
+										}
+										break;
+									case 'false' || false || '0' || 0:
+										if (isset($options->$option) && (bool)$options->$option !== false)
+										{
+//											printf(' <span style="color:red;">is not un-false</span>');
+											$shown = false;
+										}
+										break;
+									case 'null' || null:
+										if (isset($options->$option) && $options->$option !== null)
+										{
+//											printf(' <span style="color:red;">is not null</span>');
+											$shown = false;
+										}
+										break;
+									default:
+										if (!isset($options->$option) || $options->$option !== $value)
+										{
+//											printf(' <span style="color:red;">!== '.$value.'</span>');
+											$shown = false;
+										}
+										break;
+								}
+							} else {
+//								printf(' <span style="color:purple;">is empty.</span>');
+								$shown = false;
+							}
+//							printf('</pre>');
+						}
+					}
+					if ($shown !== true)
+					{
+						unset($nav[$i]);
 					}
 				}
 			}
+
+//			dd($nav);
 			return $nav;
 		}
 	}
