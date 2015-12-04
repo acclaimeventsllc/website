@@ -139,7 +139,7 @@
 				<div class="col-md-10">
 					<div class="topics">
 
-						<h4>These are the topics that we are looking to address at our 2016 Conferences:</h4>
+						<h4>Topics that we are looking to address at our 2016 Conferences include:</h4>
 
 						<ul>
 @foreach ($topics as $topic)
