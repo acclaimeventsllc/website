@@ -44,7 +44,7 @@ class CreateTopicsTable extends Migration
 			['title' => 'Working with a Social Enabled Enterprise', 'published' => $published],
 		];
 		Topic::insert($data);
-
+/*
 		$defaults	= [
 			'show_topics'		=> '1',
 			'topics_by_alpha'	=> '1',
@@ -74,7 +74,7 @@ class CreateTopicsTable extends Migration
 				$event->save();
 			}
 		}
-
+*/
 	}
 
 	/**

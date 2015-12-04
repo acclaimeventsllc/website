@@ -18,6 +18,8 @@ class PagesController extends Controller {
 		$navs		= Helpers::navigation($route, $options);
 		$sub		= Helpers::navigation($route, $options, true);
 
+//		dd($options);
+
 		$events			= DB::table('conferences')
 							->where('end_date', '>', Carbon\Carbon::now())
 							->orderBy('start_date')
@@ -62,6 +64,8 @@ class PagesController extends Controller {
 		$navs		= Helpers::navigation($route, $options);
 		$sub		= Helpers::navigation($route, $options, true);
 
+		$about		= $options->about_text;
+/*
 		$about		= DB::table('pages')
 						->select('about')
 						->where('slug', '=', 'about')
@@ -69,7 +73,7 @@ class PagesController extends Controller {
 						->take(1)
 						->get();
 		$about		= (!empty($about[0]->about) ? $about[0]->about : '');
-
+*/
 		$team		= DB::table('team_members')
 						->where('published', '>', '0000-00-00 00:00:00')
 						->orderBy('priority')

@@ -18,7 +18,7 @@
 				<div class="menu menu-main acclaim-box-black">
 					<ul>
 @foreach ($navs as $nav)
-						<li><a class=" menu-item @if (!empty($nav->styles)){{ $nav->styles }}@endif @if ('/'.$options->active === $nav->href || ($options->active === 'home' && $nav->href === '/'))menu-active @endif" href="{{ $nav->href }}" title="@if (!empty($nav->title)){{ $nav->title }}@else{{ $nav->content }} @endif">{{ $nav->content }}</a></li>
+						<li><a class=" menu-item @if (!empty($nav->styles)){{ $nav->styles }}@endif @if ('/'.$options->active_menu === $nav->href || ($options->active_menu === 'home' && $nav->href === '/'))menu-active @endif" href="{{ $nav->href }}" title="@if (!empty($nav->title)){{ $nav->title }}@else{{ $nav->content }} @endif">{{ $nav->content }}</a></li>
 @endforeach
 					</ul>
 				</div>
@@ -67,7 +67,7 @@
 
 	</header>
 
-@if (!empty($options->hero) && (bool)$options->hero === true)
+@if (!empty($options->show_hero_image) && (bool)$options->show_hero_image === true)
 	<!-- Hero Image, Top of Page -->
 	<section id="home" class="paralax jumbotron jumbotron-header" style="background-image: url('{{ $options->jumbotron }}');">
 		<div>

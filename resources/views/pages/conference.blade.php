@@ -21,16 +21,13 @@
 @section('content-01') {{-- EVENT COUNTDOWN --}}
 <?php
 
-	$options->agendaspeakers = true;
-
 	$now		= time();
 	$timezone	= (!empty($event->timezone) ? ' '.$event->timezone : '');
-	$timezone	= " PDT";
 	$start		= strtotime($event->start_date.$timezone) - $now;
 	$end		= strtotime($event->end_date.$timezone);
 
 	if ($start < 0 || $end < $now) {
-		$options->countdown = false;
+		$options->show_countdown = false;
 	} else {
 		$min 	= 60;
 		$hour 	= 60 * $min;
@@ -64,7 +61,7 @@
 
 		<div class="container">
 
-@if ((bool)$options->countdown === true && isset($event) && is_object($event))
+@if ((bool)$options->show_countdown === true && isset($event) && is_object($event))
 			<ul class="countdown" data-date="{{ $event->start_date }}">
 				<li class="countdown-days">
 					<div class="countdown-digit">{{ $days }}</div>
@@ -109,7 +106,7 @@
 
 			</div>
 
-@if ((bool)$options->partners === true && !empty($partners->text))
+@if ((bool)$options->show_partners === true && !empty($partners->text))
 			<div class="partners col-sm-12">
 				{!! $partners->text !!}
 
@@ -131,20 +128,28 @@
 @stop
 
 @section('content-03') {{-- CONFERENCE AGENDA --}}
-@if ((bool)$options->agenda === true && isset($agendas) && is_array($agendas))
+@if ((bool)$options->show_agenda === true && isset($agendas) && is_array($agendas))
 	<section id="agenda">
 
 		<div class="container">@if ((bool)$options->show_topics === true)
 
-			<h4>Here are some of the topics that we are looking to address at our 2016 conferences:</h4>
+			<div class="row">
 
-			<div class="topics">
+				<div class="col-md-2"></div>
+				<div class="col-md-10">
+					<div class="topics">
+
+						<h4>These are the topics that we are looking to address at our 2016 Conferences:</h4>
 
 						<ul>
 @foreach ($topics as $topic)
 							<li>{{ $topic }}</li>
 @endforeach
 						</ul>
+
+					</div>
+
+				</div>
 
 			</div>@endif
 
@@ -174,7 +179,7 @@
 										<div class="session-subtitle">{{ $session->subtitle }}</div>@endif
 
 									</label>
-@if ((bool)$options->agendaspeakers === true)@if (is_array($session->speakers))
+@if ((bool)$options->show_speakers_agenda === true)@if (is_array($session->speakers))
 									<div class="session-speakers">
 
 @foreach ($session->speakers as $type => $slugs)
@@ -233,7 +238,7 @@
 @stop
 
 @section('content-04'){{-- CONFERENCE SPEAKERS --}}
-@if ((bool)$options->speakers === true && isset($speakers) && (is_array($speakers) || is_object($speakers)))
+@if ((bool)$options->show_speakers === true && isset($speakers) && (is_array($speakers) || is_object($speakers)))
 	<!-- SPEAKERS -->
 	<section id="speakers">
 
@@ -325,17 +330,17 @@ $session	= $agendas[$date][$time][$slot];
 		</div>
 
 		<div class="container">
-@if ((bool)$options->sponsorlevels !== true)
+@if ((bool)$options->sponsor_levels !== true)
 			<div class="section-title">
 				<h2>Sponsors</h2>
 				<span class="border"></span>
 			</div>
 
 @endif
-@if ((bool)$options->sponsors === true && isset($sponsors) && is_object($sponsors))
+@if ((bool)$options->show_sponsors === true && isset($sponsors) && is_object($sponsors))
 			<div class="sponsors row">
 
-@if ((bool)$options->sponsorlevels === true)
+@if ((bool)$options->sponsor_levels === true)
 @foreach ($sponsors as $level => $companies)
 				<div class="section-title">
 					<h2>{{ $level }} Sponsors</h2>
@@ -379,13 +384,13 @@ $session	= $agendas[$date][$time][$slot];
 @stop
 
 @section('content-06') {{-- CONFERENCE LOCATION MAP --}}
-@if((bool)$options->venue && isset($venue) && is_object($venue))
+@if((bool)$options->show_venue && isset($venue) && is_object($venue))
 	<section id="location">
 
 		<div class="map-canvas" data-place="{{ $venue->place }}"
-			@if (!empty($venue->coords) && $options->coords === true)data-coords="{{ $venue->coords }}"@endif
-			@if (!empty($venue->address) && $options->address === true)data-address="{{ $venue->address }}"@endif
-			@if (!empty($venue->venue) && $options->venue === true)data-venue="{{ $venue->venue }}"@endif>
+			@if (!empty($venue->coords) && $options->show_coordinates === true)data-coords="{{ $venue->coords }}"@endif
+			@if (!empty($venue->address) && $options->show_address === true)data-address="{{ $venue->address }}"@endif
+			@if (!empty($venue->venue) && $options->show_venue === true)data-venue="{{ $venue->venue }}"@endif>
 		</div>
 		
 		<input id="map-toggle" class="map-toggle modal-toggle no-move" type="checkbox">

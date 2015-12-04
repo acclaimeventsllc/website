@@ -3,78 +3,84 @@
 namespace App\Helpers;
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Option;
 use DB;
 
 class Helpers {
 	
 	public static function routeinfo() {
 		$route	= Route::current();
-		if (preg_match("/\//", $route->uri())) {
+		if (preg_match("/conferences\/\{year\?\}\/\{conference\?\}/i", $route->uri()))
+		{
+			$action = 'conference';
+		} elseif (preg_match("/\/(.+)/", $route->uri())) {
 			list($action) = explode('/', $route->uri());
 		} elseif ('/' === $route->uri()) {
 			$action = 'home';
 		} else {
 			$action = $route->uri();
 		}
+
+//		dd((object)['action' => $action, 'params' => $route->parameters(), 'uri' => $route->uri()]);
 		return (object)['action' => $action, 'params' => $route->parameters(), 'uri' => $route->uri()];
 	}
 
-	public static function options($route, $slug = null, $local = [], $vars = []) {
+	public static function options($route, $slug = null, $event = null)
+	{
+		$general	= Option::where('slug', '=', 'general')
+							->where('published', '>', '0000-00-00 00:00:00')
+							->get();
 
-		$options	= DB::table('options')
-						->where('published', '>', '0000-00-00 00:00:00')
-						->get();
-		$options	= self::keysByField($options, 'option', function($value, $key, $field, $array, $toObj) {
-							if (is_object($value)) {
-								return $value->value;
-							} elseif (is_array($value)) {
-								return $value['value'];
-							} else {
-								return $value;
-							}
-						});
+		$page		= Option::where('slug', '=', $route->action)
+							->where('published', '>', '0000-00-00 00:00:00')
+							->get();
 
-		if (is_string($slug)) {
-			$route->action = $slug;
-		} elseif (empty($route->action)) {
-			$route->action = 'home';
+		$general	= self::keysByField($general, 'option');
+		$page		= self::keysByField($page, 'option');
+
+		foreach ($general as $option => $values)
+		{
+			$options[$option] = $values->value;
 		}
 
-		$page		= DB::table('pages')
-						->where('slug', '=', $route->action)
-						->where('published', '>', '0000-00-00 00:00:00')
-						->take(1)
-						->get();
-		if (is_array($page) && isset($page[0])) {
-			$page		= $page[0];
+		foreach ($page as $option => $values)
+		{
+			$options[$option] = $values->value;
 		}
 
-		if (isset($page) && !empty($page->options)) {
-			$page->options	= self::unserialize(trim($page->options));
-		} else {
-			$page			= (object)['options' => ''];
-		}
+		if (is_string($slug))
+		{
+			$slug		= Option::where('slug', '=', $slug)
+								->where('published', '>', '0000-00-00 00:00:00')
+								->get();
+			$slug		= self::keysByField($slug, 'option');
 
-		if (!empty($page->options)) {
-			foreach ($page->options as $option => $value) {
-				$options[$option] = $value;
+			foreach ($slug as $option => $values)
+			{
+				$options[$option] = $values->value;
 			}
 		}
 
-		if (is_array($local)) {
-			foreach ($local as $option => $value) {
-				$options[$option] = $value;
-			}
+		if (is_object($event))
+		{
+			$event = (array)$event;
 		}
 
-		if (is_array($vars) && count($vars) > 0) {
-			foreach ($options as $option => $value) {
-				if (is_string($value) && preg_match("/^([a-z]+):([a-z]+)$/i", $value)) {
-					list($key, $val) = explode(':', $value);
-					if (isset($vars[$key])) {
-						$obj = (object)$vars[$key];
-						if (!empty($obj->$val)) {
-							$options[$option] = $obj->$val;
+		if (is_array($event))
+		{
+//			dd($event);
+			foreach ($options as $option => $value)
+			{
+				if (preg_match("/[a-z]+\:[a-z]+/i", $value))
+				{
+					list ($key, $val) = explode(':', $value);
+					if (isset($event[$val]))
+					{
+						$obj = (object)$event[$val];
+//						dd($obj->scalar);
+						if (!empty($obj->scalar))
+						{
+							$options[$option] = $obj->scalar;
 						}
 					}
 				}

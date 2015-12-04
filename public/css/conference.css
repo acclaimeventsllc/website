@@ -37,7 +37,9 @@ label.register, a.register { width: 100%; margin-top: 2em; color: white; font-si
 /***************************************************
 **  TOPICS 
 ***************************************************/
-.topics { width: 33.3333333%; margin: auto; padding-bottom: 5em; }
+.topics { /*width: 70%; margin: auto;*/ padding-bottom: 5em; }
+.topics h4 { text-align: left; }
+.topics ul { list-style-type: disc; list-style-position: inside; }
 
 
 /***************************************************

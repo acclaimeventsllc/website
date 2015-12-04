@@ -81,6 +81,8 @@ class ConferencesController extends Controller
 		$options['sponsors'] = false;
 		$options['partners'] = false;
 
+		$options	= Helpers::options($route, $route->params['conference']);
+
 		$newEvent		= Conference::create([
 				'slug'			=> $route->params['conference'],
 				'conference'	=> $event->conference,
@@ -153,17 +155,7 @@ class ConferencesController extends Controller
 		$venue		= Venue::where('slug', '=', $event->venue_slug)->published()->get();
 		$venue 		= (!empty($venue[0]) ? (object)$venue[0]->toArray() : null);
 
-		$event->options = (!empty($event->options) ? Helpers::unserialize($event->options) : []);
-		$options	= Helpers::options($route, 'conference', $event->options);
-		$options	= (array)$options;
-		foreach ($options as $key => $option) {
-			if (is_string($option) && preg_match("/^([a-z]+):([a-z]+)$/i", $option)) {
-				list ($foo, $bar) = explode(':', $option);
-				$options[$key] = $$foo->$bar;
-			}
-		}
-		$options 	= (object)$options;
-
+		$options	= Helpers::options($route, $event->slug, $event);
 //		dd($options);
 
 		$navs 		= Helpers::navigation($route, $options);
@@ -211,7 +203,7 @@ class ConferencesController extends Controller
 									->where('topics_conference_linkage.conference_id', '=', $event->id)
 									->join('topics', 'topics_conference_linkage.topic_id', '=', 'topics.id')
 									->get();
-		$topics					= [];
+		$topics					= [];  
 
 		foreach ($unfilteredTopics as $topic)
 		{
@@ -269,7 +261,7 @@ class ConferencesController extends Controller
 								}, true);
 		}
 
-		if ((bool)$options->sponsorlevels === true)
+		if ((bool)$options->sponsor_levels === true)
 		{
 			$sponsors = Lookup::lookup('sponsors', ['conference' => $event->id], ['published' => true, 'sponsorlevels' => true]);
 		} else {

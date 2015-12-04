@@ -8,6 +8,7 @@ class Option extends ExtendedEloquentModel
 	//
 
 	protected $fillable = [
+		'slug',
 		'option',
 		'value',
 		'serialized',
