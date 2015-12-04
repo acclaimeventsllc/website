@@ -10,7 +10,7 @@ class Helpers {
 	
 	public static function routeinfo() {
 		$route	= Route::current();
-		if (preg_match("/conferences\/\{year\?\}\/\{conference\?\}/i", $route->uri()))
+		if (preg_match("/conferences\/\{year\?\}\/\{conference\?\}/i", $route->uri()) && count($route->parameters()) > 0)
 		{
 			$action = 'conference';
 		} elseif (preg_match("/\/(.+)/", $route->uri())) {
@@ -48,6 +48,16 @@ class Helpers {
 			$options[$option] = $values->value;
 		}
 
+		if (count($route->params) > 0 && is_string($route->params['conference']) && is_string($route->params['year']))
+		{
+			$slug		= $route->params['year'].'/'.$route->params['conference'];
+		} elseif (is_object($event) || is_array($event)) {
+			$event		= (array)$event;
+			$year		= date('Y', strtotime($event['startdate']));
+			$conference	= $event['slug'];
+			$slug		= $year.'/'.$conference;
+		}
+
 		if (is_string($slug))
 		{
 			$slug		= Option::where('slug', '=', $slug)
@@ -68,7 +78,6 @@ class Helpers {
 
 		if (is_array($event))
 		{
-//			dd($event);
 			foreach ($options as $option => $value)
 			{
 				if (preg_match("/[a-z]+\:[a-z]+/i", $value))
@@ -77,7 +86,6 @@ class Helpers {
 					if (isset($event[$val]))
 					{
 						$obj = (object)$event[$val];
-//						dd($obj->scalar);
 						if (!empty($obj->scalar))
 						{
 							$options[$option] = $obj->scalar;
