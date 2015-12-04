@@ -40,7 +40,7 @@ label.register, a.register { width: 100%; margin-top: 2em; color: white; font-si
 .topics { /*width: 70%; margin: auto;*/ padding-bottom: 5em; }
 .topics h4 { text-align: left; }
 .topics ul { list-style-type: disc; list-style-position: inside; }
-.topics li { font-weight: bold; }
+.topics li { font-weight: bold; letter-spacing: .05em; }
 
 
 /***************************************************
