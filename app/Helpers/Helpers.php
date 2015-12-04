@@ -48,7 +48,7 @@ class Helpers {
 			$options[$option] = $values->value;
 		}
 
-		if (count($route->params) > 0 && is_string($route->params['conference']) && is_string($route->params['year']))
+		if (count($route->params) > 0 && $route->action === 'conference' && is_string($route->params['conference']) && is_string($route->params['year']))
 		{
 			$slug		= $route->params['year'].'/'.$route->params['conference'];
 		} elseif (is_object($event) || is_array($event)) {
