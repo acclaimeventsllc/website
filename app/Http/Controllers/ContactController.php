@@ -32,7 +32,7 @@ class ContactController extends Controller
 			'address'		=> '9860 SW Hall Blvd, Suite D<br>Tigard, OR 97223',
 			'address_short'	=> '9860 SW Hall Blvd, Suite D, Tigard, OR 97223',
 			'facebook'		=> 'http://www.facebook.com/acclaimeventsllc',
-			'linkedin'		=> 'https://www.linkedin.com/company/acclaim-events-llc',
+			'linkedin'		=> 'company/acclaim-events-llc',
 			'place'			=> 'ChIJE5F6JvIMlVQR05xT-zTHqwk',
 		];
 		$event		= (object)[];
