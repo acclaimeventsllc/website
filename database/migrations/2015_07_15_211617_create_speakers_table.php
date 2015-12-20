@@ -50,8 +50,8 @@ class CreateSpeakersTable extends Migration {
 			]);
 
 		Speaker::create([
-				'first_name'	=> 'Gilbert',
-				'last_name'		=> 'Ray',
+				'first_name'	=> 'Ray',
+				'last_name'		=> 'Gilbert',
 				'slug'			=> 'gilbert-ray',
 				'title'			=> 'President',
 				'title_short'	=> 'President',

@@ -52,11 +52,13 @@
 
 @if (!empty($options->show_hero_image) && (bool)$options->show_hero_image === true)
 	<!-- Hero Image, Top of Page -->
-	<section id="home" class="paralax jumbotron jumbotron-header" style="background-image: url('{{ $options->jumbotron }}');">
+	<section id="home" class="jumbotron jumbotron-header" style="background-image: url('{{ $options->jumbotron }}');">
 		<div>
 			<div class="vertical">
-				<h1 class="acclaim-text acclaim-text-shadow">{{ $options->title }}</h1>
-				@yield('subtitle')
+				<div class="container">
+					<h1 class="acclaim-text acclaim-text-shadow">{{ $options->title }}</h1>
+					@yield('subtitle')
+				</div>
 			</div>
 		</div>
 	</section>

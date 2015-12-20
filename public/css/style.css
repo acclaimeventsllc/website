@@ -81,10 +81,12 @@ input.modal-toggle:checked ~ .modal-overlay { opacity: 1; transform: scale(1); z
 .jumbotron-header .header { position: relative; top: 50%; transform: translateY(-50%); }
 .jumbotron-header h1 { font-size: 84pt; text-align: center; line-height: 1; color: #ffff55 !important; }
 .jumbotron-header h2 { color: #1b84c2 !important; }
+
+/*
 .jumbotron-networking { background-image: url('/images/networking.jpg'); }
 .jumbotron-advisors { background-image: url('/images/advisors.jpg'); }
 .jumbotron-conferences { background-image: url('/images/conferences/conferences.jpg'); }
-
+*/
 
 /***************************************************
 **  PARALAX
@@ -116,7 +118,7 @@ footer { clear: both; background-color: black; }
 **  RESPONSIVE STYLES
 ***************************************************/
 	header { padding-top: 4.5em; }
-	.jumbotron { height: 300px; background-size: 225% 65% !important; background-position: 50% 0; }
+	.jumbotron { height: 300px; background-size: cover !important; background-position: 50% 0; }
 	.jumbotron h1 { font-size: 22pt; }
 
 	.nav-main .modal-menu { display: none; }
@@ -154,7 +156,7 @@ footer { clear: both; background-color: black; }
 @media only screen and (min-width: 768px) {
 	#logo { display: block; }
 	header { padding-top: 7.6em; }
-	.jumbotron { height: 500px; background-size: 125% !important; background-position: 50%; }
+	.jumbotron { height: 500px; background-size: cover !important; }
 	.jumbotron h1 { font-size: 60pt; }
 	.paralax { background-size: 160%; background-position: 50% 10% !important; }
 	.nav-main .modal-menu { display: block; }

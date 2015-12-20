@@ -140,7 +140,7 @@ class RegistrationController extends Controller
 	protected function getEvents()
 	{
 		$events = ['' => 'Select one...'];
-		$conferences	= Conference::where('start_date', '>', Carbon::now())->get();
+		$conferences	= Conference::where('start_date', '>', Carbon::now())->published()->get();
 		$conferences 	= Helpers::keysByField($conferences, 'slug');
 
 		foreach ($conferences as $slug => $event)
