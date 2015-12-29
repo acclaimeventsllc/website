@@ -404,7 +404,7 @@ $session	= $agendas[$date][$time][$slot];
 					<h3 class="venue"><i class="fa fa-arrow-right normal-icon acclaim-text"></i>{{ $venue->venue }}</h3>
 					<h3 class="address"><label for="map-toggle">@if (!empty($venue->address))<i class="fa fa-map-marker normal-icon acclaim-text"></i>{{ $venue->address }}@endif</label></h3>
 @if (!empty($venue->directions))
-					<h3 class="directions"><i class="fa fa-truck normal-icon acclaim-text"></i><a href="{{ $venue->directions }}" title="Driving Directions">Driving Directions</a></h3>
+					<h3 class="directions"><i class="fa fa-truck normal-icon acclaim-text"></i><a href="{{ $venue->directions }}" title="Driving Directions" target="_blank">Driving Directions</a></h3>
 @endif
 				</div>
 			</div>

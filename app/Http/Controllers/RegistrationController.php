@@ -109,7 +109,7 @@ class RegistrationController extends Controller
 				$message->to($toEmail, $toName)->subject($subject);
 			});
 
-		return back()->with('message', 'Registration complete!  We will be contact you within 2 business days.');
+		return back()->with('message', 'Registration request has been sent!  We will contact you within 5 business days.');
 	}
 
 	protected function getFields()
