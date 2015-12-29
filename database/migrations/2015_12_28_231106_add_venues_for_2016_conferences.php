@@ -69,7 +69,7 @@ class AddVenuesFor2016Conferences extends Migration
 			]);
 
 		$conference	= Conference::where('slug', '=', 'austin')->year(2016)->first();
-		$conference->venue_slug = 'norris-conference-center-san-antonio';
+		$conference->venue_slug = 'norris-conference-center-austin';
 		$conference->save();
 
 		Option::create([
