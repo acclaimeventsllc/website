@@ -24,6 +24,8 @@ class Lookup {
 		switch ($lookup) {
 			case 'agendas':
 				return self::lookup_agendas($params, $flags);
+			case 'options':
+				return self::lookup_options($params, $flags);
 			case 'sponsors':
 				return self::lookup_sponsors($params, $flags);
 			case 'speakers':
@@ -47,6 +49,47 @@ class Lookup {
 		}
 		
 		return self::collectionToArray($agendas->get());
+	}
+
+	public static function lookup_options($params, $flags)
+	{
+		$options	= (object)[];
+		$lookup		= Option::where('slug', '=', 'general')->get()->toArray();
+		$general	= Option::where('slug', '=', 'conference')->get()->toArray();
+
+		if (!empty($params['slug']))
+		{
+			$specific	= Option::where('slug', '=', $params['slug'])->get()->toArray();
+		}
+
+		foreach ($lookup as $option)
+		{
+			$options->$option['option'] = $option['value'];
+		}
+
+		foreach ($general as $option)
+		{
+			$options->$option['option'] = $option['value'];
+		}
+
+		if (!empty($params['slug']))
+		{
+			foreach ($specific as $option)
+			{
+				$options->$option['option'] = $option['value'];
+			}
+		}
+
+		return $options;
+	}
+
+	public static function addOptions($collection)
+	{
+		foreach ($collection as $key => $event)
+		{
+			$collection[$key]->options	= self::lookup_options(['slug' => $event->slug], []);
+		}
+		return $collection;
 	}
 
 	public static function lookup_conferences($params, $flags)
@@ -147,6 +190,11 @@ class Lookup {
 
 		$events	= self::collectionToArray($conferences);
 
+		foreach ($events as $key => $event)
+		{
+			$events[$key]->options = self::lookup_options(['slug' => $event->slug], []);
+		}
+
 		return $events;
 
 	}
@@ -163,8 +211,8 @@ class Lookup {
 
 	public static function lookup_sponsors($params, $flags)
 	{
-		$groups	= ConferenceSponsor::join('sponsors', 'conference_sponsors.sponsor_id', '=', 'sponsors.id')
-									   ->where('conference_id', '=', $params->conference);
+		$groups	= ConferenceSponsor::join('sponsors', 'conference_sponsors.sponsor_slug', '=', 'sponsors.slug')
+									   ->where('conference_slug', '=', $params->conference_slug);
 
 		if (self::flags($flags, 'published'))
 		{

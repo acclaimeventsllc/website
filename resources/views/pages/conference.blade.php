@@ -47,7 +47,7 @@
 		$secs	= floor($left);
 	}
 
-	if ((bool)$event->coming === true) {
+	if ((bool)$options->show_upcoming === true) {
 		$event->date = 'Coming in '.date('F Y', strtotime($event->start_date.$timezone));
 	} else {
 		$event->date = date('F j, Y', strtotime($event->start_date.$timezone));
@@ -81,7 +81,7 @@
 				</li>
 			</ul>
 @endif
-			<h2 class="date">{{ $event->date }}</h2>@if ((bool)$event->coming === false)
+			<h2 class="date">{{ $event->date }}</h2>@if ((bool)$options->show_upcoming === false)
 			<h4 class="time">{{ $event->time }}</h4>@endif
 			<h3 class="address">@if (!empty($venue->venue))<a href="#location" class="move" title="{{ $venue->venue }}">{{ $venue->venue }}</a>@endif</h3>
 		</div>
@@ -131,7 +131,7 @@
 @if ((bool)$options->show_agenda === true && isset($agendas) && is_array($agendas))
 	<section id="agenda">
 
-		<div class="container">@if ((bool)$options->show_topics === true)
+		<div class="container">@if ((bool)$options->show_topics === true && count($topics) > 0)
 
 			<div class="row">
 
@@ -172,9 +172,9 @@
 							<div class="sessions"><?php unset($slot['time']); ?>
 
 @foreach ($slot as $i => $session)
-								<div id="session-{{ $session->id }}" class="{{ $session->type }}">@if ($session->type !== 'break')
+								<div id="session-{{ $session->id }}" class="{{ $session->session_type }}">@if ($session->session_type !== 'break')
 									<input id="session-{{ $session->id }}-expand" class="expand no-move" type="checkbox">@endif
-									<label @if ($session->type !== 'break') for="session-{{ $session->id }}-expand" class="expand"@endif>
+									<label @if ($session->session_type !== 'break') for="session-{{ $session->id }}-expand" class="expand"@endif>
 										<div class="session-title">{{ $session->title }}</div>@if (strlen($session->subtitle) > 0)
 										<div class="session-subtitle">{{ $session->subtitle }}</div>@endif
 
@@ -204,11 +204,11 @@
 									<div class="read-more">
 @if (!empty($session->desc))
 										{!! $session->desc !!}
-@elseif ($session->type !== 'break')
+@elseif ($session->session_type !== 'break')
 										<p>Session description coming soon...</p>
 @endif
 									</div>
-@if ($session->type !== 'break')
+@if ($session->session_type !== 'break')
 									<label for="session-{{ $session->id }}-expand" class="expand expand-more"></label>@endif
 
 								</div>

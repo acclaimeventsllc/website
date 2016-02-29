@@ -10,8 +10,8 @@ class TopicLinkage extends ExtendedEloquentModel
 	protected $table = 'topics_conference_linkage';
 
 	protected $fillable = [
-		'conference_id',
-		'topic_id',
+		'conference_slug',
+		'topic_slug',
 		'published',
 	];
 

@@ -11,7 +11,7 @@
 	<script id="jquery-carousel" src="/js/jquery-carousel.js"></script>
 @stop
 
-@section('content-01') {{-- NEXT EVENT --}}
+@section('content-01') {{-- UPCOMING EVENTS --}}
 	<section id="upcoming-events" class="section-alternating">
 
 			<div class="row events-container">
@@ -19,7 +19,7 @@
 				<div class="col-xs-12">
 
 @foreach ($events as $event)
-@if (isset($event->coming) && (bool)$event->coming === true)
+@if (!empty($event->options->show_upcoming) && (bool)$event->options->show_upcoming === true)
 <?php $date = date('F Y', strtotime($event->start_date)); ?>
 @elseif (!empty($event->start_date) && $event->start_date !== '0000-00-00 00:00:00')
 <?php $date = date('F j, Y', strtotime($event->start_date)); ?>
@@ -27,7 +27,7 @@
 <?php $date = 'Coming Soon!'; ?>
 @endif
 					<div class="event col-sm-4">
-						<a class="event-link" href="/conferences/{{ date('Y',strtotime($event->start_date)) }}/{{ $event->slug }}" title="{{ $event->conference }}">
+						<a class="event-link" href="/conferences/{{ $event->slug }}" title="{{ $event->conference }}">
 							<div class="event-background" style="background-image: url('{{ $event->photo }}');">
 								<div class="shader">
 									<div class="vertical">

@@ -14,8 +14,8 @@ class Partner extends ExtendedEloquentModel
 		'slogan',
 		'bio',
 		'tags',
-		'options',
-		'contacts',
+//		'options',
+//		'contacts',
 		'photo',
 		'published',
 	];

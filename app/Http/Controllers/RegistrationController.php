@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegistrationRequest;
 use App\Helpers\Helpers;
+use App\Helpers\Lookup;
 use App\Models\Registration;
 use App\Models\Conference;
 
@@ -65,6 +66,7 @@ class RegistrationController extends Controller
 		$step->fields["Address"]->state->list					= $this->getStates();
 
 		$step->fields["Basic Information"]->conference->value	= $this->getConference($route, $step->fields["Basic Information"]->conference->list);
+		$step->fields["Basic Information"]->attendance->value	= 'attendee';
 
 		return view('pages/register', compact('step', 'route', 'options', 'navs', 'sub'));
 	}
@@ -127,11 +129,15 @@ class RegistrationController extends Controller
 
 	protected function getConference($route, $list)
 	{
-		if (count($route->params) > 0 && !empty($route->params['conference']))
+		if (count($route->params) > 0)
 		{
-			if (isset($list[$route->params['conference']]))
+			if (!empty($route->params['year']) && !empty($route->params['conference']))
 			{
-				return $route->params['conference'];
+				$slug = $route->params['year'] . '/' . $route->params['conference'];
+			}
+			if (isset($list[$slug]))
+			{
+				return $slug;
 			}
 		}
 		return '';
@@ -140,14 +146,15 @@ class RegistrationController extends Controller
 	protected function getEvents()
 	{
 		$events = ['' => 'Select one...'];
-		$conferences	= Conference::where('start_date', '>', Carbon::now())->published()->get();
+		$conferences	= Conference::current()->get();
 		$conferences 	= Helpers::keysByField($conferences, 'slug');
+		$conferences	= Lookup::addOptions($conferences);
 
 		foreach ($conferences as $slug => $event)
 		{
 			$events[$slug]	= $event->city . ', ' . $event->state . ' | ';
 			$time			= $event->start_date . (!empty($event->timezone) ? $event->timezone : '');
-			if (!empty($event->coming))
+			if (!empty($event->options->show_upcoming))
 			{
 				$events[$slug] .= date('F Y', strtotime($time));
 			} else {

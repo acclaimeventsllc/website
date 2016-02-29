@@ -10,8 +10,8 @@ class ConferenceSponsor extends ExtendedEloquentModel
 	protected $table = 'conference_sponsors';
 
 	protected $fillable = [
-		'conference_id',
-		'sponsor_id',
+		'conference_slug',
+		'sponsor_slug',
 		'sponsorship',
 		'published',
 	];

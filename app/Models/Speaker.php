@@ -16,7 +16,7 @@ class Speaker extends ExtendedEloquentModel
 		'company',
 		'bio',
 		'tags',
-		'options',
+//		'options',
 		'contacts',
 		'photo',
 		'advisor',

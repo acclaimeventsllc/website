@@ -2,8 +2,6 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Carbon\Carbon;
-use App\Models\Registration;
 
 class CreateRegistrationsTable extends Migration {
 
@@ -35,23 +33,6 @@ class CreateRegistrationsTable extends Migration {
 			$table->timestamp('accepted')->nullable();
 			$table->softDeletes();
 		});
-
-		Registration::create([
-				'conference'	=> 'austin',
-				'attendance'	=> 'attendee',
-				'email'			=> 'jeff@spartanmartin.com',
-				'phone'			=> '9715061908',
-				'first_name'	=> 'Jeff',
-				'last_name'		=> 'Martin',
-				'title'			=> 'Grand Poo-bah',
-				'company'		=> 'SpartanMartin.com',
-				'street'		=> '18415 SW Ewen Drive APT H',
-				'city'			=> 'Beaverton',
-				'state'			=> 'OR',
-				'postal'		=> '97003',
-				'referrals'		=> null,
-			]);
-
 	}
 
 	/**

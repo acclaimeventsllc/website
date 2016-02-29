@@ -8,17 +8,17 @@ class Agenda extends ExtendedEloquentModel
 	//
 
 	protected $fillable = [
-		'conference_id',
+		'conference_slug',
 		'timeslot',
 		'priority',
-		'type',
+		'session_type',
 		'title',
 		'title_short',
 		'subtitle',
 		'desc',
-		'tags',
+//		'tags',
 		'speakers',
-		'options',
+//		'options',
 		'published',
 	];
 

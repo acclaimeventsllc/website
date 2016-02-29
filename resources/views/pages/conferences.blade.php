@@ -18,8 +18,8 @@
 
 @if (is_array($events))
 @foreach ($events as $event)<?php
-	if (!empty($event->coming)) {
-		$event->date = $event->coming;
+	if (!empty($event->options->show_upcoming)) {
+		$event->date = $event->options->show_upcoming;
 		$event->date = date('F Y', strtotime($event->start_date.(!empty($event->timezone) ? ' '.$event->timezone : '')));
 	} elseif (!empty($event->start_date) && $event->start_date !== '0000-00-00 00:00:00') {
 		$event->date = date('M j, Y', strtotime($event->start_date.(!empty($event->timezone) ? ' '.$event->timezone : '')));
@@ -28,7 +28,7 @@
 	}
 
 ?>				<div class="conference col-sm-4">
-					<a href="/conferences/{{ date('Y', strtotime($event->start_date)) }}/{{ $event->slug }}"@if (!empty($event->photo)) style="background-image: url('{{ $event->photo }}');"@endif>
+					<a href="/conferences/{{ $event->slug }}"@if (!empty($event->photo)) style="background-image: url('{{ $event->photo }}');"@endif>
 						<div class="shader">
 							<div class="vertical">
 								<h3>{{ $event->city }}, {{ $event->state }}</h3>
@@ -74,7 +74,7 @@
 	}
 
 ?>				<div class="conference col-sm-4">
-					<a href="/conferences/{{ date('Y', strtotime($event->start_date)) }}/{{ $event->slug }}"@if (!empty($event->photo)) style="background-image: url('{{ $event->photo }}');"@endif>
+					<a href="/conferences/{{ $event->slug }}"@if (!empty($event->photo)) style="background-image: url('{{ $event->photo }}');"@endif>
 						<div class="shader">
 							<div class="vertical">
 								<h3>{{ $event->city }}, {{ $event->state }}</h3>

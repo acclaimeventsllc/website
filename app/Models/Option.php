@@ -11,7 +11,6 @@ class Option extends ExtendedEloquentModel
 		'slug',
 		'option',
 		'value',
-		'serialized',
 		'published',
 	];
 

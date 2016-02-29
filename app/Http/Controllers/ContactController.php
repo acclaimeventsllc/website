@@ -37,7 +37,7 @@ class ContactController extends Controller
 		];
 		$event		= (object)[];
 
-		if (count($route->params) === 1 || $route->uri === 'contact/sponsorship/{conference?}') {
+		if (count($route->params) === 1 || $route->uri === 'contact/sponsorship/{year?}/{conference?}') {
 			if (!empty($route->params['contact']))
 			{
 				$team	= DB::table('team_members')
@@ -59,18 +59,23 @@ class ContactController extends Controller
 				} else {
 					redirect('/contact');
 				}
-			} elseif ($route->uri === 'contact/sponsorship/{conference?}') {
+			} elseif ($route->uri === 'contact/sponsorship/{year?}/{conference?}') {
+				$options->title			= 'Request Sponsorship Information';
+
 				if (!empty($route->params['conference']))
 				{
-					$options->title			= 'Request Sponsorship Information';
-					$events	= Conference::where('slug', '=', $route->params['conference'])
-										->where('start_date', '>', Carbon::now())
-										->published()
-										->take(1)
-										->get();
+					$conference	= $route->params['year'] . '/' . $route->params['conference'];
+				} else {
+					$conference = $route->params['year'];
+				}
+
+				if (!empty($conference))
+				{
+					$events	= Conference::lookup($conference)->current()->first();
+//					dd($events);
 					if (is_object($events))
 					{
-						$event	= (object)$events[0]->toArray();
+						$event	= (object)$events->toArray();
 					}
 				}
 			} else {

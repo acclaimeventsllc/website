@@ -8,7 +8,6 @@ class Page extends ExtendedEloquentModel
     protected $fillable = [
     	'slug',
         'about',
-    	'options',
     	'published',
     ];
 

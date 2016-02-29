@@ -17,7 +17,6 @@ use App\Models\Agenda;
 use App\Models\Speaker;
 use App\Models\Sponsor;
 use App\Models\Topic;
-use App\Models\TopicLinkage;
 
 class ConferencesController extends Controller
 {
@@ -199,15 +198,12 @@ class ConferencesController extends Controller
 			}
 		}
 
-		$unfilteredTopics		= TopicLinkage::select('topics.title')
-									->where('topics_conference_linkage.conference_id', '=', $event->id)
-									->join('topics', 'topics_conference_linkage.topic_id', '=', 'topics.id')
-									->get();
-		$topics					= [];  
+		$unfilteredTopics	= Topic::where('conference_slug', '=', $event->slug)->get();
+		$topics				= [];
 
 		foreach ($unfilteredTopics as $topic)
 		{
-			$topics[]	= $topic->title;
+			$topics[] = $topic->title;
 		}
 
 		if ((bool)$options->topics_by_alpha === true)
@@ -215,7 +211,7 @@ class ConferencesController extends Controller
 			sort($topics);
 		}
 
-		$agendasRaw	= Agenda::where('conference_id', '=', $event->id)
+		$agendasRaw	= Agenda::where('conference_slug', '=', $event->slug)
 						->published()
 						->orderBy('timeslot')
 						->orderBy('priority')
@@ -228,7 +224,19 @@ class ConferencesController extends Controller
 				$agenda = (object)$agenda->toArray();
 				list ($date, $time) = explode(' ', $agenda->timeslot);
 				if (!empty($agenda->speakers)) {
-					$agenda->speakers = Helpers::unserialize($agenda->speakers);
+//					$agenda->speakers = Helpers::unserialize($agenda->speakers);
+//					dd($agenda->speakers);
+					$agendaSpeakers = explode(',', $agenda->speakers);
+					$agenda->speakers = [];
+					if (is_array($agendaSpeakers))
+					{
+						foreach ($agendaSpeakers as $s)
+						{
+							@list($speakerType, $speakerSlug) = @explode('|', $s);
+							$agenda->speakers[$speakerType][] = $speakerSlug;
+						}
+//							dd($agenda->speakers);
+					}
 				}
 
 				$agendas[$date][$time][] = $agenda;
@@ -237,8 +245,10 @@ class ConferencesController extends Controller
 					$speakersTypes	= $agenda->speakers;
 					if (is_array($speakersTypes)) {
 						ksort($speakersTypes);
+//						dd($speakersTypes);
 						foreach ($speakersTypes as $speakers) {
 							$speakerList = array_merge($speakerList, $speakers);
+
 						}
 					}
 				}
@@ -263,12 +273,12 @@ class ConferencesController extends Controller
 
 		if ((bool)$options->sponsor_levels === true)
 		{
-			$sponsors = Lookup::lookup('sponsors', ['conference' => $event->id], ['published' => true, 'sponsorlevels' => true]);
+			$sponsors = Lookup::lookup('sponsors', ['conference_slug' => $event->slug], ['published' => true, 'sponsorlevels' => true]);
 		} else {
-			$sponsors = Lookup::lookup('sponsors', ['conference' => $event->id], ['published' => true]);
+			$sponsors = Lookup::lookup('sponsors', ['conference_slug' => $event->slug], ['published' => true]);
 		}
 
-//		dd($sponsors);
+//		dd($options);
 		return view('pages/conference', compact('event', 'venue', 'partners', 'topics', 'agendas', 'speakers', 'sponsors', 'options', 'navs', 'sub'));
 	}
 

@@ -9,7 +9,7 @@ class Navigation extends ExtendedEloquentModel
 
 	protected $fillable = [
 		'menu',
-		'class',
+		'styles',
 		'href',
 		'content',
 		'title',

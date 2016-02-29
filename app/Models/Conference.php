@@ -3,6 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use Carbon\Carbon;
+use App\Helpers\Lookup;
 
 class Conference extends ExtendedEloquentModel
 {
@@ -15,16 +16,16 @@ class Conference extends ExtendedEloquentModel
 		'start_date',
 		'end_date',
 		'timezone',
-		'coming',
+//		'coming',
 		'about',
-		'partners',
+//		'partners',
 		'venue_slug',
-		'sponsors',
+//		'sponsors',
 		'tags',
-		'options',
+//		'options',
 		'hero',
 		'photo',
-		'publish_on',
+//		'publish_on',
 		'published',
 	];
 
@@ -64,9 +65,9 @@ class Conference extends ExtendedEloquentModel
 				}
 			} else {
 				$query->where('slug', '=', $terms)
-					->orWhere('city', 'like', '%' . $term . '%')
-					->orWhere('state', 'like', '%' . $term . '%')
-					->orWhere('tags', 'like', '%' . $term . '%');
+					->orWhere('city', 'like', '%' . $terms . '%')
+					->orWhere('state', 'like', '%' . $terms . '%')
+					->orWhere('tags', 'like', '%' . $terms . '%');
 			}
 		});
 	}
@@ -83,7 +84,7 @@ class Conference extends ExtendedEloquentModel
 
 	public function scopeCurrent($query)
 	{
-		return $query->where('start_date', '<', Carbon::now())->where('end_date', '>', Carbon::now());
+		return $query->upcoming()->published();
 	}
 
 	public function scopePastOrCurrent($query)

@@ -36,15 +36,15 @@ Route::get('about', 'PagesController@about');
 Route::get('conferences/new/{conference}', 'ConferencesController@create');
 Route::get('conferences/{year?}/{conference?}', 'ConferencesController@index');
 
-Route::get('contact/sponsorship/{conference?}', 'ContactController@index');
-Route::post('contact/sponsorship/{conference?}', 'ContactController@index');
+Route::get('contact/sponsorship/{year?}/{conference?}', 'ContactController@index');
+Route::post('contact/sponsorship/{year?}/{conference?}', 'ContactController@store');
 
 Route::get('contact/{contact?}', ['as' => 'contact', 'uses' => 'ContactController@index']);
 Route::post('contact/{contact?}', ['as' => 'contact_store', 'uses' => 'ContactController@store']);
 
 
-Route::get('register/{conference?}', 'RegistrationController@index');
-Route::post('register/{conference?}', 'RegistrationController@store');
+Route::get('register/{year?}/{conference?}', 'RegistrationController@index');
+Route::post('register/{year?}/{conference?}', 'RegistrationController@store');
 
 Route::get('{year?}/{conference?}', 'ConferencesController@index');
 
