@@ -57,8 +57,8 @@ label.register, a.register { width: 100%; margin-top: 2em; color: white; font-si
 .keynote, .session, .breakout { padding-bottom: .35em; }
 .breakout { border-top: 1px solid #ccc; }
 
-.session-title { font-size: 18px; font-weight: bold; line-height: 2; }
-.keynote .session-title { color: #1b84c2; }
+.session-title { color: #1b84c2; font-size: 18px; font-weight: bold; line-height: 2; }
+/*.keynote .session-title { color: #1b84c2; }*/
 .keynote .session-title:before { content: 'Keynote: '; }
 
 .session-speakers { position: relative; }
@@ -72,19 +72,19 @@ a.session-speaker { display: block; }
 a.session-speaker .speaker-name { font-weight: bold; }
 a.session-speaker .speaker-title { font-style: italic; }
 
-div.read-more { max-height: 0; overflow: hidden; transition: all 1s ease; }
+div.read-more { max-height: 250px; overflow: hidden; transition: all 1s ease; }
 div.read-more p { padding: .25em; }
 div.read-more p:first-child:before { content: 'Session Description: '; font-weight: bold; }
 label.expand { display: block; /* padding-top: 1em; */ cursor: pointer; }
 label.expand.expand-ignore { cursor: auto; }
 label.expand-more { display: inline-block; width: 15em; padding: .2em; margin-top: .5em; text-align: center; line-height: 2; background-color: #337ab7; border-color: #2e6da4; color: white; }
-label.expand-more:after { content: 'Show Session Details'; }
-input.expand:checked ~ label.expand-more:after { content: 'Hide Session Details'; }
+label.expand-more:after { content: 'Hide Session Details'; }
+input.expand:checked ~ label.expand-more:after { content: 'Show Session Details'; }
 label.expand i { font-size: 18pt; vertical-align: middle; }
-input.expand ~ label.expand i:after { content: ' Show Session Details'; font-family: montserrat, sans-serif; font-size: 12pt; vertical-align: middle; }
-input.expand:checked ~ label.expand i:after { content: ' Hide Session Details'; }
+input.expand ~ label.expand i:after { content: ' Hide Session Details'; font-family: montserrat, sans-serif; font-size: 12pt; vertical-align: middle; }
+input.expand:checked ~ label.expand i:after { content: ' Show Session Details'; }
 input.expand { position: absolute; left: -10000px; opacity: 0;  }
-input.expand:checked ~ div.read-more { max-height: 250px; transition: all 1s ease; }
+input.expand:checked ~ div.read-more { max-height: 0; transition: all 1s ease; }
 
 
 /***************************************************
