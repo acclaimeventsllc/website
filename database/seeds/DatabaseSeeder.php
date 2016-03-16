@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder {
 
-	protected $clean = true;
+	protected $clean = false;
 
 	protected $tables = [
 		'options',
@@ -49,6 +49,7 @@ class DatabaseSeeder extends Seeder {
 			'TopicsTableSeeder',
 		],
 		"extra"	=> [
+			'Updates_20160316144517_SanAntonioFinalKeynoteDescTextFix',
 		],
 	];
 
