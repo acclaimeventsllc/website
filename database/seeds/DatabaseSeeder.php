@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder {
 		],
 		"extra"	=> [
 			'Updates_20160316144517_SanAntonioFinalKeynoteDescTextFix',
+			'Updates_20160327223113_SanAntonio_1145_Session_Title_Text_Fix',
 		],
 	];
 
