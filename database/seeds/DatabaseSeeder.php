@@ -49,8 +49,11 @@ class DatabaseSeeder extends Seeder {
 			'TopicsTableSeeder',
 		],
 		"extra"	=> [
-			'Updates_20160316144517_SanAntonioFinalKeynoteDescTextFix',
-			'Updates_20160327223113_SanAntonio_1145_Session_Title_Text_Fix',
+//			'Updates_20160316144517_SanAntonioFinalKeynoteDescTextFix',
+//			'Updates_20160327223113_SanAntonio_1145_Session_Title_Text_Fix',
+			'Updates_20160421140517_SanAntonio_DB_Structure_Data_Fix',
+			'Updates_20160421140517_SanAntonio_Speaker_Update',
+			'Updates_20160421140517_SanAntonio_Agenda_Update',
 		],
 	];
 
