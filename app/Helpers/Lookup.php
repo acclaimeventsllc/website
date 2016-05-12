@@ -211,12 +211,14 @@ class Lookup {
 
 	public static function lookup_sponsors($params, $flags)
 	{
-		$groups	= ConferenceSponsor::join('sponsors', 'conference_sponsors.sponsor_slug', '=', 'sponsors.slug')
-									   ->where('conference_slug', '=', $params->conference_slug);
+//		$groups	= ConferenceSponsor::join('sponsors', 'conference_sponsors.sponsor_slug', '=', 'sponsors.slug')
+//									   ->where('conference_slug', '=', $params->conference_slug);
+
+		$groups = Sponsor::where('conference_slug', '=', $params->conference_slug)->published();
 
 		if (self::flags($flags, 'published'))
 		{
-			$groups->whereNotNull('conference_sponsors.published')->where('conference_sponsors.published', '<', Carbon::now());
+			$groups->published();
 		}
 
 		if (self::flags($flags, 'sponsorlevels'))
