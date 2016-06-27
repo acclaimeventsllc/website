@@ -22,7 +22,7 @@ class Updates_20160626221027_Austin_Topic_Updates extends Seeder
         	 ->update([
         	 		'title'		=> 'Staffing, Training &amp; Talent Retention',
         	 		'text'		=> '<ul>
-	<li>- How to recruit and retrain technical staff (sharing ideas of what works for others and anything new)</li>
+	<li>- How to recruit and retrain technical staff</li>
 	<li>- IT Talent and Training
 		<ul>
 			<li>Supply and demand of IT talent - how to attract new talent</li>
@@ -50,7 +50,7 @@ class Updates_20160626221027_Austin_Topic_Updates extends Seeder
         Topic::where('conference_slug', '=', '2016/austin')
         	 ->where('priority', '=', 3)
         	 ->update([
-        	 		'title'		=> 'The Value of IT Solutions (pros &amp; cons of IT products)',
+        	 		'title'		=> 'The Value of IT Solutions',
         	 		'text'		=> '<ul>
 	<li>- Office 365</li>
 	<li>- Flash Storage</li>
