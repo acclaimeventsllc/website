@@ -142,8 +142,13 @@
 						<h4>Topics that we are looking to address at our 2016 Conferences include:</h4>
 
 						<ul>
-@foreach ($topics as $topic)
-							<li>{{ $topic }}</li>
+@foreach ($topics as $i => $topic)
+@foreach ($topic as $title => $text)
+							<li>
+								<div class="topic-title">{{ $title }}</div>@if (!empty($text))
+								<div class="topic-text">{!! $text !!}</div>@endif
+							</li>
+@endforeach
 @endforeach
 						</ul>
 

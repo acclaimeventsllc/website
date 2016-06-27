@@ -9,7 +9,9 @@ class Topic extends ExtendedEloquentModel
 
 	protected $fillable = [
 		'conference_slug',
+		'priority',
 		'title',
+		'text',
 		'published',
 	];
 

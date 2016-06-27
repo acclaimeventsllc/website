@@ -198,18 +198,20 @@ class ConferencesController extends Controller
 			}
 		}
 
-		$unfilteredTopics	= Topic::where('conference_slug', '=', $event->slug)->get();
+		$unfilteredTopics	= Topic::where('conference_slug', '=', $event->slug)->published()->get();
 		$topics				= [];
 
 		foreach ($unfilteredTopics as $topic)
 		{
-			$topics[] = $topic->title;
+			$topics[] = [$topic->title => $topic->text];
 		}
 
 		if ((bool)$options->topics_by_alpha === true)
 		{
 			sort($topics);
 		}
+
+//dd($topics);
 
 		$agendasRaw	= Agenda::where('conference_slug', '=', $event->slug)
 						->published()

@@ -39,8 +39,12 @@ label.register, a.register { width: 100%; margin-top: 2em; color: white; font-si
 ***************************************************/
 .topics { /*width: 70%; margin: auto;*/ padding-bottom: 5em; }
 .topics h4 { text-align: left; }
-.topics ul { list-style-type: disc; list-style-position: inside; }
+.topics ul { /*list-style-type: disc;*/ list-style-position: inside; padding-top: 1em; }
 .topics li { font-weight: bold; letter-spacing: .05em; }
+
+.topics .topic-title { font-size: larger; color: #1b84c2; padding-top: 1em; }
+.topics .topic-text ul { padding-top: .5em; }
+.topics .topic-text ul ul { padding: .5em 2em; }
 
 
 /***************************************************
