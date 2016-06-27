@@ -44,7 +44,7 @@ label.register, a.register { width: 100%; margin-top: 2em; color: white; font-si
 
 .topics .topic-title { font-size: larger; color: #1b84c2; padding-top: 1em; }
 .topics .topic-text ul { padding-top: .5em; }
-.topics .topic-text ul ul { padding: .5em 2em; }
+.topics .topic-text ul ul { padding: .5em 2em; list-style-type: disc; }
 
 
 /***************************************************
