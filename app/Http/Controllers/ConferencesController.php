@@ -155,6 +155,7 @@ class ConferencesController extends Controller
 		$venue 		= (!empty($venue[0]) ? (object)$venue[0]->toArray() : null);
 
 		$options	= Helpers::options($route, $event->slug, $event);
+
 //		dd($options);
 
 		$navs 		= Helpers::navigation($route, $options);
@@ -256,6 +257,8 @@ class ConferencesController extends Controller
 				}
 			}
 		}
+
+//		dd($agendas);
 
 		if (count($speakerList) > 0) {
 			$speakers		= Speaker::where(function($query) use($speakerList) {

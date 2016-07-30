@@ -55,10 +55,6 @@ $(document).ready(function() {
 				bio = '<p>Sponsor bio coming soon...</p>';
 			}
 
-			console.log(image);
-			console.log(company);
-			console.log(bio);
-
 			if (script.length) {
 				script.remove();
 			}

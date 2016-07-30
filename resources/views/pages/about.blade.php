@@ -8,6 +8,7 @@
 
 @section('jsbot')
 	<script id="jquery-speakers" src="/js/jquery.speakers.js"></script>
+	<script id="jquery-modal" src="/js/jquery-modal.js"></script>
 @stop
 
 @section('content-01') {{-- ABOUT ACCLAIM EVENTS --}}
@@ -103,7 +104,7 @@
 
 @stop
 
-@section('content-03') {{-- NATIONAL ADVISORY BOARD --}}
+@section('content-03') {{-- ADVISORY BOARDS --}}
 	<section id="advisors" class="section-alternating">
 
 		<div class="section-title">
@@ -137,7 +138,7 @@
 
 			<div class="row">
 
-@foreach($advisors as $speaker)
+@foreach($national as $speaker)
 				<div class="col-md-4 col-sm-6">
 					<div id="speaker-{{ $speaker->slug }}" class="speaker">
 						<label for="modal-speaker" class="speaker-image modal-toggle" data-target="modal-speaker"@if (!empty($speaker->photo)) style="background-image: url('{{ $speaker->photo }}');"@endif><div class="read-bio">Read bio...</div></label>
@@ -156,5 +157,41 @@
 		</div>
 
 	</section>
+@stop
+
+@section('content-04')
+@if (count($advisors) > 0)
+@foreach($advisors as $slug => $speakers)
+	<section id="advisors-<?php str_replace('/', '-', $slug); ?>" class="section-alternating">
+
+		<div class="section-title">
+			<h2>{{ $events[$slug] }} Advisors</h2>
+			<span class="border"></span>
+		</div>
+
+		<div class="speakers container">
+
+			<div class="row">
+@foreach($speakers as $speaker)
+				<div class="col-md-4 col-sm-6">
+					<div id="speaker-{{ $speaker->slug }}" class="speaker">
+						<label for="modal-speaker" class="speaker-image modal-toggle" data-target="modal-speaker"@if (!empty($speaker->photo)) style="background-image: url('{{ $speaker->photo }}');"@endif><div class="read-bio">Read bio...</div></label>
+						<p class="speaker-name acclaim-text">{{ $speaker->first_name }} {{ $speaker->last_name }}</p>
+						<p class="speaker-title">{{ $speaker->title }}</p>
+						<p class="speaker-company">{{ $speaker->company }}</p>
+						<div class="speaker-bio">
+							{!! $speaker->bio !!}
+						</div>
+					</div>
+				</div>
+@endforeach
+			</div>
+
+		</div>
+
+	</section>
+
+@endforeach
+@endif
 @stop
 

@@ -65,27 +65,58 @@ class PagesController extends Controller {
 		$sub		= Helpers::navigation($route, $options, true);
 
 		$about		= $options->about_text;
-/*
-		$about		= DB::table('pages')
-						->select('about')
-						->where('slug', '=', 'about')
-						->where('published', '>', '0000-00-00 00:00:00')
-						->take(1)
-						->get();
-		$about		= (!empty($about[0]->about) ? $about[0]->about : '');
-*/
+
 		$team		= DB::table('team_members')
 						->where('published', '>', '0000-00-00 00:00:00')
 						->orderBy('priority')
 						->get();
 
-		$advisors	= DB::table('speakers')
-						->where('advisor', '=', '1')
+		$speakers	= DB::table('speakers')
+						->where('advisor', '>', '0')
 						->where('published', '>', '0000-00-00 00:00:00')
 						->orderBy('last_name')
 						->get();
 
-		return view('pages/about', compact('about', 'team', 'advisors', 'route', 'options', 'navs', 'sub'));
+		$advisors	= (object)[];
+
+		foreach ($speakers as $advisor)
+		{
+
+			$slugs	= $advisor->advisor;
+
+			if (preg_match("/\,/", $slugs))
+			{
+				$slugs	= explode(',', $slugs);
+			} else {
+				$slugs 	= [$slugs];
+			}
+
+			foreach ($slugs as $slug)
+			{
+				list ($year, $conference) = explode('/', $slug);
+				$advisors->{$year}->{$slug}[] = $advisor;
+			}
+		}
+
+		$the_events	= DB::table('conferences')
+						->select('slug', 'city')
+						->get();
+
+		$events		= [];
+		$events['2016/national']	= 'National';
+		$events['2017/national']	= 'National';
+
+		foreach ($the_events as $event)
+		{
+			$events[$event->slug] = $event->city;
+		}
+
+		$advisors	= $advisors->{date('Y')};
+		$national	= $advisors->{date('Y') . '/national'};
+		unset($advisors->{date('Y') . '/national'});
+
+//		die('<pre>' . print_r($advisors,1) . '</pre>');
+		return view('pages/about', compact('about', 'team', 'national', 'advisors', 'events', 'route', 'options', 'navs', 'sub'));
 	}
 
 	function register() {

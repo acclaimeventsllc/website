@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder {
 
-	protected $clean = false;
+	protected $clean = true;
 
 	protected $tables = [
 		'options',
@@ -49,16 +49,19 @@ class DatabaseSeeder extends Seeder {
 			'TopicsTableSeeder',
 		],
 		"extra"	=> [
-//			'Updates_20160316144517_SanAntonioFinalKeynoteDescTextFix',
-//			'Updates_20160327223113_SanAntonio_1145_Session_Title_Text_Fix',
-//			'Updates_20160421140517_SanAntonio_DB_Structure_Data_Fix',
-//			'Updates_20160421140517_SanAntonio_Speaker_Update',
-//			'Updates_20160421140517_SanAntonio_Agenda_Update',
-//			'Updates_20160511154232_SanAntonio_Reschedule',
-//			'Updates_20160511154232_Tampa_Reschedule',
-//			'Updates_20160512143040_Austin_Vendor',
-//			'Updates_20160512143040_Austin_Options',
+			'Updates_20160316144517_SanAntonioFinalKeynoteDescTextFix',
+			'Updates_20160327223113_SanAntonio_1145_Session_Title_Text_Fix',
+			'Updates_20160421140517_SanAntonio_DB_Structure_Data_Fix',
+			'Updates_20160421140517_SanAntonio_Speaker_Update',
+			'Updates_20160421140517_SanAntonio_Agenda_Update',
+			'Updates_20160511154232_SanAntonio_Reschedule',
+			'Updates_20160511154232_Tampa_Reschedule',
+			'Updates_20160512143040_Austin_Vendor',
+			'Updates_20160512143040_Austin_Options',
 			'Updates_20160626221027_Austin_Topic_Updates',
+			'Updates_20160722135312_Austin_Advisors',
+			'Updates_20160722135312_Fortune_5000_text_change',
+			'Updates__20160722135312_Austin_Agenda_changes',
 		],
 	];
 
