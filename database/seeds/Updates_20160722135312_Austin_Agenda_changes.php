@@ -5,7 +5,7 @@ use Carbon\Carbon;
 use App\Models\Option;
 use App\Models\Agenda;
 
-class Updates__20160722135312_Austin_Agenda_changes extends Seeder
+class Updates_20160722135312_Austin_Agenda_changes extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,6 @@ class Updates__20160722135312_Austin_Agenda_changes extends Seeder
     	$slug		= '2016/austin';
     	$date		= Carbon::parse('2016-09-21 00:00:00');
     	$published	= Carbon::parse('2016-07-22 13:53:12');
-
 
     	// Turn off the topics since we have a fleshed out agenda
     	Option::where('slug', '=', $slug)
