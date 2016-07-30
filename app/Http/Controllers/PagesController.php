@@ -93,8 +93,11 @@ class PagesController extends Controller {
 
 			foreach ($slugs as $slug)
 			{
-				list ($year, $conference) = explode('/', $slug);
-				$advisors->{$year}->{$slug}[] = $advisor;
+				if (preg_match("/^2[0-9]{3}\/[a-z]+$/", $slug))
+				{
+					list ($year, $conference) = explode('/', $slug);
+					$advisors->{$year}->{$slug}[] = $advisor;
+				}
 			}
 		}
 
