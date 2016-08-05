@@ -34,7 +34,7 @@ class Updates_20160722135312_Austin_Agenda_changes extends Seeder
     		  ->update([
     		  		'slug'			=> 'staffing-training-and-talent-retention',
     		  		'session_type'	=> 'keynote',
-    		  		'title'			=> 'Keynote: Staffing, Training &amp; Talent Retention',
+    		  		'title'			=> 'Staffing, Training &amp; Talent Retention',
     		  		'title_short'	=> 'Staffing, Training &amp; Talent Retention',
     		  		'desc'			=> 'Join our opening panel of CIOs as we discuss challenges around staffing, training and how to keep our good talent from leaving.  With new technological advances coming out all the time, we often need people with new types of advanced knowledge and skillsets.  Do we hire and retrain people from within the organization or do we look to the pool of people coming from the universities or other areas?  Join our panel as they discuss what they are doing to recruit and retrain technical staff, where they are finding their IT Talent and some of the things that they are doing to retain their good talent from leaving to find new opportunities.',
     		  	]);
