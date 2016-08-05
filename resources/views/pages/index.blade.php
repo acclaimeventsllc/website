@@ -54,7 +54,7 @@
 @stop
 
 @section('content-02') {{-- OPPORTUNITIES --}}
-
+{{--}}
 	<section id="opportunities" class="opportunities section-alternating">
 
 		<div class="container">
@@ -106,7 +106,7 @@
 		</div>
 
 	</section>
-
+{{--}}
 @stop
 
 @section('content-03') {{-- WHO SHOULD ATTEND --}}
@@ -116,7 +116,7 @@
 		<div class="container">
 
 			<div class="section-title">
-				<h2>@if (!empty($intro->title)){{ $intro->title }}@else About our Conferences @endif</h2>
+				<h2>@if (!empty($intro->title)){!! $intro->title !!}@else About our Conferences @endif</h2>
 				<span class="border"></span>
 			</div>
 

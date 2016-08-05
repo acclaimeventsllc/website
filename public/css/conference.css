@@ -79,6 +79,7 @@ a.session-speaker .speaker-title { font-style: italic; }
 div.read-more { max-height: 250px; overflow: hidden; transition: all 1s ease; }
 div.read-more p { padding: .25em; }
 div.read-more p:first-child:before { content: 'Session Description: '; font-weight: bold; }
+div.read-more ul { list-style: disc inside; padding: 1em 0; }
 label.expand { display: block; /* padding-top: 1em; */ cursor: pointer; }
 label.expand.expand-ignore { cursor: auto; }
 label.expand-more { display: inline-block; width: 15em; padding: .2em; margin-top: .5em; text-align: center; line-height: 2; background-color: #337ab7; border-color: #2e6da4; color: white; }

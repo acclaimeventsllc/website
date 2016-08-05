@@ -21,7 +21,7 @@
 				<span class="border"></span>
 			</div>
 
-			<p>Established in 2013, Acclaim Events was created to help Information Technology Executives find solutions too many of today’s critical business challenges. We were built on the premise that networking and the sharing of ideas among information technology leaders will help expand IT knowledge within the local community. With over 20 years of combined experience facilitating IT conferences, our Acclaim Events team knows what it takes to facilitate high quality, interactive and educational technology networking conferences. The core of our company is based and founded on the following principals:</p>
+			<p>Established in 2013, Acclaim Events was created to help Information Technology Executives find solutions to many of today’s critical business challenges. We were built on the premise that networking and the sharing of ideas among information technology leaders will help expand IT knowledge within the local community. With over 20 years of combined experience facilitating IT conferences, our Acclaim Events team knows what it takes to facilitate high quality, interactive and educational technology networking conferences. The core of our company is based and founded on the following principals:</p>
 
 			<div class="features">
 
