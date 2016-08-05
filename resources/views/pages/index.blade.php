@@ -53,62 +53,6 @@
 
 @stop
 
-@section('content-02') {{-- OPPORTUNITIES --}}
-{{--}}
-	<section id="opportunities" class="opportunities section-alternating">
-
-		<div class="container">
-
-			<div class="section-title">
-				<h2>Event Opportunities</h2>
-				<span class="border"></span>
-			</div>
-
-			<div class="row">
-
-				<div class="opportunities-attendees col-sm-4">
-					<h2>Attendees</h2>
-					<p>Network with other IT Executives in the local Community:
-						<ul>
-							<li>CIOs</li>
-							<li>CTOs</li>
-							<li>CSOs</li>
-							<li>VP of IT</li>
-							<li>IT Directors</li>
-							<li>Sr. Level IT Executives</li>
-						</ul>
-					</p>
-					<a href="/register/{{ $events[0]->slug }}" class="btn btn-primary">Register Now</a>
-				</div>
-
-				<div class="opportunities-sponsors col-sm-4">
-					<h2>Sponsors</h2>
-					<p>Network with powerful &amp; influential IT Executives from the local community.</p>
-					<a href="/contact/sponsorship/{{ $events[0]->slug }}" class="btn btn-primary">Contact Us</a>
-				</div>
-
-				<div class="opportunities-speaking col-sm-4">
-					<h2>Speaking</h2>
-					<p>Do you have expertise and passion around one of the event topics and would like to be considered as a presenter? We would love to hear from you.</p>
-
-					<div class="oppotrunities-contact">
-						<p>
-							Contact:<br />
-							<strong>Bob Fritz</strong><br />
-							503-206-5700<br />
-						</p>
-							<a href="/contact/bob" class="btn btn-primary">Email Bob</a>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
-{{--}}
-@stop
-
 @section('content-03') {{-- WHO SHOULD ATTEND --}}
 
 	<section id="benefits" class="section-alternating">
