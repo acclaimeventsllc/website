@@ -128,7 +128,7 @@
 
 @endif
 				<div class="about-events col-sm-6">
-					<h3><span>{{ $benefit->title }}</span></h3>
+					<h3><span>{!! $benefit->title !!}</span></h3>
 					{!! $benefit->text !!}
 				</div>
 
