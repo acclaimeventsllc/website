@@ -59,8 +59,10 @@ class DatabaseSeeder extends Seeder {
 //			'Updates_20160512143040_Austin_Vendor',
 //			'Updates_20160512143040_Austin_Options',
 //			'Updates_20160626221027_Austin_Topic_Updates',
-			'Updates_20160722135312_Fortune_5000_text_change',
-			'Updates_20160722135312_Austin_Agenda_changes',
+//			'Updates_20160722135312_Fortune_5000_text_change',
+//			'Updates_20160722135312_Austin_Agenda_changes',
+			'Updates_20160903011536_Austin_Canceled',
+			'Updates_20160903011536_San_Antonio_Speakers_Removed',
 		],
 	];
 
