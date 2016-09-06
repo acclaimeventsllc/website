@@ -14,9 +14,11 @@
 @section('content-01') {{-- UPCOMING EVENTS --}}
 	<section id="upcoming-events" class="section-alternating">
 
-			<div class="row events-container">
+			<div class="container">
 
-				<div class="col-xs-12">
+				<div class="row">
+
+					<div class="col-xs-12">
 
 @foreach ($events as $event)
 @if (!empty($event->options->show_upcoming) && (bool)$event->options->show_upcoming === true)
@@ -26,25 +28,27 @@
 @else
 <?php $date = 'Coming Soon!'; ?>
 @endif
-					<div class="event col-sm-4">
-						<a class="event-link" href="/conferences/{{ $event->slug }}" title="{{ $event->conference }}">
-							<div class="event-background" style="background-image: url('{{ $event->photo }}');">
-								<div class="shader">
-									<div class="vertical">
-										<h2 class="event-title">{{ $event->city }}, {{ $event->state }}</h2>
-										<h3 class="event-date">{{ $date }}</h3>
-										<p class="event-location">@if (!empty($venues[$event->venue_slug]->venue)){{ $venues[$event->venue_slug]->venue }}@else &nbsp; @endif</p>
-										<div class="row">
-											<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+						<div class="event col-sm-6">
+							<a class="event-link" href="/conferences/{{ $event->slug }}" title="{{ $event->conference }}">
+								<div class="event-background" style="background-image: url('{{ $event->photo }}');">
+									<div class="shader">
+										<div class="vertical">
+											<h2 class="event-title">{{ $event->city }}, {{ $event->state }}</h2>
+											<h3 class="event-date">{{ $date }}</h3>
+											<p class="event-location">@if (!empty($venues[$event->venue_slug]->venue)){{ $venues[$event->venue_slug]->venue }}@else &nbsp; @endif</p>
+											<div class="row">
+												<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</a>
-					</div>
+							</a>
+						</div>
 
 @endforeach
+					</div>
+
 				</div>
 
 			</div>
